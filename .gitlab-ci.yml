@@ -1,0 +1,68 @@
+# Deploys website via HBO-ICT.Cloud, enter the required variables FTP_USERNAME and FTP_PASSWORD, see hbo-ict.cloud!
+# Enable default script by setting DEPLOY_TYPE (down below) to 'hboictcloud'
+# Enable pages script by setting DEPLOY_TYPE2 (down below) to 'hboictcloud'
+default:
+  image: node:18.16.0
+  variables:
+    FTP_HOST: "sftp://sftp.hbo-ict.cloud:3322"
+    FTP_USERNAME: "<username>"
+    FTP_PASSWORD: "<password>"
+    FTP_TARGETPATH: "./live/"
+
+  stage: deploy
+  when: manual
+  cache:
+      key:
+        files:
+          - package-lock.json
+        prefix: npm
+      paths:
+        - node_modules/
+  script:
+    - npm install
+    - npm run build
+    - cp -a dist/. public/
+    - apt-get update -qq && apt-get install -y -qq lftp
+    - lftp -e "set net:max-retries 3; set ssl:verify-certificate no; set ftp:ssl-allow yes; set sftp:auto-confirm yes; open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST; mirror -Rev -x uploads/ public/ $FTP_TARGETPATH --ignore-time --parallel=10"
+  tags:
+    - hva
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $DEPLOY_TYPE == "hboictcloud"
+      changes:
+      - "src/**/*"
+      - "wwwroot/**/*"
+      when: always
+
+
+#deploys docs folder to gitlab pages.
+pages:
+  image: python:3.9-slim
+  before_script:
+    - time apt update
+    - time pip install -r requirements.txt
+    - time cd mdocotion && python setup.py install && cd ..
+  stage: deploy
+  tags:
+    - hva
+  script:
+    - time mkdocs build --site-dir public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $DEPLOY_TYPE2 == "hboictcloud"
+      changes:
+      - "docs/**/*"
+      - "mkdocs.yml"
+      - ".gitmodules"
+
+variables:
+  DEPLOY_TYPE: "hboictcloud_off"
+  DEPLOY_TYPE2: "hboictcloud"
+  GIT_SUBMODULE_STRATEGY: recursive
+
+
+

@@ -1,0 +1,22 @@
+{
+  "name": "se-code-exchange",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "18"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@hboictcloud/api": "1.0.1",
+    "@hboictcloud/eslint-plugin": "1.0.1",
+    "@typescript-eslint/parser": "6.9.1",
+    "glob": "10.3.10",
+    "typescript": "5.2.2",
+    "vite": "4.5.0",
+    "vite-plugin-eslint": "1.8.1"
+  }
+}
