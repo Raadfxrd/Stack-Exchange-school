@@ -1,9 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono");
 body {
     font-size: 1.2em;
-    background-color: #0e0224;
-    background-image: url(/assets/img/background.jpg) !important;
-    color: #fff;
-    font-family: "Roboto", sans-serif;
+    background-color: #b5b5b5;
+    color: #000;
+    font-family: "IBM Plex Mono", sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -16,3 +16,49 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.btn {
+    display: inline-block;
+    border-radius: 10px;
+    background-color: #f57542;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 20px;
+    font-family: "IBM Plex Mono", sans-serif;
+    padding: 20px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.btn span:after {
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.btn:hover span {
+    padding-right: 25px;
+}
+
+.btn:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/* Project colours:
+    Background light: #D9D9D9
+    Background dark: #505050
+    btn colour: #f57542 */

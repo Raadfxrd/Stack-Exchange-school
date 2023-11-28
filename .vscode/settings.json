@@ -1,7 +1,7 @@
 //NOTE: We want to disable all auto-formatting/auto-fixing for our students
 {
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-        "source.fixAll": false
+        "source.fixAll": true
     }
 }
