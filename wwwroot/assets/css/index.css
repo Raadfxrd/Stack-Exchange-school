@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono");
+
+/* Project colours:
+    Background light: #D9D9D9
+    Background dark: #505050
+    btn colour: #f57542 */
+
 body {
     font-size: 1.2em;
     background-color: #b5b5b5;
@@ -13,10 +19,30 @@ body {
 }
 
 .login-box {
-    display: flex;
-    justify-content: center;
+    color: #b5b5b5;
+    width: 350px;
+    height: 200px;
+    position: absolute;
+    top: 300px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #505050;
+    border-radius: 20px;
+    padding: 30px;
 }
 
+.login-section {
+    color: #000;
+    background-color: #b5b5b5;
+    border-radius: 10px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+/* Css animatie buttons + styling */
 .btn {
     display: inline-block;
     border-radius: 10px;
@@ -57,8 +83,3 @@ body {
     opacity: 1;
     right: 0;
 }
-
-/* Project colours:
-    Background light: #D9D9D9
-    Background dark: #505050
-    btn colour: #f57542 */
