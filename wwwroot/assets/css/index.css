@@ -83,3 +83,9 @@ body {
     opacity: 1;
     right: 0;
 }
+
+.form-style {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 60%;
+}

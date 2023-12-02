@@ -14,7 +14,7 @@ function setup(): void {
         // Roep de loginFromDatabase functie aan (op regel 50) en geef username en password mee
         try {
             const data: any = await loginFromDatabase(username, password);
-            
+
             if (data.length > 0) {
                 // Maak user object aan met de waarden uit de database
                 // Sla de gebruikersgegevens op in een sessie
