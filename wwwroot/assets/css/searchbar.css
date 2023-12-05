@@ -16,13 +16,13 @@
 .search-button {
     padding: 10px;
     font-size: 40px;
-    background-color: #4caf50;
+    background-color: #47e74d;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
 }
 
 .search-button:hover {
-    background-color: #45a049;
+    background-color: #36863a;
 }
