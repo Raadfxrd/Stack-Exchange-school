@@ -9,15 +9,12 @@ nav {
     overflow: hidden;
 }
 
-.logo {
-    text-align: center;
-    margin-top: 10px; /* Adjust the margin as needed */
-}
-
 .logo img {
-    width: 150px;
+    width: 160px;
     height: 38px;
-    display: block;
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
 }
 
 nav a {
@@ -42,6 +39,8 @@ nav a.button {
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
+    margin-right: 10px;
+    margin-top: 5px;
 }
 
 nav a.button:hover {
