@@ -23,7 +23,7 @@
     box-sizing: border-box;
     margin-top: 50px;
     font-family: "IBM Plex Mono", sans-serif;
-    background-color: #d9d9d9;
+    background-color: var(--bg-light);
     transition-duration: 0.4s;
 }
 
