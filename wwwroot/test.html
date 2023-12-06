@@ -27,9 +27,12 @@
             <a href="#recent-questions">Recent Questions</a>
             <a href="#top-questions">Top Questions</a>
         </div>
-        <div class="search-container">
-            <input type="text" class="search-bar" placeholder="Search..." />
-            <button class="search-button">Search</button>
+        <div class="searchbar">
+            <form onsubmit="event.preventDefault();" role="search">
+                <label for="search">Search for stuff</label>
+                <input id="search" type="search" placeholder="Search..." autofocus required />
+                <button type="submit">Go</button>
+            </form>
         </div>
         <div class="landing-content">
             <h1>Welcome to Code Overflow - Your coding community</h1>
