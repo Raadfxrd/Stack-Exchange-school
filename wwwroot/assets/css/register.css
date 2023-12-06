@@ -12,12 +12,12 @@
 .registration-container {
     width: 80%;
     max-width: 463px;
-    margin: 50px auto;
     background-color: var(--bg-light);
     padding: 30px;
     border-radius: 16px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
+    margin-top: 10rem;
 }
 
 .logo img {
@@ -68,4 +68,10 @@ button:hover {
     .registration-container {
         width: 100%;
     }
+}
+
+.registration-center {
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
