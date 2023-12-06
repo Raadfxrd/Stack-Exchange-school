@@ -1,4 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono");
+
+/* Project colours:
+    Background light: #D9D9D9
+    Background dark: #505050
+    btn colour: #f57542 */
+
 body {
+    font-family: "IBM Plex Mono", sans-serif;
     background-color: #505050;
 }
 
@@ -11,7 +19,7 @@ h1 {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    background-color: white;
+    background-color: #d9d9d9;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;

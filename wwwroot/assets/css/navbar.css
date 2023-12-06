@@ -29,10 +29,8 @@ nav a {
     text-decoration: none;
 }
 
-
-
 nav a.button {
-    background-color: #4caf50;
+    background-color: #f57542;
     border: none;
     border-radius: 8px;
     color: white;
@@ -47,6 +45,6 @@ nav a.button {
 }
 
 nav a.button:hover {
-    background-color: #3a743d;
+    background-color: #a65534;
     color: white;
 }
