@@ -58,3 +58,9 @@ h1 {
 .left-menu a:hover {
     background-color: var(--hamburger-color-hover);
 }
+
+@media screen and (max-width: 550px) {
+    .left-menu {
+        display: none;
+    }
+}
