@@ -20,13 +20,13 @@
     margin-top: 10rem;
 }
 
-.logo img {
+/* .logo img {
     width: 160px;
     height: 38px;
     float: left;
     margin-top: 5px;
     margin-left: 10px;
-}
+} */
 
 form {
     display: flex;
