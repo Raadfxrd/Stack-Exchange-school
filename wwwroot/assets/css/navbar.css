@@ -71,3 +71,9 @@ nav a.button:hover {
     display: flex;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 470px) {
+    nav {
+        display: block;
+    }
+}
