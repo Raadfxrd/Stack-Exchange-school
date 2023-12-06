@@ -1,3 +1,12 @@
+:root {
+    --bg-light: #d9d9d9;
+    --bg-dark: #505050;
+    --hamburger-color: #333;
+    --hamburger-color-hover: #555;
+    --btn-color: #f57542;
+    --btn-color-hover: #a65534;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -5,7 +14,7 @@ body {
 }
 
 nav {
-    background-color: #333;
+    background-color: var(--hamburger-color);
     overflow: hidden;
     position: fixed;
     width: 100%;
@@ -27,7 +36,7 @@ nav a {
 }
 
 nav a.button {
-    background-color: #f57542;
+    background-color: var(--btn-color);
     border: none;
     border-radius: 8px;
     color: white;
@@ -44,7 +53,7 @@ nav a.button {
 }
 
 nav a.button:hover {
-    background-color: #a65534;
+    background-color: var(--btn-color-hover);
     color: white;
 }
 

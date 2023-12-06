@@ -1,8 +1,17 @@
+:root {
+    --bg-light: #d9d9d9;
+    --bg-dark: #505050;
+    --hamburger-color: #333;
+    --hamburger-color-hover: #555;
+    --btn-color: #f57542;
+    --btn-color-hover: #a65534;
+}
+
 .registration-container {
     width: 80%;
     max-width: 463px;
     margin: 50px auto;
-    background-color: #d9d9d9;
+    background-color: var(--bg-light);
     padding: 30px;
     border-radius: 16px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -40,7 +49,7 @@ input {
 }
 
 button {
-    background-color: #f57542;
+    background-color: var(--btn-color);
     color: white;
     padding: 10px;
     border: none;
@@ -50,7 +59,7 @@ button {
 }
 
 button:hover {
-    background-color: #9a5438;
+    background-color: var(--btn-color-hover);
 }
 
 @media only screen and (max-width: 600px) {

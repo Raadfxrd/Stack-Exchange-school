@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono");
 
+:root {
+    --bg-light: #d9d9d9;
+    --bg-dark: #505050;
+    --hamburger-color: #333;
+    --hamburger-color-hover: #555;
+    --btn-color: #f57542;
+    --btn-color-hover: #a65534;
+}
+
 .search-container {
     text-align: center;
 }
@@ -19,18 +28,18 @@
 }
 
 .search-bar:hover {
-    border-color: #f57542;
+    border-color: var(--btn-color);
 }
 
 .search-bar:focus-visible {
-    border-color: #f57542;
+    border-color: var(--btn-color);
     outline: none;
 }
 
 .search-button {
     padding: 10px;
     font-size: 40px;
-    background-color: #f57542;
+    background-color: var(--btn-color);
     color: white;
     border: none;
     border-radius: 20px;
@@ -40,5 +49,5 @@
 }
 
 .search-button:hover {
-    background-color: #a45d41;
+    background-color: var(--btn-color-hover);
 }
