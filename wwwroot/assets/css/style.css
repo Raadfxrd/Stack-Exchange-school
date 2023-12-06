@@ -36,8 +36,7 @@ h1 {
 
 .left-menu {
     background-color: #222;
-    padding: 20px;
-    margin-top: 14px;
+    padding-top: 50px;
     flex-shrink: 0;
     width: 200px;
     display: flex;
@@ -45,10 +44,9 @@ h1 {
 }
 
 .left-menu a {
+    padding: 20px;
     color: white;
     text-decoration: none;
-    padding: 10px;
-    margin-bottom: 10px;
     transition: background-color 0.3s;
 }
 
