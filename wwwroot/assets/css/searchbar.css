@@ -16,7 +16,6 @@ form {
     position: relative;
     background: var(--color-brand);
     border-radius: var(--rad);
-    font-size: 50px;
     width: 1000px;
     max-width: 80%;
 }
