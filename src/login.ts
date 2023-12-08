@@ -6,18 +6,17 @@ import { api, session, url } from "@hboictcloud/api";
  */
 function setup(): void {
     console.log(" in setup");
-    
+
     // Maak een actie aan voor de login knop. Als je hier op drukt wordt de code tussen de { } aangeroepen
     document.querySelector("#login-form")?.addEventListener("submit", async (event) => {
         event.preventDefault();
-        
+
         // Haal de waarden uit de inputvelden met het id username en password
         const username: string = (<HTMLInputElement>document.getElementById("username")).value;
         const password: string = (<HTMLInputElement>document.getElementById("password")).value;
         // Roep de loginFromDatabase functie aan (op regel 50) en geef username en password mee
         try {
             const data: any = await loginFromDatabase(username, password);
-            console.log(data);
             if (data.length > 0) {
                 // Maak user object aan met de waarden uit de database
                 // Sla de gebruikersgegevens op in een sessie
@@ -35,7 +34,7 @@ function setup(): void {
             }
         } catch (error) {
             // als het niet lukt de data op te halen, geef de gebruiker een foutmelding
-            console.log(error);
+            console.log("Er is iets fout gegaan!");
         }
     });
 }
@@ -49,8 +48,6 @@ function setup(): void {
 async function loginFromDatabase(username: string, password: string): Promise<Array<any> | undefined> {
     // proberen de data op te halen uit de database
     try {
-        
-        
         const data: any = await api.queryDatabase(
             "SELECT id FROM user WHERE username = ? AND password = ?",
             username,
@@ -58,11 +55,11 @@ async function loginFromDatabase(username: string, password: string): Promise<Ar
         );
 
         console.log(data);
-        
+
         return data;
     } catch (error) {
         console.log(error);
-        
+
         // als het niet lukt de data op te halen, geef een lege array terug
         return [];
     }
