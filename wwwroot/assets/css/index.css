@@ -45,6 +45,7 @@ body {
     border-radius: 10px;
     background-color: #505050 !important;
     cursor: pointer;
+    font-family: "IBM Plex Mono", sans-serif;
 }
 
 .button-box {
@@ -54,7 +55,7 @@ body {
 .btn {
     display: inline-block;
     border-radius: 10px;
-    background-color: #f57542;
+    background-color: #4c4aff;
     border: none;
     color: #ffffff;
     text-align: center;
@@ -91,4 +92,3 @@ body {
     opacity: 1;
     right: 0;
 }
-
