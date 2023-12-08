@@ -55,6 +55,7 @@ h1 {
     color: white;
     text-decoration: none;
     transition: background-color 0.3s;
+    border-radius: 10px;
 }
 
 .left-menu a:hover {
