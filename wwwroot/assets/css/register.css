@@ -7,6 +7,7 @@
     --btn-color-hover-light: #a65534;
     --btn-color-dark: #4c4aff;
     --btn-color-hover-dark: #7977ff;
+    --font: "IBM Plex Mono", sans-serif;
 }
 
 .registration-container {
@@ -50,7 +51,7 @@ button {
     border-radius: 15px;
     cursor: pointer;
     transition-duration: 0.4s;
-    font-family: "IBM Plex Mono", sans-serif;
+    font-family: var(--font)
 }
 
 .button span {

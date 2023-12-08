@@ -5,8 +5,8 @@
     --dur: 0.3s;
     --color-dark: #505050;
     --color-light: #d9d9d9;
-    --color-brand: #4c4aff;
-    --font-fam: "IBM Plex Mono", sans-serif;
+    --color: #4c4aff;
+    --font: "IBM Plex Mono", sans-serif;
     --height: 5rem;
     --btn-width: 6rem;
     --bez: cubic-bezier(0, 0, 0.43, 1.49);
@@ -23,7 +23,7 @@ form {
 input,
 button {
     height: var(--height);
-    font-family: var(--font-fam);
+    font-family: var(--font);
     border: 0;
     color: var(--color-dark);
     font-size: 1.8rem;

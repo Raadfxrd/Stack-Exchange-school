@@ -7,11 +7,12 @@
     --btn-color-hover-light: #a65534;
     --btn-color-dark: #4c4aff;
     --btn-color-hover-dark: #7977ff;
+    --font: "IBM Plex Mono", sans-serif;
 }
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: var(--font);
     font-size: medium;
 }
 
