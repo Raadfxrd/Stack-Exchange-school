@@ -1,4 +1,3 @@
-
 export async function fetchAndParseHtml(url: string, options?: RequestInit): Promise<string> {
     try {
         const response: Response = await fetch(url, options);
@@ -10,7 +9,7 @@ export async function fetchAndParseHtml(url: string, options?: RequestInit): Pro
         return html;
     } catch (error) {
         console.error("Error fetching and parsing HTML:", error);
-        throw error; 
+        throw error;
     }
 }
 

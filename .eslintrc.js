@@ -3,5 +3,5 @@ module.exports = {
         project: ["./tsconfig.json"],
     },
     plugins: ["@hboictcloud"],
-    extends: ["plugin:@hboictcloud/base"]
+    extends: ["plugin:@hboictcloud/base"],
 };
