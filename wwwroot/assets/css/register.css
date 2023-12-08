@@ -20,14 +20,6 @@
     margin-top: 10rem;
 }
 
-/* .logo img {
-    width: 160px;
-    height: 38px;
-    float: left;
-    margin-top: 5px;
-    margin-left: 10px;
-} */
-
 form {
     display: flex;
     flex-direction: column;
@@ -58,10 +50,32 @@ button {
     border-radius: 15px;
     cursor: pointer;
     transition-duration: 0.4s;
+    font-family: "IBM Plex Mono", sans-serif;
 }
 
-button:hover {
-    background-color: var(--btn-color-hover-dark);
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
 }
 
 @media only screen and (max-width: 600px) {
