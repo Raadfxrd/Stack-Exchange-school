@@ -39,6 +39,10 @@ nav a {
     cursor: pointer;
 }
 
+nav a.navbar {
+    padding: 0;
+}
+
 nav a.button {
     background-color: var(--btn-color-dark);
     border: none;
