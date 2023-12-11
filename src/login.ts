@@ -20,7 +20,7 @@ function setup(): void {
             if (data.length > 0) {
                 // Maak user object aan met de waarden uit de database
                 // Sla de gebruikersgegevens op in een sessie
-                session.set("user", data[0].id);
+                session.set(username, data[0].id);
 
                 // Stuur de gebruiker door naar de homepagina
                 url.redirect("index.html");
@@ -49,7 +49,7 @@ async function loginFromDatabase(username: string, password: string): Promise<Ar
     // proberen de data op te halen uit de database
     try {
         const data: any = await api.queryDatabase(
-            "SELECT id FROM user WHERE username = ? AND password = ?",
+            "SELECT id FROM user2 WHERE username = ? AND password = ?",
             username,
             password
         );
