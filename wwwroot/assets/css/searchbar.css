@@ -9,7 +9,6 @@
     --font: "IBM Plex Mono", sans-serif;
     --height: 5rem;
     --btn-width: 6rem;
-    --bez: cubic-bezier(0, 0, 0.43, 1.49);
 }
 
 form {
@@ -27,20 +26,20 @@ button {
     border: 0;
     color: var(--color-dark);
     font-size: 1.8rem;
+    margin-top: 8rem;
 }
 
 input[type="search"] {
-    width: 80%;
+    width: 100%;
     background: var(--color-light);
     padding: 0 1.6rem;
     border-radius: var(--rad);
     appearance: none;
-    transition: all var(--dur) var(--bez);
+    transition: all var(--dur);
     transition-property: width, border-radius;
     z-index: 1;
     position: relative;
     outline: none;
-    margin-top: 8rem;
 }
 
 button {

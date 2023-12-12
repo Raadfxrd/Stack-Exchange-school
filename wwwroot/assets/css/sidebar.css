@@ -15,7 +15,7 @@
 .sidebar {
     left: 0px;
     float: left;
-    position: sticky;
+    position: fixed;
     background-color: var(--sidebar-color);
     flex-shrink: 0;
     width: 200px;
@@ -24,6 +24,7 @@
     border-radius: 10px;
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
+    height: 100%;
 }
 
 .sidebar a {

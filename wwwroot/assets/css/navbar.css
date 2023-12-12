@@ -17,10 +17,10 @@ body {
 }
 
 nav {
-    top: 0px;
+    top: 0;
     background-color: var(--sidebar-color);
     overflow: hidden;
-    position: relative;
+    position: fixed;
     width: 100%;
 }
 
@@ -39,6 +39,7 @@ nav a {
     padding: 15px 16px;
     text-decoration: none;
     cursor: pointer;
+    z-index: 1;
 }
 
 nav a.navbar {
@@ -79,6 +80,9 @@ nav a.button:hover {
 .navflex {
     display: flex;
     justify-content: space-between;
+    height: 50px;
+    z-index: 1000;
+    position: relative;
 }
 
 @media screen and (max-width: 550px) {
