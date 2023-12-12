@@ -13,6 +13,9 @@
 }
 
 .sidebar {
+    left: 0px;
+    float: left;
+    position: sticky;
     background-color: var(--sidebar-color);
     flex-shrink: 0;
     width: 200px;

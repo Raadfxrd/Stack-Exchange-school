@@ -20,7 +20,7 @@ nav {
     top: 0px;
     background-color: var(--sidebar-color);
     overflow: hidden;
-    position: fixed;
+    position: relative;
     width: 100%;
 }
 
@@ -76,7 +76,6 @@ nav a.button:hover {
     display: flex;
     flex-direction: row-reverse;
 }
-
 .navflex {
     display: flex;
     justify-content: space-between;
