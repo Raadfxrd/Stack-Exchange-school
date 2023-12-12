@@ -1,15 +1,3 @@
-:root {
-    --bg-light: #d9d9d9;
-    --bg-dark: #505050;
-    --sidebar-color: #333;
-    --sidebar-color-hover: #555;
-    --btn-color-light: #f57542;
-    --btn-color-hover-light: #a65534;
-    --btn-color-dark: #4c4aff;
-    --btn-color-hover-dark: #7977ff;
-    --font: "IBM Plex Mono", sans-serif;
-}
-
 .registration-container {
     width: 80%;
     max-width: 463px;
@@ -51,7 +39,7 @@ button {
     border-radius: 15px;
     cursor: pointer;
     transition-duration: 0.4s;
-    font-family: var(--font)
+    font-family: var(--font);
 }
 
 .button span {
