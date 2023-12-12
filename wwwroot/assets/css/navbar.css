@@ -1,8 +1,8 @@
 :root {
     --bg-light: #d9d9d9;
     --bg-dark: #505050;
-    --hamburger-color: #333;
-    --hamburger-color-hover: #555;
+    --sidebar-color: #333;
+    --sidebar-color-hover: #555;
     --btn-color-light: #f57542;
     --btn-color-hover-light: #a65534;
     --btn-color-dark: #4c4aff;
@@ -17,7 +17,8 @@ body {
 }
 
 nav {
-    background-color: var(--hamburger-color);
+    top: 0px;
+    background-color: var(--sidebar-color);
     overflow: hidden;
     position: fixed;
     width: 100%;
@@ -31,6 +32,7 @@ nav {
 }
 
 nav a {
+    font-size: 16px;
     display: block;
     color: white;
     text-align: center;

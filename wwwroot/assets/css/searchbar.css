@@ -30,7 +30,7 @@ button {
 }
 
 input[type="search"] {
-    width: 100%;
+    width: 80%;
     background: var(--color-light);
     padding: 0 1.6rem;
     border-radius: var(--rad);

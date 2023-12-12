@@ -3,8 +3,8 @@
 :root {
     --bg-light: #d9d9d9;
     --bg-dark: #505050;
-    --hamburger-color: #333;
-    --hamburger-color-hover: #555;
+    --sidebar-color: #333;
+    --sidebar-color-hover: #555;
     --btn-color-light: #f57542;
     --btn-color-hover-light: #a65534;
     --btn-color-dark: #4c4aff;
@@ -33,34 +33,12 @@ h1 {
 }
 
 .landing-content h1 {
-    color: var(--hamburger-color);
+    color: var(--sidebar-color);
 }
 
 .landing-content p {
-    color: var(--hamburger-color-hover);
+    color: var(--sidebar-color-hover);
     line-height: 1.6;
-}
-
-.left-menu {
-    padding-top: 50px;
-    background-color: var(--hamburger-color);
-    flex-shrink: 0;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-}
-
-.left-menu a {
-    padding: 20px;
-    color: white;
-    text-decoration: none;
-    transition: background-color 0.3s;
-    border-radius: 10px;
-}
-
-.left-menu a:hover {
-    background-color: var(--hamburger-color-hover);
 }
 
 .alert {
@@ -68,7 +46,7 @@ h1 {
 }
 
 @media screen and (max-width: 550px) {
-    .left-menu {
+    .sidebar {
         display: none;
     }
 }

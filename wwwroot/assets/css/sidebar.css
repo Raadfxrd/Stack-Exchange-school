@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono");
+
+:root {
+    --bg-light: #d9d9d9;
+    --bg-dark: #505050;
+    --sidebar-color: #333;
+    --sidebar-color-hover: #555;
+    --btn-color-light: #f57542;
+    --btn-color-hover-light: #a65534;
+    --btn-color-dark: #4c4aff;
+    --btn-color-hover-dark: #7977ff;
+    --font: "IBM Plex Mono", sans-serif;
+}
+
+.sidebar {
+    background-color: var(--sidebar-color);
+    flex-shrink: 0;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.sidebar a {
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border-radius: 10px;
+}
+
+.sidebar a:hover {
+    background-color: var(--sidebar-color-hover);
+}
