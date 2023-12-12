@@ -42,8 +42,8 @@ h1 {
 }
 
 .left-menu {
-    background-color: var(--hamburger-color);
     padding-top: 50px;
+    background-color: var(--hamburger-color);
     flex-shrink: 0;
     width: 200px;
     display: flex;
@@ -71,4 +71,8 @@ h1 {
     .left-menu {
         display: none;
     }
+}
+
+aside {
+    float: left;
 }

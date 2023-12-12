@@ -40,6 +40,7 @@ input[type="search"] {
     z-index: 1;
     position: relative;
     outline: none;
+    margin-top: 8rem;
 }
 
 button {
