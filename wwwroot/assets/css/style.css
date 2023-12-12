@@ -17,35 +17,16 @@ body {
     background-color: var(--bg-dark);
 }
 
+.alert {
+    display: none;
+}
+
 h1 {
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
     margin: 0px;
-}
-
-.landing-content {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: var(--bg-light);
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.landing-content h1 {
-    color: var(--sidebar-color);
-}
-
-.landing-content p {
-    color: var(--sidebar-color-hover);
-    line-height: 1.6;
-}
-
-.alert {
-    display: none;
 }
 
 @media screen and (max-width: 550px) {
