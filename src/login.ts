@@ -20,7 +20,7 @@ function setup(): void {
             if (data.length > 0) {
                 // Maak user object aan met de waarden uit de database
                 // Sla de gebruikersgegevens op in een sessie
-                session.set(username, data[0].id);
+                session.set("user", data[0].id);
 
                 // Stuur de gebruiker door naar de homepagina
                 url.redirect("index.html");
