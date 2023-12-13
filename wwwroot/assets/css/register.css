@@ -1,12 +1,12 @@
 .registration-container {
     width: 80%;
-    max-width: 463px;
+    max-width: 40%;
     background-color: var(--bg-light);
     padding: 30px;
     border-radius: 16px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    margin-top: 10rem;
+    margin-top: 100px;
 }
 
 form {

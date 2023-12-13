@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Registration Form</title>
         <script src="/src/navbar.ts" type="module" defer></script>
+        <script src="../src/register.ts" type="module" defer></script>
         <link rel="stylesheet" href="./assets/css/navbar.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
         <link rel="stylesheet" href="./assets/css/register.css" />
@@ -16,12 +17,22 @@
             <div class="registration-container">
                 <form action="#" method="post">
                     <h1>Register</h1>
-                    <div id="error-container-username" style="display: none; color: red;">Username already exists.</div>
-                    <div id="error-container-password" style="display: none; color: red;">Password doesn't match.</div>
-                    <div id="error-container-fields" style="display: none; color: red;">Please fill out each field.</div>
-                    <div id="error-container-email" style="display: none; color: red;">Please enter a valid email address.</div>
-                    <div id="success-message" style="display: none; color: green;">Registration succesful!</div>
-                    <br>
+                    <div id="error-container-username" style="display: none; color: red">
+                        Username already exists.
+                    </div>
+                    <div id="error-container-password" style="display: none; color: red">
+                        Password doesn't match.
+                    </div>
+                    <div id="error-container-fields" style="display: none; color: red">
+                        Please fill out each field.
+                    </div>
+                    <div id="error-container-email" style="display: none; color: red">
+                        Please enter a valid email address.
+                    </div>
+                    <div id="success-message" style="display: none; color: green">
+                        Registration succesful!
+                    </div>
+                    <br />
                     <label for="First-Name">First Name</label>
                     <input type="text" id="name" name="name" required />
 
@@ -46,6 +57,5 @@
                 </form>
             </div>
         </div>
-        <script src="../src/register.ts" type="module" defer></script>
     </body>
 </html>

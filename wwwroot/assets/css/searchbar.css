@@ -37,7 +37,6 @@ input[type="search"] {
     appearance: none;
     transition: all var(--dur);
     transition-property: width, border-radius;
-    z-index: 1;
     position: relative;
     outline: none;
 }
