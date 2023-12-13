@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono");
 
 :root {
-    --rad: 0.7rem;
-    --dur: 0.3s;
-    --color-dark: #505050;
-    --color-light: #d9d9d9;
-    --color: #4c4aff;
+    --radius: 0.7rem;
+    --duration: 0.3s;
+    --bg-dark: #505050;
+    --bg-light: #d9d9d9;
+    --btn-color-dark: #4c4aff;
     --font: "IBM Plex Mono", sans-serif;
     --height: 5rem;
     --btn-width: 6rem;
@@ -13,8 +13,8 @@
 
 form {
     position: relative;
-    background: var(--color-brand);
-    border-radius: var(--rad);
+    background: var(--btn-color-dark-brand);
+    border-radius: var(--radius);
     width: 1000px;
     max-width: 80%;
 }
@@ -24,18 +24,18 @@ button {
     height: var(--height);
     font-family: var(--font);
     border: 0;
-    color: var(--color-dark);
+    color: var(--bg-dark);
     font-size: 1.8rem;
     margin-top: 8rem;
 }
 
 input[type="search"] {
     width: 100%;
-    background: var(--color-light);
+    background: var(--bg-light);
     padding: 0 1.6rem;
-    border-radius: var(--rad);
+    border-radius: var(--radius);
     appearance: none;
-    transition: all var(--dur);
+    transition: all var(--duration);
     transition-property: width, border-radius;
     position: relative;
     outline: none;
@@ -48,13 +48,13 @@ button {
     right: 0;
     width: var(--btn-width);
     font-weight: bold;
-    background: var(--color);
-    border-radius: 0 var(--rad) var(--rad) 0;
+    background: var(--btn-color-dark);
+    border-radius: 0 var(--radius) var(--radius) 0;
     cursor: pointer;
 }
 
 input:not(:placeholder-shown) {
-    border-radius: var(--rad) 0 0 var(--rad);
+    border-radius: var(--radius) 0 0 var(--radius);
     width: calc(100% - var(--btn-width));
 }
 
