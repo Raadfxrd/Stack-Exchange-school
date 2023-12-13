@@ -1,39 +1,6 @@
 import "./config";
 import { api } from "@hboictcloud/api";
 
-function waitForElement(selector: string, callback: () => void): void {
-    const observer: MutationObserver = new MutationObserver((mutationsList: MutationRecord[], observer: MutationObserver) => {
-        const targetNode: Node | null = document.querySelector(selector);
-
-        if (targetNode) {
-            callback();
-            observer.disconnect(); // Disconnect the observer once the element is found
-        }
-    });
-
-    // Start observing the target node for configured mutations
-    observer.observe(document.body, { childList: true, subtree: true });
-}
-
-// Example usage
-waitForElement(".sidebar", () => {
-    const Sidebar: HTMLElement | null = document.querySelector(".sidebar") as HTMLElement | null;
-    if (Sidebar) {
-        document.addEventListener("DOMContentLoaded", (e: Event)=>{
-            console.log(e);
-            const sidebar: HTMLElement | null = document.querySelector(".sidebar");
-
-            console.log(sidebar);
-
-            if (sidebar){
-                sidebar.style.display = "none";
-            }
-
-            console.log("Your mom");
-        } ) ;
-    }
-});
-
 document.querySelector<HTMLButtonElement>(".register-btn")?.addEventListener("click", async (ev: MouseEvent) => {
     ev.preventDefault();
 

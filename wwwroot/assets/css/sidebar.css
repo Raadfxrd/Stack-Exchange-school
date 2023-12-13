@@ -1,0 +1,31 @@
+.sidebar {
+    margin-top: 50px;
+    left: 0px;
+    float: left;
+    position: fixed;
+    background-color: var(--sidebar-color);
+    flex-shrink: 0;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    height: 100%;
+}
+
+.sidebar a {
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border-radius: 10px;
+}
+
+.sidebar a:hover {
+    background-color: var(--sidebar-color-hover);
+}
+
+.active {
+    background-color: var(--btn-color-dark);
+}
