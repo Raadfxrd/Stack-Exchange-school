@@ -6,13 +6,12 @@
     --bg-dark: #505050;
     --bg-light: #d9d9d9;
     --btn-color-dark: #4c4aff;
+    --btn-width: 6rem;
     --font: "IBM Plex Mono", sans-serif;
     --height: 5rem;
-    --btn-width: 6rem;
 }
 
 form {
-    position: relative;
     background: var(--btn-color-dark-brand);
     border-radius: var(--radius);
     width: 1000px;
@@ -26,7 +25,16 @@ button {
     border: 0;
     color: var(--bg-dark);
     font-size: 1.8rem;
+}
+input {
     margin-top: 8rem;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
 }
 
 input[type="search"] {
@@ -37,22 +45,16 @@ input[type="search"] {
     appearance: none;
     transition: all var(--duration);
     transition-property: width, border-radius;
-    position: relative;
     outline: none;
 }
 
 button {
     display: none;
-    position: absolute;
-    top: 0;
-    right: 0;
     width: var(--btn-width);
     font-weight: bold;
     background: var(--btn-color-dark);
     border-radius: 0 var(--radius) var(--radius) 0;
     cursor: pointer;
-    transform: translateX(100%);
-    transition: transform var(--duration);
 }
 
 input:not(:placeholder-shown) {
@@ -62,7 +64,6 @@ input:not(:placeholder-shown) {
 
 input:not(:placeholder-shown) + button {
     display: block;
-    transform: translateX(0);
 }
 
 label {
