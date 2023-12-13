@@ -32,7 +32,8 @@ h1 {
 
 .maintitle {
     font-size: 40px;
-    margin-top: 50px;
+    margin-top: 100px;
+    margin-left: 50px;
     color: var(--bg-light);
 }
 
@@ -41,7 +42,6 @@ h1 {
     align-items: center;
     align-content: center;
     justify-content: center;
-    justify-items: center;
     flex-direction: column;
     margin-top: 50px;
     margin-left: 200px;
@@ -50,8 +50,9 @@ h1 {
 .question-container {
     display: flex;
     align-items: start;
-    width: 80%;
+    width: 90%;
     height: 1000px;
+    margin-top: 100px;
 }
 .questions {
     width: 100%;
@@ -60,4 +61,9 @@ h1 {
     background-color: var(--bg-light);
     margin-top: 100px;
     position: relative;
+}
+
+.container {
+    position: absolute;
+    z-index: -1;
 }
