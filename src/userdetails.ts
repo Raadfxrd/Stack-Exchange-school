@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
+    const messageContainer: HTMLDivElement = document.createElement("div");
+    messageContainer.id = "message-container";
+    document.body.appendChild(messageContainer);
+
     try {
         const data: any = await api.queryDatabase(
             "SELECT firstname, lastname FROM user2 WHERE id = ?",
@@ -39,13 +43,17 @@ document.addEventListener("DOMContentLoaded", async () => {
                         <button id="save-changes">Save Changes</button>
                         <button id="cancel-edit">Cancel</button>
                     </div>
-                    <div id="confirmation-modal" style="display:none;">
-                        <p>Type CONFIRM DELETE to confirm this process:</p>
-                        <input type="text" id="confirmation-input">
-                        <button id="confirm-delete">Confirm Delete</button>
-                        <button id="cancel-delete">Cancel</button>
+                    <div id="deleteFail" style="display: none; color: green">
+                    Account deletion failed. Please enter the correct confirmation text.
                     </div>
-                `;
+                    <div id="confirmation-modal" style="display:none;">
+                    <p>Type CONFIRM DELETE to confirm this process:</p>
+                    <p><strong>Note:</strong> Deleting your account will also delete all of your posts and answers.</p>
+                    <input type="text" id="confirmation-input">
+                    <button id="confirm-delete">Confirm Delete</button>
+                    <button id="cancel-delete">Cancel</button>
+                    </div>
+                    `;
 
                 const editNameBtn: HTMLElement | null = document.getElementById("edit-name-btn");
                 const deleteAccountBtn: HTMLElement | null = document.getElementById("delete-account-btn");
@@ -53,8 +61,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const editFields: HTMLElement | null= document.getElementById("edit-fields");
 
                 if (editNameBtn && deleteAccountBtn) {
-                    editNameBtn.addEventListener("click", (event) => {
-                        event.preventDefault();
+                    editNameBtn.addEventListener("click", ()=> {
                         if (editFields) {
                             editFields.style.display = "block";
                             editNameBtn.style.display = "none";
@@ -75,7 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const cancelEditBtn: HTMLElement | null = document.getElementById("cancel-edit");
 
                     if (saveChangesBtn && cancelEditBtn) {
-                        saveChangesBtn.addEventListener("click", async () => {
+                        saveChangesBtn.addEventListener("click", async ()=> {
                             await updateUserName(loggedIn);
                             window.location.reload();
                         });
@@ -93,29 +100,30 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const confirmationInput: HTMLInputElement | null = document.getElementById("confirmation-input") as HTMLInputElement;
                     const confirmDeleteBtn: HTMLElement | null = document.getElementById("confirm-delete");
                     const cancelDeleteBtn: HTMLElement | null = document.getElementById("cancel-delete");
+                    const deleteFail: HTMLElement | null = document.getElementById("deleteFail");
 
                     if (confirmationInput && confirmDeleteBtn && cancelDeleteBtn) {
                         confirmDeleteBtn.addEventListener("click", async () => {
-                            const confirmationText:any = confirmationInput.value.trim();
+                            const confirmationText: string = confirmationInput.value.trim();
+                            
                             if (confirmationText === "CONFIRM DELETE") {
                                 await deleteAccount(loggedIn);
                             } else {
-                                confirmationText === "Confirmation failed. Account not deleted.";
-                                confirmationModal.style.display = "none";
-                                editNameBtn.style.display = "block";
-                                deleteAccountBtn.style.display = "block";
+                                deleteFail.style.display = "block";
+                                await new Promise(resolve => setTimeout(resolve, 3000));
+                                deleteFail.style.display = "none";
                             }
-
-                            // Close the confirmation modal
-                            confirmationModal.style.display = "none";
+                            confirmationModal.style.display = "block";
+                            editNameBtn.style.display = "none";
+                            deleteAccountBtn.style.display = "none";
                         });
-
+                        
                         cancelDeleteBtn.addEventListener("click", () => {
-                            // Close the confirmation modal without deleting
                             confirmationModal.style.display = "none";
                             editNameBtn.style.display = "block";
                             deleteAccountBtn.style.display = "block";
                         });
+                        
                     }
                 }
             }
@@ -172,10 +180,25 @@ async function updateUserName(userId: number): Promise<void> {
 
 async function deleteAccount(userId: number): Promise<void> {
     try {
+        showMessage("Account successfully deleted.", "green");
+
         await api.queryDatabase("DELETE FROM user2 WHERE id = ?;", userId);
         localStorage.clear();
-        window.location.href = "login.html";
+        await new Promise(resolve => setTimeout(resolve, 500));
+
+        window.location.href = "index.html";
     } catch (error) {
         console.error("Failed to delete account:", error);
+    }
+}
+
+function showMessage(message: string, color: string): void {
+    const messageContainer: HTMLElement | null = document.getElementById("message-container");
+    if (messageContainer) {
+        messageContainer.textContent = message;
+        messageContainer.style.color = color;
+        messageContainer.style.fontWeight = "bold";
+        messageContainer.style.fontSize = "16px"; 
+        messageContainer.style.marginTop = "10px"; 
     }
 }
