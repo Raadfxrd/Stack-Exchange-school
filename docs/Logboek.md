@@ -61,3 +61,9 @@ Later hebben we ook nog is even samen gebeld om te bespreken wat er nog moet geb
 
 We hebben op deze dag een presentatie moeten doen voor heel de klas om te laten zien wat we allemaal hebben gedaan in deze sprint. Ik kwam wat later aan dus we hadden niet zo veel tijd om te voorbereiden, maar toch knalden we erdoor ook al was het geimproviseerd. We kregen ook wel heel toepasselijke feedback die best wel veel hielp hierbij. Zo vond Jairo dat we meer moeite moeten steken in ons Figma project, doordat dit ons veel zou helpen in de latere development van onze website en ons een beter beeld zou geven voor wat we willen maken als eindproduct. Ook kwam er een commentaar over het gebruiken van variabelen in css en de structuur van presenteren en deze zijn ook dus allemaal genoteerd in onze Scorion formulieren. In het algemeen waren we wel blij met onze presentatie en de algemene progress tot nu toe.
 [Scorion formulier Borys](./Documentatie%20extras/Scorion%20formulier%20Borys.png)
+
+## 5 December
+
+Vanaf deze dag stoppen de echte opdrachten, dus zal bijna alles een eigen bezigheid zijn. Ik zal wel alles aanpassen als er een dag iets anders (meer interessant) gebeurd.
+
+1. Eigen bezigheid Borys: 

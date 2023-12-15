@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (data.length > 0) {
             const user: { firstname: string; lastname: string } = data[0];
             const userInfoElement: HTMLElement | null = document.getElementById("user-info");
-            
+
             if (userInfoElement) {
                 userInfoElement.innerHTML = `
                     <p><strong>Name:</strong> 
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         <button id="cancel-edit">Cancel</button>
                     </div>
                 `;
-                
+
                 const editNameBtn: HTMLElement | null = document.getElementById("edit-name-btn");
                 if (editNameBtn) {
                     editNameBtn.addEventListener("click", (event) => {
@@ -76,12 +76,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function updateUserName(userId: number): Promise<void> {
     try {
-        const newFirstNameInput: HTMLInputElement | null = document.getElementById("new-firstname") as HTMLInputElement;
-        const newLastNameInput: HTMLInputElement | null = document.getElementById("new-lastname") as HTMLInputElement;
+        const newFirstNameInput: HTMLInputElement | null = document.getElementById(
+            "new-firstname"
+        ) as HTMLInputElement;
+        const newLastNameInput: HTMLInputElement | null = document.getElementById(
+            "new-lastname"
+        ) as HTMLInputElement;
 
         if (newFirstNameInput && newLastNameInput) {
-            const newFirstName:string = newFirstNameInput.value;
-            const newLastName:string = newLastNameInput.value;
+            const newFirstName: string = newFirstNameInput.value;
+            const newLastName: string = newLastNameInput.value;
 
             const userFirstNameElement: HTMLElement | null = document.getElementById("user-firstname");
             const userLastNameElement: HTMLElement | null = document.getElementById("user-lastname");
