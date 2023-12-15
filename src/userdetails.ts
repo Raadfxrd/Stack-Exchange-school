@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         const editFields: HTMLElement | null = document.getElementById("edit-fields");
                         if (editFields) {
                             editFields.style.display = "block";
+                            editNameBtn.style.display = "none";
                         }
                     });
 
@@ -61,6 +62,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                             const editFields: HTMLElement | null = document.getElementById("edit-fields");
                             if (editFields) {
                                 editFields.style.display = "none";
+                                editNameBtn.style.display = "block";
                             }
                         });
                     }
@@ -94,11 +96,11 @@ async function updateUserName(userId: number): Promise<void> {
             console.log( userId);
             
             await api.queryDatabase(
-                "UPDATE user2 SET firstname = ?, lastname = ? WHERE id = ?", [newFirstName, newLastName, userId]                
+                "UPDATE user2 SET firstname = ?, lastname = ? WHERE id = ?;", newFirstName, newLastName, userId             
             );
             
             console.log("User name updated successfully.");
-
+            window.location.reload();
             const editFields: HTMLElement | null = document.getElementById("edit-fields");
             if (editFields) {
                 editFields.style.display = "none";
