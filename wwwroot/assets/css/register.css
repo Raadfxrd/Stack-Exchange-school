@@ -38,7 +38,7 @@ button {
     border: none;
     border-radius: 15px;
     cursor: pointer;
-    transition-duration: 0.4s;
+    transition-duration: var(--duration);
     font-family: var(--font);
 }
 
@@ -46,7 +46,7 @@ button {
     cursor: pointer;
     display: inline-block;
     position: relative;
-    transition: 0.5s;
+    transition: var(--duration);
 }
 
 .button span:after {
@@ -55,7 +55,7 @@ button {
     opacity: 0;
     top: 0;
     right: -20px;
-    transition: 0.5s;
+    transition: var(--duration);
 }
 
 .button:hover span {

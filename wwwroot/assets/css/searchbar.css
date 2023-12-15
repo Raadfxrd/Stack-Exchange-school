@@ -2,7 +2,6 @@
 
 :root {
     --radius: 0.7rem;
-    --duration: 0.3s;
     --bg-dark: #505050;
     --bg-light: #d9d9d9;
     --btn-color-dark: #4c4aff;
@@ -19,7 +18,7 @@ form {
 }
 
 input,
-button {
+.searchbutton {
     height: var(--height);
     font-family: var(--font);
     border: 0;
@@ -27,7 +26,7 @@ button {
     font-size: 1.8rem;
 }
 input {
-    margin-top: 8rem;
+    margin-top: 20svh;
 }
 
 input[type="search"]::-webkit-search-decoration,
@@ -48,7 +47,7 @@ input[type="search"] {
     outline: none;
 }
 
-button {
+.searchbutton {
     display: none;
     width: var(--btn-width);
     font-weight: bold;
@@ -62,7 +61,7 @@ input:not(:placeholder-shown) {
     width: calc(100% - var(--btn-width));
 }
 
-input:not(:placeholder-shown) + button {
+input:not(:placeholder-shown) + .searchbutton {
     display: block;
 }
 
