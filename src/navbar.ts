@@ -10,30 +10,45 @@ const loggedIn: number = session.get("user");
 // Doordat auto increment geen 0 kan zijn, kan je dit zo gebruiken
 if (loggedIn) {
     const buttons: NodeList | null = document.querySelectorAll(".button");
-    const registerBtn: Node = buttons[1];
-    const loginBtn: Node = buttons[0];
+    const registerBtn: HTMLAnchorElement | null = buttons[1] as HTMLAnchorElement | null;
+    const loginBtn: HTMLAnchorElement | null = buttons[0] as HTMLAnchorElement | null;
+    const userNameLink: HTMLAnchorElement | null = buttons[2] as HTMLAnchorElement | null;
 
-    // Find the login/logout button by its HTML link
-    // Change the Login text to "Logout"
-    loginBtn!.textContent = "Logout";
+    if (loginBtn && userNameLink) {
+        loginBtn.textContent = "Logout";
 
-    loginBtn!.addEventListener("click", (e) => {
-        e.preventDefault();
-        localStorage.clear(); // Clear local storage data
-        location.reload();
-    });
-    // proberen de data op te halen uit de database
-    try {
-        const data: any = await api.queryDatabase(
-            "SELECT firstname, lastname FROM user2 WHERE id = ?",
-            loggedIn
-        );
-        registerBtn!.textContent = data[0].firstname + " " + data[0].lastname;
+        loginBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            localStorage.clear(); // Clear local storage data
+            location.reload();
+        });
 
-        console.log(data[0].firstname + " " + data[0].lastname);
-    } catch (error) {
-        console.log(error);
+        // proberen de data op te halen uit de database
+        try {
+            const data: any = await api.queryDatabase(
+                "SELECT firstname, lastname FROM user2 WHERE id = ?",
+                loggedIn
+            );
+            const userDetailsPage: string = "userDetails.html";
 
-        // als het niet lukt de data op te halen, geef een lege array terug
+            if (registerBtn) {
+                registerBtn.textContent = data[0].firstname + " " + data[0].lastname;
+                registerBtn.setAttribute("href", userDetailsPage);
+            }
+            console.log(data[0].firstname + " " + data[0].lastname);
+
+            if (userNameLink) {
+                userNameLink.setAttribute("href", userDetailsPage);
+
+                userNameLink.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    window.location.href = userDetailsPage;
+                });
+            }
+        } catch (error) {
+            console.log(error);
+
+            // als het niet lukt de data op te halen, geef een lege array terug
+        }
     }
 }
