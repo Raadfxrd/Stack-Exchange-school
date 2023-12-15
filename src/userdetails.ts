@@ -95,14 +95,17 @@ async function updateUserName(userId: number): Promise<void> {
                 userLastNameElement.textContent = newLastName;
             }
             console.log("Updating user with the following values:");
-            console.log( newFirstName);
-            console.log( newLastName);
-            console.log( userId);
-            
+            console.log(newFirstName);
+            console.log(newLastName);
+            console.log(userId);
+
             await api.queryDatabase(
-                "UPDATE user2 SET firstname = ?, lastname = ? WHERE id = ?;", newFirstName, newLastName, userId             
+                "UPDATE user2 SET firstname = ?, lastname = ? WHERE id = ?;",
+                newFirstName,
+                newLastName,
+                userId
             );
-            
+
             console.log("User name updated successfully.");
             window.location.reload();
             const editFields: HTMLElement | null = document.getElementById("edit-fields");
