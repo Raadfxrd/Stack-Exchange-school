@@ -27,7 +27,7 @@ button {
     font-size: 1.8rem;
 }
 input {
-    margin-top: 8rem;
+    margin-top: 20svh;
 }
 
 input[type="search"]::-webkit-search-decoration,

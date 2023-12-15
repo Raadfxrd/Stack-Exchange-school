@@ -10,7 +10,6 @@ p {
 
 .landing-content {
     max-width: 800px;
-    margin: 50px auto;
     padding: 20px;
     background-color: var(--bg-light);
     border-radius: 8px;
@@ -19,5 +18,5 @@ p {
 
 .about {
     width: 50%;
-    margin-top: 120px;
+    margin-top: 5svh;
 }
