@@ -16,9 +16,9 @@
 
 .sidebar a {
     padding: 20px;
-    color: white;
+    color: var(--bg-light);
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color var(--duration);
     border-radius: 10px;
 }
 
