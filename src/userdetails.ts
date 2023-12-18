@@ -110,17 +110,17 @@ document.addEventListener("DOMContentLoaded", async () => {
                             if (confirmationText === "CONFIRM DELETE") {
                                 await deleteAccount(loggedIn);
                             } else {
-                                deleteFail.style.display = "block";
+                                deleteFail!.style.display = "block";
                                 await new Promise((resolve) => setTimeout(resolve, 3000));
-                                deleteFail.style.display = "none";
+                                deleteFail!.style.display = "none";
                             }
-                            confirmationModal.style.display = "block";
+                            confirmationModal!.style.display = "block";
                             editNameBtn.style.display = "none";
                             deleteAccountBtn.style.display = "none";
                         });
 
                         cancelDeleteBtn.addEventListener("click", () => {
-                            confirmationModal.style.display = "none";
+                            confirmationModal!.style.display = "none";
                             editNameBtn.style.display = "block";
                             deleteAccountBtn.style.display = "block";
                         });
