@@ -12,13 +12,6 @@ nav {
     width: 100%;
 }
 
-.logo img {
-    width: 180px;
-    height: 38px;
-    margin-top: 5px;
-    margin-left: 10px;
-}
-
 nav a {
     display: block;
     color: white;
@@ -93,7 +86,7 @@ nav a.button:hover {
 }
 
 .bracket-animation:hover .inner {
-    width: 130px;
+    width: 126px;
 }
 
 .bracket-animation > .left,
