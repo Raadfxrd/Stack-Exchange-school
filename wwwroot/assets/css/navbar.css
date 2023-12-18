@@ -20,7 +20,6 @@ nav {
 }
 
 nav a {
-    font-size: 16px;
     display: block;
     color: white;
     text-align: center;
@@ -75,23 +74,30 @@ nav a.button:hover {
     position: relative;
 }
 
-@media screen and (max-width: 550px) {
-    .flex-right {
-        display: none;
-    }
+.inner {
+    display: inline-block;
+    width: 0px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    overflow-wrap: normal;
+    white-space: nowrap;
+    transition: all var(--logoanim) ease;
+    font-weight: bolder;
+    color: var(--bg-light);
 }
 
-.brack-animation {
+.bracket-animation {
     margin-left: 20px;
     text-align: center;
 }
 
-.brack-animation:hover .inme {
-    width: 114px; /* Adjust the width as needed */
+.bracket-animation:hover .inner {
+    width: 130px;
 }
 
-.brack-animation > .op,
-.brack-animation > .cl {
+.bracket-animation > .left,
+.bracket-animation > .right {
     font-size: 30px;
     display: inline;
     text-align: center;
@@ -104,4 +110,16 @@ nav a.button:hover {
 
 h3 {
     font-size: 30px;
+    margin: 0;
+}
+
+.description {
+    font-size: 10px;
+    margin: 0;
+}
+
+@media screen and (max-width: 550px) {
+    .flex-right {
+        display: none;
+    }
 }

@@ -17,7 +17,7 @@ Er zullen per dag soorten taken worden toegevoegd, tot op heden (5 December 2023
 We maakten samen een mindmap, eerst op papier om daarna nog een tweede versie te maken die veel overzichtelijker is. Dit laat onze groei zien en hoe ons denkproces eruit ziet. Daarna kwam de presentatie, waarmee we veel tops kregen en weinig tips, dus perfect! Na de presentatie maakten we uiteindelijk ook een versie op XMind die nog beter is en we allebei heel trots op waren. Bij het maken van de mindmap hebben we ook onze ideeën laten vloeien tot een idee waar we allebei mee akkoord gingen.
 
 Gerelateerde links:
-[Originele mindmaps op papier (links nieuwe, rechts oude)](./Documentatie%20extras/Oude%20mindmaps.png)
+[Originele mindmaps op papier (links nieuwe, rechts oude)](./Documentatie%20extras/Eerste%20versie%20mindmaps.png) |
 [Vernieuwde mindmap online gemaakt](./Documentatie%20extras/Nieuwe%20mindmap.png)
 
 ## 22 November
@@ -29,7 +29,7 @@ Gerelateerde links:
 Op deze dag hadden we onze taken opgesplitst, Youssef werkte aan de flowchart en ik werkte aan de wireframe en het logboek. We snapten origineel niet zo goed wat we moesten zetten in de flowchart of de wireframe, dus we begonnen gewoon met een beetje rondvragen en rondkijken naar wat andere mensen hadden gezet. Zo bleek dus dat we een voorstelling moesten maken van wat de gebruiker (vanaf nu gereferenceerd als user) voor route kan afleggen om iets te doen. Zo begonnen we dus een flowchart te maken voor het doel "The user wants to ask a question". Deze bleek niet zo moeilijk te zijn, en na een half uurtje tot een uurtje hadden we al een flowchart die voldeed aan de verwachtingen. Daarna was het aan mij nog om een wireframe te maken, waar ik dus ook vrij weinig van snapte. Ik herrinerde me dus dat Tom vorige sprint al een heel impressive wireframe gemaakt had en probeerde me daarop te baseren. Dit lukte toch niet, maar we kregen te horen dat we op vrijdag meer uitleg gingen krijgen over dit dus wachtten we ermee. Als laatste projectje vandaag begonnen we aan onze zelfgeschreven documentatie, en Dano kwam met het idee om een logboek te maken. Ik had vorige sprint een paper-style document gemaakt dus combineerde ik deze allebei voor deze sprint. Dit is dus het document dat u nu leest.
 
 Gerelateerde links:
-[Taskflow "The user wants to ask a question"](./Documentatie%20extras/Taskflow.png)
+[Taskflow "The user wants to ask a question"](./Documentatie%20extras/Taskflow.png) |
 [Lo-fi design in Figma](./Documentatie%20extras/Wireframe.png)
 
 ## 24 November
@@ -58,8 +58,8 @@ Op 29 November kregen we vroeg te weten dat Masa helaas ziek is en dat er ook ge
 Later hebben we ook nog is even samen gebeld om te bespreken wat er nog moet gebeuren en wat we allemaal gaan doen in de volgende dagen. Ik heb laten zien wat ik allemaal heb gedaan en Youssef liet zien wat hij had gedaan in Figma. Zo bespraken we of het elkaars werk goed vonden of wat er nog moest worden veranderd.
 
 Gerelateerde links:
-[Loginpagina zonder animatie](./Documentatie%20extras/Loginpagina%20no%20anim.png)
-[Loginpagina met animatie](./Documentatie%20extras/Loginpagina%20anim.png)
+[Loginpagina zonder animatie](./Documentatie%20extras/Loginpagina%20no%20anim.png) |
+[Loginpagina met animatie](./Documentatie%20extras/Loginpagina%20anim.png) |
 [Homepagina](./Documentatie%20extras/Homepage.png)
 
 ## 1 December
@@ -69,7 +69,8 @@ Gerelateerde links:
 We hebben op deze dag een presentatie moeten doen voor heel de klas om te laten zien wat we allemaal hebben gedaan in deze sprint. Ik kwam wat later aan dus we hadden niet zo veel tijd om te voorbereiden, maar toch knalden we erdoor ook al was het geimproviseerd. We kregen ook wel heel toepasselijke feedback die best wel veel hielp hierbij. Zo vond Jairo dat we meer moeite moeten steken in ons Figma project, doordat dit ons veel zou helpen in de latere development van onze website en ons een beter beeld zou geven voor wat we willen maken als eindproduct. Ook kwam er een commentaar over het gebruiken van variabelen in css en de structuur van presenteren en deze zijn ook dus allemaal genoteerd in onze Scorion formulieren. In het algemeen waren we wel blij met onze presentatie en de algemene progress tot nu toe.
 
 Gerelateerde links:
-[Scorion formulier Borys](./Documentatie%20extras/Scorion%20formulier%20Borys.png)
+[Scorion formulier Borys](./Documentatie%20extras/Scorion%20formulier%20Borys.png) |
+[Scorion formulier Youssef](./Documentatie%20extras/Youssef%20Scorion%20formulier.jpg)
 
 ## 5 December
 
@@ -81,8 +82,8 @@ Vanaf deze dag stoppen de echte (school)opdrachten, dus zal bijna alles een eige
 Deze dag waren we beide begonnen aan het maken van de eigenlijke website. Ik had me meer gefocust op het maken en afmaken van het loboek (tot deze dag) en Youssef werkte knalhard door aan de website. Hij maakte een navbar, sidebar, registratiepagina en logo voor onze website. Er was ook veel veranderd aan de kleuren van onze website zodat deze altijd helder zijn en voor iedereen aangenaam om naar te kijken. Zo hebben we dus besloten voor oranje en donkerblauw als accentkleuren en lichtgrijs en grijs als onze primaire kleuren. Dit blijkte ook andere veel te bevallen toen we dit navroegen bij onze klasgenoten.
 
 Gerelateerde links:
-[De niewe pagina, test.html](./Documentatie%20extras/test.html.png)
-[Voorlopige documentatie text (logboek)](./Documentatie%20extras/Voorlopige%20documenatie%20text.png)
+[De niewe pagina, test.html](./Documentatie%20extras/test.html.png) |
+[Voorlopige documentatie text (logboek)](./Documentatie%20extras/Voorlopige%20documenatie%20text.png) |
 [Voorlopige documentatie afbeeldingen (gebruikt in logboek)](./Documentatie%20extras/Voorlopige%20documentatie%20afbeeldingen.png)
 
 ## 6 December
@@ -93,10 +94,11 @@ Gerelateerde links:
 Op 6 December was ik bezig met het maken van alle variabelen in CSS, doordat we dit als tip hadden gekregen tijdens de presentatie van 1 December. Dit bleek heel handig te zijn, want als we nu een volledige styleswitch willen hebben, moeten we alleen een paar variabelen aanpassen en dan verandert alles tegelijkertijd zonder dat we dat moeten gaan zoeken. Heel handig dus! Ook is er een full screen searchbar gemaakt zodat het meteen duidelijk is waarvoor onze website is: vragen stellen. Youssef heeft zich bezig gehouden met het maken van de responsiveness van onze website, toekijken als kritisch oog en hebben we ook onze eerste merge conflict gekregen. Gelukkig was dit met het expertise van Gust snel opgelost. Ook hebben we besloten om op deze dag de test.html te gebruiken als main project file, in plaats van de main die we hadden gekregen. Dit bleek de betere oplossing te zijn doordat test.html al meer eruitzag als we ons final design wouden, dan de andere files.
 
 Gerelateerde links:
-[Searchbar no animation](./Documentatie%20extras/Searchbar%20no%20animation.png)
-[Searchbar with animation](./Documentatie%20extras/Searchbar%20with%20animation.png)
-[Variabelen in de CSS (worden op (bijna) elke website toegepast)](./Documentatie%20extras/Variabelen%20CSS.png)
-[CSS tot nu toe](./Documentatie%20extras/CSS%20tot%20nu%20toe.png)
+[Searchbar no animation](./Documentatie%20extras/Searchbar%20no%20animation.png) |
+[Searchbar with animation](./Documentatie%20extras/Searchbar%20with%20animation.png) |
+[Variabelen in de CSS (worden op (bijna) elke website toegepast)](./Documentatie%20extras/Variabelen%20CSS.png) |
+[CSS tot nu toe](./Documentatie%20extras/CSS%20tot%20nu%20toe.png) |
+[Responsivness website](./Documentatie%20extras/Responsiveness.png)
 
 ## 8 December
 
@@ -105,7 +107,7 @@ Gerelateerde links:
 Op deze dag hebben we een kleine tip gekregen, en dat was om te kijken naar de user en learning stories doordat er een specifieke story was om duplicate code zo veel mogelijk te vermijden. Dit heeft, jammer genoeg, bijna heel onze dag gekost. Wel hebben we het afgekregen en wordt de navbar geimporteerd met 1 lijn op elke pagina. Er is bewust gekozen om dit bij de sidebar niet te doen, door active links en andere bugs die de moeite eigenlijk niet waard waren.
 
 Gerelateerde links:
-[Navbar HTML](./Documentatie%20extras/Navbar%20HTML.png)
+[Navbar HTML](./Documentatie%20extras/Navbar%20HTML.png) |
 [Navbar TypeScript](./Documentatie%20extras/Navbar%20TypeScript.png)
 
 ## 11 & 12 December
@@ -116,7 +118,7 @@ Gerelateerde links:
 11 en 12 December waren heel productieve dagen voor ons beide. Youssef vond 11 December te tijd om aan de website en heeft de volledige back-end van onze registratie kunnen op orde krijgen. Ook heeft hij checks kunnen toevoegen aan de registratie, zodat je wachtwoorden moeten kloppen, er een fatsoenlijk e-mailadres moet worden gebruikt, etc. Toen hij dit aan mij liet zien dinsdags was ik helemaal blown away en heel blij want we waren allebei goed aan het doorwerken. Die dag dus, dinsdag, was dan weer een heel productieve dag voor mijzelf, doordat ik alles kon voorbereiden voor de toekomst met allerlei placeholder pagina's aan te maken, navbar en sidebar fixed te maken en een voorbereiding voor de vragenboxen te maken. Zo blijkt onze website opeens heel dicht te zijn bij de completion ervan, ook al is dit nog steeds een lange weg voor ons. We waren op het einde van de dag wel allebei uiterst blij met wat we hadden gedaan dus dat is uiteraard geweldig.
 
 Gerelateerde links:
-[Voorbeeld email verkeerd in registratie](./Documentatie%20extras/Voorbeeld%201%20registratiecheck.png)
+[Voorbeeld email verkeerd in registratie](./Documentatie%20extras/Voorbeeld%201%20registratiecheck.png) |
 [Voorbeeld non-matching passwords in registratie](./Documentatie%20extras/Voorbeeld%202%20registratiecheck.png)
 
 ## 13 December
@@ -141,9 +143,9 @@ Ikzelf had me beziggehouden met het belangrijkste van dit heel project, de vrage
 Als laatste ben ikzelf ook op een nieuwe naam gevonden die minder lijkt op het stelen van de naam van Stack Overflow en die we allebei beter vinden klinken en een heel leuk logo bij kunnen maken: Syntax. Het is kort, krachtig en toe the point. Hopelijk vindt iedereen deze lekker catchy en onthoudt men deze met gemak.
 
 Gerelateerde links:
-[User settings](./Documentatie%20extras/Userdetails.png)
-[Naam veranderen menu](./Documentatie%20extras/Userdetails%20name%20change.png)
-[Account verwijderen / confirmatie / error](./Documentatie%20extras/Userdetails%20account%20deletion%20confirmation%20error.png)
+[User settings](./Documentatie%20extras/Userdetails.png) |
+[Naam veranderen menu](./Documentatie%20extras/Userdetails%20name%20change.png) |
+[Account verwijderen / confirmatie / error](./Documentatie%20extras/Userdetails%20account%20deletion%20confirmation%20error.png) |
 [Nieuwe Homepage](./Documentatie%20extras/New%20homepage.png)
 
 ## 18 December
@@ -151,4 +153,10 @@ Gerelateerde links:
 1. Eigen bezigheid Borys: Aanmaken niewe logo dat past bij nieuwe naam
 2. Teamwork: UML WIP + praatje over expertreview van dinsdag
 
-Vandaag had ik mezelf beziggehouden met het maken van een nieuw logo dat volledig is geanimeerd in CSS en HTML only. Dit logo is simpeler, origineel en heel leuk! De kleuren 
+Vandaag had ik mezelf beziggehouden met het maken van een nieuw logo dat volledig is geanimeerd in CSS en HTML only. Dit logo is simpeler, origineel en heel leuk! De kleuren moeten nog worden getest door verschillende gebruikers zodat dit voor iedereen even leesbaar is en ook goed oogt.
+We hebben ook met ons tweeen samengezeten en ons beziggehouden met de UML in orde maken, zodat we deze kunnen gebruiken in ons expertreview van dinsdag. Ik snap dit zelf nog niet zo goed, maar Youssef is het meesterbrein achter de TypeScript dus hij kan het vast wel uitleggen aan mij.
+
+Gerelateerde links:
+[UML](./Documentatie%20extras/UML.png) |
+[Logo gesloten](./Documentatie%20extras/Syntax%20logo%20close.png) |
+[Logo open](./Documentatie%20extras/Syntax%20logo%20open.png)
