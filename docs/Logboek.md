@@ -143,5 +143,5 @@ Als laatste ben ikzelf ook op een nieuwe naam gevonden die minder lijkt op het s
 Gerelateerde links:
 [User settings](./Documentatie%20extras/Userdetails.png)
 [Naam veranderen menu](./Documentatie%20extras/Userdetails%20name%20change.png)
-[Account verwijderen / confirmatie / error](./Documentatie%20extras/Userdetails%20account%20deletion:confirmation:error.png)
+[Account verwijderen / confirmatie / error](./Documentatie%20extras/Userdetails%20account%20deletion%20confirmation%20error.png)
 [Nieuwe Homepage](./Documentatie%20extras/New%20homepage.png)
