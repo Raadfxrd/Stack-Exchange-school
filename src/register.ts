@@ -40,7 +40,7 @@ document
             return;
         }
 
-        // Check if all fields are filled
+        // Checkt of alle fields gevuld zijn
         if (
             !usernameInput.value ||
             !email.value ||
@@ -57,7 +57,7 @@ document
             return;
         }
 
-        // Check if the username already exists
+        // Checkt of de username al reeds bestaat
         else if (isUsernameTaken) {
             usernameError.style.display = "block";
             fieldsError.style.display = "none";
@@ -67,7 +67,7 @@ document
             return;
         }
 
-        // Check if the email has the correct format
+        // Checkt of de email de correcte format heeft
         else if (!isValidEmail(email.value)) {
             emailError.style.display = "block";
             fieldsError.style.display = "none";
@@ -77,7 +77,7 @@ document
             return;
         }
 
-        // Check if password and confirm password match
+        // Checkt of de wachtwoorden overeen komen
         else if (password.value !== confirmPassword.value) {
             passwordError.style.display = "block";
             fieldsError.style.display = "none";
@@ -92,7 +92,7 @@ document
             [usernameInput.value, password.value, email.value, firstname.value, lastname.value]
         );
 
-        // Show success message
+        // Laat succes message zien
         successMessage.style.display = "block";
         passwordError.style.display = "none";
         fieldsError.style.display = "none";
@@ -106,7 +106,7 @@ document
         return;
     });
 
-// Check if username is in database
+// Checkt of de username al in de database staat
 async function isUsernameAlreadyTaken(username: string | undefined): Promise<boolean> {
     if (!username) {
         return false;
@@ -121,7 +121,7 @@ async function isUsernameAlreadyTaken(username: string | undefined): Promise<boo
     }
 }
 
-// Function to check if email is valid
+// functie die door middel van een regex checkt of de email in de juiste formaat staat.
 function isValidEmail(email: string): boolean {
     const emailRegex: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
