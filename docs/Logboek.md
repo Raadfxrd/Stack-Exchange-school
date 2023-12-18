@@ -47,7 +47,7 @@ Op 24 November zijn we met z'n tweeën gaan zitten om verder te werken aan de wi
 Op deze dag werkten we samen hard door aan het design in Figma, zodat het eruitzag hoe we dit wouden. We hebben veel gediscusieerd over wat voor kleuren we wouden, de fonts en de latere development. Behalve dat was dit een minder productieve dag en hebben we niet zo veel meer gedaan. It happens sometimes
 
 Gerelateerde links:
-[Final design Figma](./Documentatie%20extras/Final%20design%20Figma%20(werkend%20prototype).png)
+[Final design Figma](<./Documentatie%20extras/Final%20design%20Figma%20(werkend%20prototype).png>)
 
 ## 29 November
 
