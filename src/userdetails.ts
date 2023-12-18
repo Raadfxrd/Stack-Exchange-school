@@ -58,15 +58,14 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const editNameBtn: HTMLElement | null = document.getElementById("edit-name-btn");
                 const deleteAccountBtn: HTMLElement | null = document.getElementById("delete-account-btn");
                 const confirmationModal: HTMLElement | null = document.getElementById("confirmation-modal");
-                const editFields: HTMLElement | null= document.getElementById("edit-fields");
+                const editFields: HTMLElement | null = document.getElementById("edit-fields");
 
                 if (editNameBtn && deleteAccountBtn) {
-                    editNameBtn.addEventListener("click", ()=> {
+                    editNameBtn.addEventListener("click", () => {
                         if (editFields) {
                             editFields.style.display = "block";
                             editNameBtn.style.display = "none";
                             deleteAccountBtn.style.display = "none";
-
                         }
                     });
 
@@ -82,7 +81,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const cancelEditBtn: HTMLElement | null = document.getElementById("cancel-edit");
 
                     if (saveChangesBtn && cancelEditBtn) {
-                        saveChangesBtn.addEventListener("click", async ()=> {
+                        saveChangesBtn.addEventListener("click", async () => {
                             await updateUserName(loggedIn);
                             window.location.reload();
                         });
@@ -97,7 +96,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                         });
                     }
 
-                    const confirmationInput: HTMLInputElement | null = document.getElementById("confirmation-input") as HTMLInputElement;
+                    const confirmationInput: HTMLInputElement | null = document.getElementById(
+                        "confirmation-input"
+                    ) as HTMLInputElement;
                     const confirmDeleteBtn: HTMLElement | null = document.getElementById("confirm-delete");
                     const cancelDeleteBtn: HTMLElement | null = document.getElementById("cancel-delete");
                     const deleteFail: HTMLElement | null = document.getElementById("deleteFail");
@@ -105,25 +106,24 @@ document.addEventListener("DOMContentLoaded", async () => {
                     if (confirmationInput && confirmDeleteBtn && cancelDeleteBtn) {
                         confirmDeleteBtn.addEventListener("click", async () => {
                             const confirmationText: string = confirmationInput.value.trim();
-                            
+
                             if (confirmationText === "CONFIRM DELETE") {
                                 await deleteAccount(loggedIn);
                             } else {
                                 deleteFail.style.display = "block";
-                                await new Promise(resolve => setTimeout(resolve, 3000));
+                                await new Promise((resolve) => setTimeout(resolve, 3000));
                                 deleteFail.style.display = "none";
                             }
                             confirmationModal.style.display = "block";
                             editNameBtn.style.display = "none";
                             deleteAccountBtn.style.display = "none";
                         });
-                        
+
                         cancelDeleteBtn.addEventListener("click", () => {
                             confirmationModal.style.display = "none";
                             editNameBtn.style.display = "block";
                             deleteAccountBtn.style.display = "block";
                         });
-                        
                     }
                 }
             }
@@ -184,7 +184,7 @@ async function deleteAccount(userId: number): Promise<void> {
 
         await api.queryDatabase("DELETE FROM user2 WHERE id = ?;", userId);
         localStorage.clear();
-        await new Promise(resolve => setTimeout(resolve, 500));
+        await new Promise((resolve) => setTimeout(resolve, 500));
 
         window.location.href = "index.html";
     } catch (error) {
@@ -198,7 +198,7 @@ function showMessage(message: string, color: string): void {
         messageContainer.textContent = message;
         messageContainer.style.color = color;
         messageContainer.style.fontWeight = "bold";
-        messageContainer.style.fontSize = "16px"; 
-        messageContainer.style.marginTop = "10px"; 
+        messageContainer.style.fontSize = "16px";
+        messageContainer.style.marginTop = "10px";
     }
 }
