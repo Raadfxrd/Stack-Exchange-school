@@ -80,3 +80,28 @@ nav a.button:hover {
         display: none;
     }
 }
+
+.brack-animation {
+    margin-left: 20px;
+    text-align: center;
+}
+
+.brack-animation:hover .inme {
+    width: 114px; /* Adjust the width as needed */
+}
+
+.brack-animation > .op,
+.brack-animation > .cl {
+    font-size: 30px;
+    display: inline;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    overflow-wrap: normal;
+    white-space: nowrap;
+    color: var(--btn-color-dark);
+}
+
+h3 {
+    font-size: 30px;
+}

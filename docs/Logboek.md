@@ -145,3 +145,10 @@ Gerelateerde links:
 [Naam veranderen menu](./Documentatie%20extras/Userdetails%20name%20change.png)
 [Account verwijderen / confirmatie / error](./Documentatie%20extras/Userdetails%20account%20deletion%20confirmation%20error.png)
 [Nieuwe Homepage](./Documentatie%20extras/New%20homepage.png)
+
+## 18 December
+
+1. Eigen bezigheid Borys: Aanmaken niewe logo dat past bij nieuwe naam
+2. Teamwork: UML WIP + praatje over expertreview van dinsdag
+
+Vandaag had ik mezelf beziggehouden met het maken van een nieuw logo dat volledig is geanimeerd in CSS en HTML only. Dit logo is simpeler, origineel en heel leuk! De kleuren 
