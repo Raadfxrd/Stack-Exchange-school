@@ -66,4 +66,14 @@ We hebben op deze dag een presentatie moeten doen voor heel de klas om te laten 
 
 Vanaf deze dag stoppen de echte opdrachten, dus zal bijna alles een eigen bezigheid zijn. Ik zal wel alles aanpassen als er een dag iets anders (meer interessant) gebeurd.
 
-1. Eigen bezigheid Borys: 
+1. Eigen bezigheid Borys: Logboek update + documentatie verzamelen
+2. Eigen bezigheid Youssef: Maken nieuwe "test.html" voor designs en code uit te testen zonder aan de main te veranderen
+
+Deze dag waren we beide begonnen aan het maken van de eigenlijke website. Ik had me meer gefocust op het maken en afmaken van het loboek (tot deze dag) en Youssef werkte knalhard door aan de website. Hij maakte een navbar, sidebar, registratiepagina en logo voor onze website. Er was ook veel veranderd aan de kleuren van onze website zodat deze altijd helder zijn en voor iedereen aangenaam om naar te kijken. Zo hebben we dus besloten voor oranje en donkerblauw als accentkleuren en lichtgrijs en grijs als onze primaire kleuren. Dit blijkte ook andere veel te bevallen toen we dit navroegen bij onze klasgenoten.
+
+## 6 December
+
+1. Eigen bezigheid Borys: Searchbar + variabelen in CSS
+2. Eigen bezigheid Youssef: Begin aan responsive website
+
+Op 6 December was ik bezig met het maken van alle variabelen in CSS, doordat we dit als tip hadden gekregen tijdens de presentatie van 1 December. Dit bleek heel handig te zijn, want als we nu een volledige styleswitch willen hebben, moeten we alleen een paar variabelen aanpassen en dan verandert alles tegelijkertijd zonder dat we dat moeten gaan zoeken. Heel handig dus! Ook is er een full screen searchbar gemaakt zodat het meteen duidelijk is waarvoor onze website is: vragen stellen. Youssef heeft zich bezig gehouden met het maken van de responsiveness van onze website, toekijken als kritiek oog en hebben we ook onze eerste merge conflict gekregen. Gelukkig was dit met het expertise van Gust snel opgelost.
