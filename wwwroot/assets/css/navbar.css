@@ -59,16 +59,18 @@ nav a.button:hover {
 .flex-left {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
 }
 
 .flex-right {
     display: flex;
     flex-direction: row-reverse;
+    align-items: center;
 }
 .navflex {
     display: flex;
     justify-content: space-between;
-    height: 50px;
+    height: 70px;
     z-index: 1000;
     position: relative;
 }

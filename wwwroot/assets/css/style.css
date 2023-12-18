@@ -11,6 +11,7 @@
     --btn-color-hover-dark: #9290ff;
     --font: "IBM Plex Mono", sans-serif;
     --duration: 0.3s;
+    --logoanim: 1.2s;
 }
 
 body {
@@ -43,7 +44,7 @@ h1 {
     align-content: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 70px;
     margin-left: 200px;
 }
 
@@ -71,7 +72,7 @@ h1 {
 
 .question-ask {
     font-family: var(--font);
-    transition-duration: 0.4s;
+    transition-duration: var(--duration);
     position: fixed;
     bottom: 20px;
     right: 30px;
@@ -87,4 +88,42 @@ h1 {
 
 .question-ask:hover {
     background-color: var(--btn-color-hover-dark); /* Add a dark-grey background on hover */
+}
+
+.inme {
+    display: inline-block;
+    width: 0px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    overflow-wrap: normal;
+    white-space: nowrap;
+    transition: all var(--logoanim) ease;
+    font-weight: bolder;
+    color: var(--bg-light);
+}
+
+.brack-animation {
+    margin-left: 20px;
+    text-align: center;
+}
+
+.brack-animation:hover .inme {
+    width: 114px; /* Adjust the width as needed */
+}
+
+.brack-animation > .op,
+.brack-animation > .cl {
+    font-size: 30px;
+    display: inline;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    overflow-wrap: normal;
+    white-space: nowrap;
+    color: var(--btn-color-dark);
+}
+
+h2 {
+    font-size: 30px;
 }
