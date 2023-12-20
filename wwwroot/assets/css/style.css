@@ -11,7 +11,7 @@
     --btn-color-hover-dark: #9290ff;
     --font: "IBM Plex Mono", sans-serif;
     --duration: 0.3s;
-    --logoanim: 1.2s;
+    --logoanim: 1s;
 }
 
 body {
@@ -30,10 +30,12 @@ h1 {
     margin: 0px;
 }
 
-.maintitle {
-    font-size: 40px;
-    margin-top: 10svh;
-    color: var(--bg-light);
+.container {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    margin-top: 70px;
 }
 
 .content {
@@ -45,6 +47,12 @@ h1 {
     margin-left: 200px;
 }
 
+.maintitle {
+    font-size: 40px;
+    margin-top: 10svh;
+    color: var(--bg-light);
+}
+
 .question-container {
     display: flex;
     align-items: start;
@@ -52,6 +60,7 @@ h1 {
     height: 1000px;
     margin-top: 50svh;
 }
+
 .questions {
     width: 100%;
     height: 1000px;
@@ -60,12 +69,20 @@ h1 {
     position: relative;
 }
 
-.container {
-    position: absolute;
-    z-index: -1;
+.newquestion-container {
+    display: flex;
+    align-items: start;
+    width: 90%;
+    height: 1000px;
+    margin-top: 20svh;
+}
+
+.newquestions {
     width: 100%;
-    height: 100%;
-    margin-top: 70px;
+    height: 1000px;
+    border-radius: 50px;
+    background-color: var(--bg-light);
+    position: relative;
 }
 
 .question-ask {
@@ -82,8 +99,17 @@ h1 {
     padding: 15px;
     border-radius: 10px;
     font-size: 18px;
+    text-decoration: none;
 }
 
 .question-ask:hover {
     background-color: var(--btn-color-hover-dark); /* Add a dark-grey background on hover */
+}
+
+.newquestioncontent {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
 }

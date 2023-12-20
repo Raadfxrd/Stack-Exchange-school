@@ -67,6 +67,21 @@ nav a.button:hover {
     position: relative;
 }
 
+.innerplaceholder {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    overflow-wrap: normal;
+    white-space: nowrap;
+    transition: all var(--logoanim) ease;
+    font-weight: bolder;
+    color: var(--bg-light);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .inner {
     display: inline-block;
     width: 0px;
@@ -78,11 +93,21 @@ nav a.button:hover {
     transition: all var(--logoanim) ease;
     font-weight: bolder;
     color: var(--bg-light);
+    transition-delay: 0.3s;
 }
 
 .bracket-animation {
     margin-left: 20px;
     text-align: center;
+}
+
+.bracket-animation:hover {
+    padding-right: 86px;
+}
+
+.bracket-animation:hover .innerplaceholder {
+    width: 0px;
+    padding: 0px;
 }
 
 .bracket-animation:hover .inner {
