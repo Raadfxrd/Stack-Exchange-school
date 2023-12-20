@@ -3,7 +3,7 @@ h1 {
     text-align: left;
 }
 
-p {
+.aboutus {
     color: var(--sidebar-color-hover);
     line-height: 1.6;
 }

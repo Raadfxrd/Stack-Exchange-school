@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         <button id="save-changes">Wijzigingen Opslaan</button>
                         <button id="cancel-edit">Annuleren</button>
                     </div>
-                    <div id="deleteFail" style="display: none; color: green">
+                    <div id="deleteFail" style="display: none; color: red">
                         Account verwijderen mislukt. Voer de juiste bevestigingstekst in.
                     </div>
                     <div id="confirmation-modal" style="display:none;">
@@ -113,7 +113,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                                 editNameBtn.style.display = "block";
                             }
                         });
-                        const confirmationInput: HTMLInputElement | null = document.getElementById("confirmation-input") as HTMLInputElement;
+                        const confirmationInput: HTMLInputElement | null = document.getElementById(
+                            "confirmation-input"
+                        ) as HTMLInputElement;
 
                         // Voeg een eventlistener toe aan de confirmdelete button
                         confirmDeleteBtn.addEventListener("click", async () => {
