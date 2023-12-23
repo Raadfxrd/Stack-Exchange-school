@@ -5,7 +5,7 @@ function checkLoginStatus(): void {
     const loggedIn: boolean = session.get("user");
 
     if (!loggedIn) {
-        window.location.href = "index.html";
+        window.location.href = "login.html";
     }
 }
 
