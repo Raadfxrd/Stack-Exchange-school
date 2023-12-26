@@ -2,19 +2,15 @@
 
 :root {
     --radius: 0.7rem;
-    --bg-dark: #505050;
-    --bg-light: #d9d9d9;
-    --btn-color-dark: #4c4aff;
     --btn-width: 6rem;
-    --font: "IBM Plex Mono", sans-serif;
     --height: 5rem;
 }
 
 form {
-    background: var(--btn-color-dark-brand);
     border-radius: var(--radius);
     width: 1000px;
-    max-width: 80%;
+    max-width: 100%;
+    transition-duration: var(--duration);
 }
 
 input,
@@ -25,6 +21,7 @@ input,
     color: var(--bg-dark);
     font-size: 1.8rem;
 }
+
 input {
     margin-top: 20svh;
 }
@@ -48,6 +45,7 @@ input[type="search"] {
 }
 
 .searchbutton {
+    color: var(--bg-light);
     display: none;
     width: var(--btn-width);
     font-weight: bold;
@@ -59,6 +57,7 @@ input[type="search"] {
 input:not(:placeholder-shown) {
     border-radius: var(--radius) 0 0 var(--radius);
     width: calc(100% - var(--btn-width));
+    transition-duration: 0s;
 }
 
 input:not(:placeholder-shown) + .searchbutton {
