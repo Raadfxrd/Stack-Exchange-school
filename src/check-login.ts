@@ -1,6 +1,6 @@
 import { session } from "@hboictcloud/api";
 
-// Function to check if the user is logged in
+// checkt of user is ingelogd
 function checkLoginStatus(): void {
     const loggedIn: boolean = session.get("user");
 
@@ -9,5 +9,5 @@ function checkLoginStatus(): void {
     }
 }
 
-// Call the function when the page loads
+// Roep functie aan wanneer pagina laadt
 window.addEventListener("load", checkLoginStatus);

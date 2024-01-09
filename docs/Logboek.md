@@ -2,7 +2,7 @@
 
 ## Blok 2: Code overflow
 
-In dit logboek gaan er verschillende punten worden genoteerd hoe wij elke dag werken met daarbij de nodige uitleg en fotos. Hopelijk maakt dit logboek duidelijk hoe wij denken en wat wij exact aan het doen zijn doorheen ons project.
+In dit logboek gaan er verschillende punten worden genoteerd hoe wij elke dag werken met daarbij de nodige uitleg en foto's. Hopelijk maakt dit logboek duidelijk hoe wij denken en wat wij exact aan het doen zijn doorheen ons project.
 Er zullen per dag soorten taken worden toegevoegd, tot op heden (5 December 2023) zijn deze als volgt:
 
 1. Opdracht: Een opdracht opgegeven door de docent
@@ -26,7 +26,7 @@ Gerelateerde links:
 2. Opdracht: Maak een wireframe op Figma
 3. Eigen bezigheid: Logboek
 
-Op deze dag hadden we onze taken opgesplitst, Youssef werkte aan de flowchart en ik werkte aan de wireframe en het logboek. We snapten origineel niet zo goed wat we moesten zetten in de flowchart of de wireframe, dus we begonnen gewoon met een beetje rondvragen en rondkijken naar wat andere mensen hadden gezet. Zo bleek dus dat we een voorstelling moesten maken van wat de gebruiker (vanaf nu gereferenceerd als user) voor route kan afleggen om iets te doen. Zo begonnen we dus een flowchart te maken voor het doel "The user wants to ask a question". Deze bleek niet zo moeilijk te zijn, en na een half uurtje tot een uurtje hadden we al een flowchart die voldeed aan de verwachtingen. Daarna was het aan mij nog om een wireframe te maken, waar ik dus ook vrij weinig van snapte. Ik herrinerde me dus dat Tom vorige sprint al een heel impressive wireframe gemaakt had en probeerde me daarop te baseren. Dit lukte toch niet, maar we kregen te horen dat we op vrijdag meer uitleg gingen krijgen over dit dus wachtten we ermee. Als laatste projectje vandaag begonnen we aan onze zelfgeschreven documentatie, en Dano kwam met het idee om een logboek te maken. Ik had vorige sprint een paper-style document gemaakt dus combineerde ik deze allebei voor deze sprint. Dit is dus het document dat u nu leest.
+Op deze dag hadden we onze taken opgesplitst, Youssef werkte aan de flowchart en ik werkte aan de wireframe en het logboek. We snapten origineel niet zo goed wat we moesten zetten in de flowchart of de wireframe, dus we begonnen gewoon met een beetje rondvragen en rondkijken naar wat andere mensen hadden gezet. Zo bleek dus dat we een voorstelling moesten maken van wat de gebruiker (vanaf nu gerefereerd als user) voor route kan afleggen om iets te doen. Zo begonnen we dus een flowchart te maken voor het doel "The user wants to ask a question". Deze bleek niet zo moeilijk te zijn, en na een half uurtje tot een uurtje hadden we al een flowchart die voldeed aan de verwachtingen. Daarna was het aan mij nog om een wireframe te maken, waar ik dus ook vrij weinig van snapte. Ik herinnerde me dus dat Tom vorige sprint al een heel impressive wireframe gemaakt had en probeerde me daarop te baseren. Dit lukte toch niet, maar we kregen te horen dat we op vrijdag meer uitleg gingen krijgen over dit dus wachtten we ermee. Als laatste projectje vandaag begonnen we aan onze zelfgeschreven documentatie, en Dano kwam met het idee om een logboek te maken. Ik had vorige sprint een paper-style document gemaakt dus combineerde ik deze allebei voor deze sprint. Dit is dus het document dat u nu leest.
 
 Gerelateerde links:
 [Taskflow "The user wants to ask a question"](./Documentatie%20extras/Taskflow.png) |
@@ -35,16 +35,16 @@ Gerelateerde links:
 ## 24 November
 
 1. Opdracht: Verderwerken aan wireframe in Figma
-2. Opdracht: Guerillatest uitvoeren
+2. Opdracht: Guerrillatest uitvoeren
 
-Op 24 November zijn we met z'n tweeën gaan zitten om verder te werken aan de wireframe, nadenken over wat we later in het project willen doen en dit proberen uit te beelden in Figma. Dit bleek wat irritanter te zijn dan eerst gedacht want we waren allebei een beetje onervaren met Figma en het uitbeelden is ook moeilijker dan gedacht. Toch dachten we na over de kleuren die we wouden gebruiken doorheen ons project, de stijl van sommige pagina's en de kleine details. Nadat we onze website ongeveer hadden zoals we dit wouden (in de basics), hebben we sommige mensen van de klas een kleine guerillatest uit te voeren en basic feedback te krijgen voor wat we moeten doen in de toekomst. Verder is er gewerkt aan het logboek en dus was de dag spoedig voorbij.
+Op 24 November zijn we met z'n tweeën gaan zitten om verder te werken aan de wireframe, nadenken over wat we later in het project willen doen en dit proberen uit te beelden in Figma. Dit bleek wat irritanter te zijn dan eerst gedacht want we waren allebei een beetje onervaren met Figma en het uitbeelden is ook moeilijker dan gedacht. Toch dachten we na over de kleuren die we wouden gebruiken doorheen ons project, de stijl van sommige pagina's en de kleine details. Nadat we onze website ongeveer hadden zoals we dit wouden (in de basics), hebben we sommige mensen van de klas een kleine guerrillatest uit te voeren en basic feedback te krijgen voor wat we moeten doen in de toekomst. Verder is er gewerkt aan het logboek en dus was de dag spoedig voorbij.
 
 ## 28 November
 
 1. Eigen bezigheid: Samenwerken Figma
-2. Teamwork: Discussieren
+2. Teamwork: Discussiëren
 
-Op deze dag werkten we samen hard door aan het design in Figma, zodat het eruitzag hoe we dit wouden. We hebben veel gediscusieerd over wat voor kleuren we wouden, de fonts en de latere development. Behalve dat was dit een minder productieve dag en hebben we niet zo veel meer gedaan. It happens sometimes
+Op deze dag werkten we samen hard door aan het design in Figma, zodat het eruitzag hoe we dit wouden. We hebben veel gediscussieerd over wat voor kleuren we wouden, de fonts en de latere development. Behalve dat was dit een minder productieve dag en hebben we niet zo veel meer gedaan. It happens sometimes
 
 Gerelateerde links:
 [Final design Figma](<./Documentatie%20extras/Final%20design%20Figma%20(werkend%20prototype).png>)
@@ -54,7 +54,7 @@ Gerelateerde links:
 1. Eigen bezigheid: Website uitrollen en eraan beginnen te werken
 2. Teamwork: Cross reference en bespreken
 
-Op 29 November kregen we vroeg te weten dat Masa helaas ziek is en dat er ook geen vervanger zal zijn, dus dat het is aangeraden om thuis te blijven. Dit is dus wat we deden en we hielden onszelf bezig. Ik begon aan het uitrollen van de website naar mijn eigen laptop, een database te configureren en de pagina's eruit laten zien zoals we dit hadden gedesigned in Figma. Zo heeft de website de correct gedifinieerde kleuren voor de achtergrond (licht en donker thema) en zijn de buttons ook correct gestyled. Ik heb ook een custom font te werken gekregen zodat we de look van een console kunnen geven aan onze website en dat het ook meteen duidelijk is voor wie de website is bestemd.
+Op 29 November kregen we vroeg te weten dat Masa helaas ziek is en dat er ook geen vervanger zal zijn, dus dat het is aangeraden om thuis te blijven. Dit is dus wat we deden en we hielden onszelf bezig. Ik begon aan het uitrollen van de website naar mijn eigen laptop, een database te configureren en de pagina's eruit laten zien zoals we dit hadden gedesignd in Figma. Zo heeft de website de correct gedefinieerde kleuren voor de achtergrond (licht en donker thema) en zijn de buttons ook correct gestyled. Ik heb ook een custom font te werken gekregen zodat we de look van een console kunnen geven aan onze website en dat het ook meteen duidelijk is voor wie de website is bestemd.
 Later hebben we ook nog is even samen gebeld om te bespreken wat er nog moet gebeuren en wat we allemaal gaan doen in de volgende dagen. Ik heb laten zien wat ik allemaal heb gedaan en Youssef liet zien wat hij had gedaan in Figma. Zo bespraken we of het elkaars werk goed vonden of wat er nog moest worden veranderd.
 
 Gerelateerde links:
@@ -66,7 +66,7 @@ Gerelateerde links:
 
 1. Opdracht: Presenteer het project aan heel de klas
 
-We hebben op deze dag een presentatie moeten doen voor heel de klas om te laten zien wat we allemaal hebben gedaan in deze sprint. Ik kwam wat later aan dus we hadden niet zo veel tijd om te voorbereiden, maar toch knalden we erdoor ook al was het geimproviseerd. We kregen ook wel heel toepasselijke feedback die best wel veel hielp hierbij. Zo vond Jairo dat we meer moeite moeten steken in ons Figma project, doordat dit ons veel zou helpen in de latere development van onze website en ons een beter beeld zou geven voor wat we willen maken als eindproduct. Ook kwam er een commentaar over het gebruiken van variabelen in css en de structuur van presenteren en deze zijn ook dus allemaal genoteerd in onze Scorion formulieren. In het algemeen waren we wel blij met onze presentatie en de algemene progress tot nu toe.
+We hebben op deze dag een presentatie moeten doen voor heel de klas om te laten zien wat we allemaal hebben gedaan in deze sprint. Ik kwam wat later aan dus we hadden niet zo veel tijd om te voorbereiden, maar toch knalden we erdoor ook al was het geïmproviseerd. We kregen ook wel heel toepasselijke feedback die best wel veel hielp hierbij. Zo vond Jaïro dat we meer moeite moeten steken in ons Figma project, doordat dit ons veel zou helpen in de latere development van onze website en ons een beter beeld zou geven voor wat we willen maken als eindproduct. Ook kwam er een commentaar over het gebruiken van variabelen in css en de structuur van presenteren en deze zijn ook dus allemaal genoteerd in onze Scorion formulieren. In het algemeen waren we wel blij met onze presentatie en de algemene progress tot nu toe.
 
 Gerelateerde links:
 [Scorion formulier Borys](./Documentatie%20extras/Scorion%20formulier%20Borys.png) |
@@ -79,10 +79,10 @@ Vanaf deze dag stoppen de echte (school)opdrachten, dus zal bijna alles een eige
 1. Eigen bezigheid Borys: Logboek update + documentatie verzamelen
 2. Eigen bezigheid Youssef: Maken nieuwe "test.html" voor designs en code uit te testen zonder aan de main te veranderen
 
-Deze dag waren we beide begonnen aan het maken van de eigenlijke website. Ik had me meer gefocust op het maken en afmaken van het loboek (tot deze dag) en Youssef werkte knalhard door aan de website. Hij maakte een navbar, sidebar, registratiepagina en logo voor onze website. Er was ook veel veranderd aan de kleuren van onze website zodat deze altijd helder zijn en voor iedereen aangenaam om naar te kijken. Zo hebben we dus besloten voor oranje en donkerblauw als accentkleuren en lichtgrijs en grijs als onze primaire kleuren. Dit blijkte ook andere veel te bevallen toen we dit navroegen bij onze klasgenoten.
+Deze dag waren we beide begonnen aan het maken van de eigenlijke website. Ik had me meer gefocust op het maken en afmaken van het logboek (tot deze dag) en Youssef werkte knalhard door aan de website. Hij maakte een navbar, sidebar, registratiepagina en logo voor onze website. Er was ook veel veranderd aan de kleuren van onze website zodat deze altijd helder zijn en voor iedereen aangenaam om naar te kijken. Zo hebben we dus besloten voor oranje en donkerblauw als accentkleuren en lichtgrijs en grijs als onze primaire kleuren. Dit bleek ook andere veel te bevallen toen we dit navroegen bij onze klasgenoten.
 
 Gerelateerde links:
-[De niewe pagina, test.html](./Documentatie%20extras/test.html.png) |
+[De nieuwe pagina, test.html](./Documentatie%20extras/test.html.png) |
 [Voorlopige documentatie text (logboek)](./Documentatie%20extras/Voorlopige%20documenatie%20text.png) |
 [Voorlopige documentatie afbeeldingen (gebruikt in logboek)](./Documentatie%20extras/Voorlopige%20documentatie%20afbeeldingen.png)
 
@@ -98,13 +98,13 @@ Gerelateerde links:
 [Searchbar with animation](./Documentatie%20extras/Searchbar%20with%20animation.png) |
 [Variabelen in de CSS (worden op (bijna) elke website toegepast)](./Documentatie%20extras/Variabelen%20CSS.png) |
 [CSS tot nu toe](./Documentatie%20extras/CSS%20tot%20nu%20toe.png) |
-[Responsivness website](./Documentatie%20extras/Responsiveness.png)
+[Responsiveness website](./Documentatie%20extras/Responsiveness.png)
 
 ## 8 December
 
 1. Eigen bezigheid beide: Duplicate code vermijden
 
-Op deze dag hebben we een kleine tip gekregen, en dat was om te kijken naar de user en learning stories doordat er een specifieke story was om duplicate code zo veel mogelijk te vermijden. Dit heeft, jammer genoeg, bijna heel onze dag gekost. Wel hebben we het afgekregen en wordt de navbar geimporteerd met 1 lijn op elke pagina. Er is bewust gekozen om dit bij de sidebar niet te doen, door active links en andere bugs die de moeite eigenlijk niet waard waren.
+Op deze dag hebben we een kleine tip gekregen, en dat was om te kijken naar de user en learning stories doordat er een specifieke story was om duplicate code zo veel mogelijk te vermijden. Dit heeft, jammer genoeg, bijna heel onze dag gekost. Wel hebben we het afgekregen en wordt de navbar geïmporteerd met 1 lijn op elke pagina. Er is bewust gekozen om dit bij de sidebar niet te doen, door active links en andere bugs die de moeite eigenlijk niet waard waren.
 
 Gerelateerde links:
 [Navbar HTML](./Documentatie%20extras/Navbar%20HTML.png) |
@@ -126,7 +126,7 @@ Gerelateerde links:
 1. Eigen bezigheid Youssef: first/lastname zichtbaar bij inloggen in navbar
 2. Eigen bezigheid Borys: fixes, fixes, fixes + oude files salvage en verwijderen
 
-Op 13 December heb ik, samen met Gust, proberen om de sidebar samen te voegen met de navbar. Dit lukte origineel heel snel (met de nodige bugs erbij uiteraard) maar werd een probleem bij het niet displayen bij de login en registratiepagina's. Het was de bedoeling dat die daar dan niet wordt gedisplayed, maar dit bleek moeilijker dan gedacht. Tegen het einde van de dag werd dit idee dan toch gescrapt doordat ik nog active links wou en dit het alleen maar compliceren.
+Op 13 December heb ik, samen met Gust, proberen om de sidebar samen te voegen met de navbar. Dit lukte origineel heel snel (met de nodige bugs erbij uiteraard) maar werd een probleem bij het niet displayen bij de login en registratiepagina's. Het was de bedoeling dat die daar dan niet wordt gedisplayed, maar dit bleek moeilijker dan gedacht. Tegen het einde van de dag werd dit idee dan toch geschrapt doordat ik nog active links wou en dit het alleen maar compliceren.
 Youssef daarentegen wou zelf focussen op zijn eigen dingen en begon zo te werken aan de ingelogde gebruiker. Zo wou hij de login veranderen naar een logout knop en de user settings ook werkend te krijgen. Dit bleek moeilijker dan gedacht, maar het lukte wel om de volledige back-end te redesignen zodat het duidelijker is voor ons beide wat er aan de hand is. Ook is het gelukt om een de first/last name te displayen in de navbar als de gebruiker is ingelogd.
 
 Gerelateerde links:
@@ -150,11 +150,11 @@ Gerelateerde links:
 
 ## 18 December
 
-1. Eigen bezigheid Borys: Aanmaken niewe logo dat past bij nieuwe naam
+1. Eigen bezigheid Borys: Aanmaken nieuwe logo dat past bij nieuwe naam
 2. Teamwork: UML WIP + praatje over expertreview van dinsdag
 
 Vandaag had ik mezelf beziggehouden met het maken van een nieuw logo dat volledig is geanimeerd in CSS en HTML only. Dit logo is simpeler, origineel en heel leuk! De kleuren moeten nog worden getest door verschillende gebruikers zodat dit voor iedereen even leesbaar is en ook goed oogt.
-We hebben ook met ons tweeen samengezeten en ons beziggehouden met de UML in orde maken, zodat we deze kunnen gebruiken in ons expertreview van dinsdag. Ik snap dit zelf nog niet zo goed, maar Youssef is het meesterbrein achter de TypeScript dus hij kan het vast wel uitleggen aan mij.
+We hebben ook met ons tweeën samengezeten en ons beziggehouden met de UML in orde maken, zodat we deze kunnen gebruiken in ons expertreview van dinsdag. Ik snap dit zelf nog niet zo goed, maar Youssef is het meesterbrein achter de TypeScript dus hij kan het vast wel uitleggen aan mij.
 
 Gerelateerde links:
 [UML](./Documentatie%20extras/UML.png) |

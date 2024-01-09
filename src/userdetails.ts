@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Controleer of de gebruiker is ingelogd
     const loggedIn: number | null = session.get("user");
 
-    // Als niet ingelogd verwijzen naar de inlogpagina
+    // Als niet ingelogd dan verwijzen naar de inlogpagina
     if (!loggedIn) {
         window.location.href = "login.html";
         return;
@@ -37,28 +37,28 @@ document.addEventListener("DOMContentLoaded", async () => {
                         <span id="user-lastname">${user.lastname}</span>
                     </p>
                     <p>
-                        <button id="edit-name-btn">Naam Bewerken</button>
-                        <button id="delete-account-btn" style="background-color: red; color: white;">Account Verwijderen</button>
+                        <button id="edit-name-btn">Change Name</button>
+                        <button id="delete-account-btn" style="background-color: red; color: white;">Delete Account</button>
                     </p>
                     <div id="edit-fields" style="display:none;">
-                        <label for="new-firstname">Nieuwe Voornaam: </label>
+                        <label for="new-firstname">New firstname: </label>
                         <input type="text" id="new-firstname">
                         <br>
-                        <label for="new-lastname">Nieuwe Achternaam: </label>
+                        <label for="new-lastname">New lastname: </label>
                         <input type="text" id="new-lastname">
                         <br>
-                        <button id="save-changes">Wijzigingen Opslaan</button>
-                        <button id="cancel-edit">Annuleren</button>
+                        <button id="save-changes">Save changes</button>
+                        <button id="cancel-edit">Cancel changes</button>
                     </div>
                     <div id="deleteFail" style="display: none; color: red">
-                        Account verwijderen mislukt. Voer de juiste bevestigingstekst in.
+                    Failed to delete account. Please enter the correct confirmation text.
                     </div>
                     <div id="confirmation-modal" style="display:none;">
-                        <p>Type BEVESTIG VERWIJDEREN om dit proces te bevestigen:</p>
-                        <p><strong>Opmerking:</strong> Het verwijderen van uw account zal ook al uw berichten en antwoorden verwijderen.</p>
+                        <p>Type <span style="color:red;"> CONFIRM DELETE </span> to confirm this process</p>
+                        <p><strong>Note:</strong> Deleting your account will also remove all your messages and responses.</p>
                         <input type="text" id="confirmation-input">
-                        <button id="confirm-delete">Bevestig Verwijderen</button>
-                        <button id="cancel-delete">Annuleren</button>
+                        <button id="confirm-delete" style="background-color:red; color: white;">Confirm Delete</button>
+                        <button id="cancel-delete">Cancel</button>
                     </div>
                 `;
 
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                             const confirmationText: string = confirmationInput.value.trim();
 
                             // Als de bevestigingstekst correct is
-                            if (confirmationText === "BEVESTIG VERWIJDEREN") {
+                            if (confirmationText === "CONFIRM DELETE") {
                                 await deleteAccount(loggedIn);
                             } else {
                                 // Toon een foutmelding, wacht even en verberg dan de foutmelding
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
-// Functie om de gebruikersnaam bij te werken
+// Functie om de Naam bij te werken
 async function updateUserName(userId: number): Promise<void> {
     try {
         // Haal de nieuwe voornaam- en achternaamvelden op
@@ -169,23 +169,21 @@ async function updateUserName(userId: number): Promise<void> {
             const newFirstName: string = newFirstNameInput.value;
             const newLastName: string = newLastNameInput.value;
 
-            // Haal de gebruikersnaamelementen op
             const userFirstNameElement: HTMLElement | null = document.getElementById("user-firstname");
             const userLastNameElement: HTMLElement | null = document.getElementById("user-lastname");
 
             if (userFirstNameElement && userLastNameElement) {
-                // Werk de gebruikersnaam op de pagina bij
+                // Werk de naam op de pagina bij
                 userFirstNameElement.textContent = newFirstName;
                 userLastNameElement.textContent = newLastName;
             }
 
-            // Log de bijgewerkte gegevens
-            console.log("Gebruiker bijwerken met de volgende waarden:");
-            console.log(newFirstName);
-            console.log(newLastName);
-            console.log(userId);
+            // // Log de bijgewerkte gegevens
+            // console.log("Gebruiker bijwerken met de volgende waarden:");
+            // console.log(newFirstName);
+            // console.log(newLastName);
+            // console.log(userId);
 
-            // Voer een databasequery uit om de gebruikersnaam bij te werken
             await api.queryDatabase(
                 "UPDATE user2 SET firstname = ?, lastname = ? WHERE id = ?;",
                 newFirstName,
@@ -193,8 +191,7 @@ async function updateUserName(userId: number): Promise<void> {
                 userId
             );
 
-            // Log dat de gebruikersnaam succesvol is bijgewerkt
-            console.log("Gebruikersnaam succesvol bijgewerkt.");
+            console.log("Name succesfully changed.");
 
             // Verberg bewerkingsvelden
             const editFields: HTMLElement | null = document.getElementById("edit-fields");
@@ -203,8 +200,7 @@ async function updateUserName(userId: number): Promise<void> {
             }
         }
     } catch (error) {
-        // Log dat het bijwerken van de gebruikersnaam is mislukt
-        console.error("Kon de gebruikersnaam niet bijwerken:", error);
+        console.error("Could not change name:", error);
     }
 }
 
@@ -212,7 +208,7 @@ async function updateUserName(userId: number): Promise<void> {
 async function deleteAccount(userId: number): Promise<void> {
     try {
         // Toon een bericht dat het account succesvol is verwijderd
-        showMessage("Account succesvol verwijderd.", "green");
+        showMessage("Account succesfully deleted", "green");
 
         // Voer een databasequery uit om het account te verwijderen
         await api.queryDatabase("DELETE FROM user2 WHERE id = ?;", userId);
@@ -225,7 +221,7 @@ async function deleteAccount(userId: number): Promise<void> {
         window.location.href = "index.html";
     } catch (error) {
         // Log dat het verwijderen van het account is mislukt
-        console.error("Kon het account niet verwijderen:", error);
+        console.error("Could not delete account:", error);
     }
 }
 

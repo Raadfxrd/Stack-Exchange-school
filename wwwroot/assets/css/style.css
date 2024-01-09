@@ -21,6 +21,7 @@ body {
 
 .alert {
     display: none;
+    color: red;
 }
 
 h1 {
