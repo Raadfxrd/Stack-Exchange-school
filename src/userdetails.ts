@@ -1,12 +1,12 @@
 import "./config";
 import { session, api } from "@hboictcloud/api";
 
+const loggedIn: number | null = session.get("user");
+
 
 // Voer code uit wanneer de DOM geladen is
 document.addEventListener("DOMContentLoaded", async () => {
     // Controleer of de gebruiker is ingelogd
-    const loggedIn: number | null = session.get("user");
-
     // Als niet ingelogd dan verwijzen naar de inlogpagina
     if (!loggedIn) {
         window.location.href = "login.html";
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Maak een berichtcontainer om berichten aan gebruiker weer te geven
     const messageContainer: HTMLDivElement = document.createElement("div");
     messageContainer.id = "message-container";
-    document.body.appendChild(messageContainer);
+    
 
     try {
         // Haal gebruikersgegevens uit de database
@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Haal gebruikersinformatie op
             const user: { firstname: string; lastname: string } = data[0];
             const userInfoElement: HTMLElement | null = document.getElementById("user-info");
+
 
             if (userInfoElement) {
                 // Toon gebruikersinformatie op de pagina
@@ -46,19 +47,23 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <p>
                         <button id="edit-password-btn">Change Password</button>
                     </p>
-                    <div id="password-fields" style="display:none;">
-                        <label for="current-password">Current Password: </label>
-                        <input type="password" id="current-password">
-                        <br>
-                        <label for="new-password">New Password: </label>
-                        <input type="password" id="new-password">
-                        <br>
-                        <label for="confirm-new-password">Confirm New Password: </label>
-                        <input type="password" id="confirm-new-password">
-                        <br>
-                        <button id="save-password">Save Password</button>
-                        <button id="cancel-password">Cancel</button>
-                    </div>
+                    <div id="password-fields" style="display: none;flex-wrap: wrap;justify-content: end;">
+                    <label for="current-password" style="flex-grow: 1;">Current Password: </label>
+                    <input type="text" id="current-password">
+                    <br>
+                    <label for="new-password" style="flex-grow: 1";>New Password: </label>
+                    <input type="text" id="new-password">
+                    <br>
+                    <label for="confirm-new-password" style="flex-grow: 1;">Confirm New Password: </label>
+                    <input type="text" id="confirm-new-password">
+                    <br>
+                    <div id="password-fail" style="display: none; color: red"> Failed to change password. Please check your current password.</div>
+                    <div id="passwordMatch-error" style="display: none; color: red; flex-grow: 1"> New password and confirmation do not match</div>
+                    <div id="passwordSucces" style="display: none; color: green; flex-grow: 1">Password successfully changed</div>
+                    
+                    <button id="save-password">Save Password</button>
+                    <button id="cancel-password">Cancel</button>
+                </div>
                     <div id="edit-fields" style="display:none;">
                         <label for="new-firstname">New firstname: </label>
                         <input type="text" id="new-firstname">
@@ -86,6 +91,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const editFields: HTMLElement | null = document.getElementById("edit-fields");
                 const editPasswordBtn: HTMLElement = document.getElementById("edit-password-btn") as HTMLElement;
                 const passwordFields: HTMLElement | null = document.getElementById("password-fields");
+
+                userInfoElement!.appendChild(messageContainer);
 
 
                 if (editNameBtn && deleteAccountBtn) {
@@ -116,7 +123,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                     if (editPasswordBtn && passwordFields) {
                         editPasswordBtn.addEventListener("click", () => {
-                            passwordFields.style.display = "block";
+                            passwordFields.style.display = "flex";
                             editNameBtn.style.display = "none";
                             editPasswordBtn.style.display = "none";
                             deleteAccountBtn.style.display = "none";
@@ -129,7 +136,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                             savePasswordBtn.addEventListener("click", async () => {
                                 // Validate and update the password
                                 await updatePassword(loggedIn);
-                                window.location.reload();
+                                await new Promise((resolve) => setTimeout(resolve, 500));
                             });
 
                             cancelPasswordBtn.addEventListener("click", () => {
@@ -287,31 +294,65 @@ async function updatePassword(userId: number): Promise<void> {
         const currentPasswordInput: HTMLInputElement | null = document.getElementById("current-password") as HTMLInputElement;
         const newPasswordInput: HTMLInputElement | null = document.getElementById("new-password") as HTMLInputElement;
         const confirmNewPasswordInput: HTMLInputElement | null = document.getElementById("confirm-new-password") as HTMLInputElement;
+        const confirmError: HTMLInputElement | null = document.getElementById("passwordMatch-error") as HTMLInputElement;
+        const passwordError: HTMLInputElement | null = document.getElementById("password-fail") as HTMLInputElement;
+        const passwordSucces: HTMLInputElement | null = document.getElementById("passwordSucces") as HTMLInputElement;
 
         if (currentPasswordInput && newPasswordInput && confirmNewPasswordInput) {
-            const currentPassword: string = currentPasswordInput.value;
-            const newPassword: string = newPasswordInput.value;
-            const confirmNewPassword: string = confirmNewPasswordInput.value;
-
+            const currentPassword: string = currentPasswordInput.value.trim();
+            const newPassword: string = newPasswordInput.value.trim();
+            const confirmNewPassword: string = confirmNewPasswordInput.value.trim();
+            console.log(currentPassword + newPassword);
+            console.log(newPassword !== confirmNewPassword);
+            let b1:boolean= true;
+            
             if (newPassword !== confirmNewPassword) {
-                showMessage("New password and confirmation do not match", "red");
-                return;
-            }
+                confirmError.style.display = "block";
+                passwordError.style.display = "none";
+                b1=false;
+                setTimeout(()=>{
+                    confirmError.style.display = "none";
+                    return;
+                }, 4000);
+               
+            }else {
+                const result:string[]|any= await api.queryDatabase("SELECT password FROM user2 WHERE id=? AND password = ?;", loggedIn, currentPassword );
+                console.log(result);
+                if(!result[0]){
+                    passwordError.style.display = "block";
+                    confirmError.style.display = "none";
+                    b1=false;
+                    console.log("zie je dit");
+                
+                    setTimeout(()=>{
+                        passwordError.style.display = "none";
+                        return;
+                    }, 4000);
+                }
 
-            await api.queryDatabase(
+            }
+              
+                
+            if(b1) passwordSucces.style.display = "block";
+            setTimeout(()=>{
+                if(b1) passwordSucces.style.display = "none";
+            }, 650);
+            if(b1) {await api.queryDatabase(
                 "UPDATE user2 SET password = ? WHERE id = ? AND password = ?;",
                 newPassword,
                 userId,
                 currentPassword
             );
+            setTimeout(()=>{
+                window.location.reload();
+            }, 800);
 
-            showMessage("Password successfully changed", "green");
+            }
 
             passwordFields!.style.display = "none";
         }
     } catch (error) {
         console.error("Could not change password:", error);
-        showMessage("Failed to change password. Please check your current password.", "red");
     }
 }
 
