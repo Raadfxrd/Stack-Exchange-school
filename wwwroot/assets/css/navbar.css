@@ -59,6 +59,7 @@ nav a.button:hover {
     flex-direction: row-reverse;
     align-items: center;
 }
+
 .navflex {
     display: flex;
     justify-content: space-between;
