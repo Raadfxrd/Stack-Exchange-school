@@ -1,6 +1,7 @@
 import "./config";
 import { session, api } from "@hboictcloud/api";
 
+
 // Voer code uit wanneer de DOM geladen is
 document.addEventListener("DOMContentLoaded", async () => {
     // Controleer of de gebruiker is ingelogd
@@ -38,8 +39,26 @@ document.addEventListener("DOMContentLoaded", async () => {
                     </p>
                     <p>
                         <button id="edit-name-btn">Change Name</button>
+                    </p>
+                    <p>
                         <button id="delete-account-btn" style="background-color: red; color: white;">Delete Account</button>
                     </p>
+                    <p>
+                        <button id="edit-password-btn">Change Password</button>
+                    </p>
+                    <div id="password-fields" style="display:none;">
+                        <label for="current-password">Current Password: </label>
+                        <input type="password" id="current-password">
+                        <br>
+                        <label for="new-password">New Password: </label>
+                        <input type="password" id="new-password">
+                        <br>
+                        <label for="confirm-new-password">Confirm New Password: </label>
+                        <input type="password" id="confirm-new-password">
+                        <br>
+                        <button id="save-password">Save Password</button>
+                        <button id="cancel-password">Cancel</button>
+                    </div>
                     <div id="edit-fields" style="display:none;">
                         <label for="new-firstname">New firstname: </label>
                         <input type="text" id="new-firstname">
@@ -61,11 +80,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                         <button id="cancel-delete">Cancel</button>
                     </div>
                 `;
-
                 const editNameBtn: HTMLElement | null = document.getElementById("edit-name-btn");
                 const deleteAccountBtn: HTMLElement | null = document.getElementById("delete-account-btn");
                 const confirmationModal: HTMLElement | null = document.getElementById("confirmation-modal");
                 const editFields: HTMLElement | null = document.getElementById("edit-fields");
+                const editPasswordBtn: HTMLElement = document.getElementById("edit-password-btn") as HTMLElement;
+                const passwordFields: HTMLElement | null = document.getElementById("password-fields");
+
 
                 if (editNameBtn && deleteAccountBtn) {
                     // Voeg een eventlistener toe aan de editname knop
@@ -75,6 +96,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                             editFields.style.display = "block";
                             editNameBtn.style.display = "none";
                             deleteAccountBtn.style.display = "none";
+                            editPasswordBtn.style.display = "none";
                         }
                     });
 
@@ -85,9 +107,39 @@ document.addEventListener("DOMContentLoaded", async () => {
                             confirmationModal.style.display = "block";
                             editNameBtn.style.display = "none";
                             deleteAccountBtn.style.display = "none";
+                            editPasswordBtn.style.display = "none";
                         }
                     });
 
+
+                    
+
+                    if (editPasswordBtn && passwordFields) {
+                        editPasswordBtn.addEventListener("click", () => {
+                            passwordFields.style.display = "block";
+                            editNameBtn.style.display = "none";
+                            editPasswordBtn.style.display = "none";
+                            deleteAccountBtn.style.display = "none";
+                        });
+
+                        const savePasswordBtn: HTMLElement | null = document.getElementById("save-password");
+                        const cancelPasswordBtn: HTMLElement | null = document.getElementById("cancel-password");
+
+                        if (savePasswordBtn && cancelPasswordBtn) {
+                            savePasswordBtn.addEventListener("click", async () => {
+                                // Validate and update the password
+                                await updatePassword(loggedIn);
+                                window.location.reload();
+                            });
+
+                            cancelPasswordBtn.addEventListener("click", () => {
+                                passwordFields.style.display = "none";
+                                deleteAccountBtn.style.display = "block";
+                                editNameBtn.style.display = "block";
+                                editPasswordBtn.style.display = "block";
+                            });
+                        }
+                    }
                     // Haal de knoppen voor opslaan, bevestigen en annuleren op
                     const saveChangesBtn: HTMLElement | null = document.getElementById("save-changes");
                     const cancelEditBtn: HTMLElement | null = document.getElementById("cancel-edit");
@@ -111,6 +163,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                                 editFields.style.display = "none";
                                 deleteAccountBtn.style.display = "block";
                                 editNameBtn.style.display = "block";
+                                editPasswordBtn.style.display = "block";
                             }
                         });
                         const confirmationInput: HTMLInputElement | null = document.getElementById(
@@ -135,6 +188,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                             confirmationModal!.style.display = "block";
                             editNameBtn.style.display = "none";
                             deleteAccountBtn.style.display = "none";
+                            editPasswordBtn.style.display = "none";
                         });
 
                         // Voeg een eventlistener toe aan de annuleren-knop voor verwijderen
@@ -143,6 +197,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                             confirmationModal!.style.display = "none";
                             editNameBtn.style.display = "block";
                             deleteAccountBtn.style.display = "block";
+                            editPasswordBtn.style.display = "block";
                         });
                     }
                 }
@@ -224,6 +279,43 @@ async function deleteAccount(userId: number): Promise<void> {
         console.error("Could not delete account:", error);
     }
 }
+
+const passwordFields: HTMLElement | null = document.getElementById("password-fields");
+
+async function updatePassword(userId: number): Promise<void> {
+    try {
+        const currentPasswordInput: HTMLInputElement | null = document.getElementById("current-password") as HTMLInputElement;
+        const newPasswordInput: HTMLInputElement | null = document.getElementById("new-password") as HTMLInputElement;
+        const confirmNewPasswordInput: HTMLInputElement | null = document.getElementById("confirm-new-password") as HTMLInputElement;
+
+        if (currentPasswordInput && newPasswordInput && confirmNewPasswordInput) {
+            const currentPassword: string = currentPasswordInput.value;
+            const newPassword: string = newPasswordInput.value;
+            const confirmNewPassword: string = confirmNewPasswordInput.value;
+
+            if (newPassword !== confirmNewPassword) {
+                showMessage("New password and confirmation do not match", "red");
+                return;
+            }
+
+            await api.queryDatabase(
+                "UPDATE user2 SET password = ? WHERE id = ? AND password = ?;",
+                newPassword,
+                userId,
+                currentPassword
+            );
+
+            showMessage("Password successfully changed", "green");
+
+            passwordFields!.style.display = "none";
+        }
+    } catch (error) {
+        console.error("Could not change password:", error);
+        showMessage("Failed to change password. Please check your current password.", "red");
+    }
+}
+
+
 
 // Functie om een bericht weer te geven in een berichtcontainer
 function showMessage(message: string, color: string): void {
