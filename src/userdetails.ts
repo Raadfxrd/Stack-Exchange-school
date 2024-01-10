@@ -191,7 +191,7 @@ async function updateUserName(userId: number): Promise<void> {
                 userId
             );
 
-            console.log("Name succesfully changed.");
+            console.log("Name successfully changed.");
 
             // Verberg bewerkingsvelden
             const editFields: HTMLElement | null = document.getElementById("edit-fields");
@@ -208,7 +208,7 @@ async function updateUserName(userId: number): Promise<void> {
 async function deleteAccount(userId: number): Promise<void> {
     try {
         // Toon een bericht dat het account succesvol is verwijderd
-        showMessage("Account succesfully deleted", "green");
+        showMessage("Account successfully deleted", "green");
 
         // Voer een databasequery uit om het account te verwijderen
         await api.queryDatabase("DELETE FROM user2 WHERE id = ?;", userId);
