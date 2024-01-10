@@ -25,7 +25,7 @@ function setup(): void {
                 // Stuur de gebruiker door naar de homepagina
                 url.redirect("index.html");
             } else {
-                // Als de gebruiker niet bestaat, geef melding aan gebruiker door in de css (bootstrap) de display op block te zetten
+                // Als de gebruiker niet bestaat, geef melding aan gebruiker door in de css de display op block te zetten
                 document.getElementsByClassName("alert-danger")[0].setAttribute("style", "display: block");
 
                 // Maak de inputvelden weer leeg
