@@ -43,7 +43,7 @@ function setup(): void {
  *
  * @param username
  * @param password
- * @returns Array with the user data
+ * @returns
  */
 async function loginFromDatabase(username: string, password: string): Promise<Array<any> | undefined> {
     // proberen de data op te halen uit de database

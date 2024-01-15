@@ -13,29 +13,35 @@
             <div class="newquestioncontent">
                 <h1 class="maintitle">Start writing down your ideas...<br /></h1>
                 <div class="newquestion-container">
-                    <div class="title">
-                        <h2>Title</h2>
-                        <textarea
-                            id="title"
-                            name="title"
-                            placeholder="e.g. How could I fix: JavaScript error (Uncaught SyntaxError: Unexpected end of input)?"
-                        ></textarea>
-                    </div>
-                    <div class="description">
-                        <h2>Description</h2>
-                        <textarea
-                            id="description"
-                            name="description"
-                            placeholder="The description of your problem...
-
+                    <form id="questionForm" action="submit_question.php" method="POST">
+                        <div class="title">
+                            <h2>Title</h2>
+                            <textarea
+                                id="title"
+                                name="title"
+                                placeholder="e.g. How could I fix: JavaScript error (Uncaught SyntaxError: Unexpected end of input)?"
+                            ></textarea>
+                        </div>
+                        <div class="description">
+                            <h2>Description</h2>
+                            <textarea
+                                id="description"
+                                name="description"
+                                placeholder="The description of your problem...
+                    
 Try to give an as detailed explanation as possible"
-                        ></textarea>
-                    </div>
-                    <div class="tags">
-                        <h2>Tags</h2>
-                        <textarea id="tags" name="tags" placeholder="e.g. (JavaScript, SE, HTML)"></textarea>
-                    </div>
-                    <a href="index.html" class="button question-submit">Submit question</a>
+                            ></textarea>
+                        </div>
+                        <div class="tags">
+                            <h2>Tags</h2>
+                            <textarea
+                                id="tags"
+                                name="tags"
+                                placeholder="e.g. (JavaScript, SE, HTML)"
+                            ></textarea>
+                        </div>
+                        <button type="submit" class="button question-submit">Submit question</button>
+                    </form>
                 </div>
             </div>
         </div>
