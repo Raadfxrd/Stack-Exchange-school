@@ -42,10 +42,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                         <button id="edit-name-btn">Change Name</button>
                     </p>
                     <p>
-                        <button id="delete-account-btn" style="background-color: red; color: white;">Delete Account</button>
+                        <button id="edit-password-btn">Change Password</button>
                     </p>
                     <p>
-                        <button id="edit-password-btn">Change Password</button>
+                        <button id="delete-account-btn" style="background-color: red; color: white;">Delete Account</button>
                     </p>
                     <div id="password-fields" style="display: none;flex-wrap: wrap;justify-content: end;">
                     <label for="current-password" style="flex-grow: 1;">Current Password: </label>
