@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="./assets/css/style.css" />
         <link rel="stylesheet" href="./assets/css/sidebar.css" />
         <script src="../src/navbar.ts" type="module" defer></script>
+        <script src="../src/getquestion.ts" type="module" defer></script>
     </head>
     <body>
         <div id="navbar-container"></div>
@@ -29,9 +30,9 @@
                         </div>
                     </form>
                 </div>
-                <!-- <div class="question-container">
-                    <div class="questions"></div>
-                </div> -->
+                <div id="questions-container">
+                    <div id="question-list"></div>
+                </div>
             </div>
             <a href="newquestion.html" class="button question-ask" title="Ask a question">New question</a>
         </div>

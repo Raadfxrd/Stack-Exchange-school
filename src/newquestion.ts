@@ -27,18 +27,15 @@ document.addEventListener("DOMContentLoaded", async () => {
             const descriptionInput: HTMLTextAreaElement | null = document.getElementById(
                 "description"
             ) as HTMLTextAreaElement;
-            const tagsInput: HTMLTextAreaElement | null = document.getElementById(
-                "tags"
-            ) as HTMLTextAreaElement;
 
             // Controleer of alle vereiste invoervelden beschikbaar zijn
-            if (!titleInput || !descriptionInput || !tagsInput) {
+            if (!titleInput || !descriptionInput) {
                 console.error("Fout: Ontbrekende vereiste elementen");
                 return;
             }
 
             // Valideer of alle velden zijn ingevuld
-            if (!titleInput.value || !descriptionInput.value || !tagsInput.value) {
+            if (!titleInput.value || !descriptionInput.value) {
                 console.error("Fout: Alle velden moeten zijn ingevuld");
                 return;
             }
@@ -47,10 +44,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 // Ga verder met de rest van de code voor het indienen van een nieuwe vraag...
                 const userId: number = loggedIn; // Ga ervan uit dat de gebruikers-ID beschikbaar is voor ingelogde gebruikers
                 await api.queryDatabase(
-                    "INSERT INTO questions (title, description, tags, userId) VALUES (?, ?, ?, ?)",
+                    "INSERT INTO questions (title, description, userId) VALUES (?, ?, ?)",
                     titleInput.value,
                     descriptionInput.value,
-                    tagsInput.value,
                     userId
                 );
 
