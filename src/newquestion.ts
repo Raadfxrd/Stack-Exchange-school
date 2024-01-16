@@ -27,6 +27,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             const descriptionInput: HTMLTextAreaElement | null = document.getElementById(
                 "description"
             ) as HTMLTextAreaElement;
+            const codeInput: HTMLTextAreaElement | null = document.getElementById(
+                "code"
+            ) as HTMLTextAreaElement;
 
             // Controleer of alle vereiste invoervelden beschikbaar zijn
             if (!titleInput || !descriptionInput) {
@@ -44,9 +47,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 // Ga verder met de rest van de code voor het indienen van een nieuwe vraag...
                 const userId: number = loggedIn; // Ga ervan uit dat de gebruikers-ID beschikbaar is voor ingelogde gebruikers
                 await api.queryDatabase(
-                    "INSERT INTO questions (title, description, userId) VALUES (?, ?, ?)",
+                    "INSERT INTO questions (title, description, code, userId) VALUES (?, ?, ?, ?)",
                     titleInput.value,
                     descriptionInput.value,
+                    codeInput.value,
                     userId
                 );
 

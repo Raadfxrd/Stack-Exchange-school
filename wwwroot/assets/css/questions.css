@@ -31,6 +31,13 @@
     padding-bottom: 20px;
 }
 
+#questioncode {
+    background-color: #c4c4c4;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
 #questiondate {
     display: flex;
     justify-content: flex-end;

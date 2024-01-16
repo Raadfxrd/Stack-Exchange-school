@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="./assets/css/navbar.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
         <link rel="stylesheet" href="./assets/css/newquestion.css" />
+        <link rel="stylesheet" href="./assets/css/questions.css" />
     </head>
     <body>
         <div id="navbar-container"></div>
@@ -33,6 +34,10 @@
 Try to give an as detailed explanation as possible"
                             ></textarea>
                         </div>
+                        <div class="code">
+                            <h2>Code snippet</h2>
+                            <textarea id="code" name="code"></textarea>
+                        </div>
                         <div class="tags">
                             <h2>Tags</h2>
                             <textarea
@@ -47,7 +52,7 @@ Try to give an as detailed explanation as possible"
             </div>
         </div>
         <script src="../src/navbar.ts" type="module" defer></script>
-        <!-- <script type="module" src="../src/newquestion.ts" defer></script> -->
+        <script type="module" src="../src/newquestion.ts" defer></script>
         <script type="module" src="../src/tags.ts" defer></script>
     </body>
 </html>

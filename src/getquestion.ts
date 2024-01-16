@@ -4,7 +4,7 @@ import { api, utils } from "@hboictcloud/api";
 async function getQuestions(): Promise<void> {
     try {
         const result: any = await api.queryDatabase(
-            "SELECT questions.title, questions.description, questions.created_at, user2.firstname, user2.lastname FROM questions INNER JOIN user2 ON questions.userId=user2.id ORDER BY created_at DESC"
+            "SELECT questions.title, questions.description, questions.created_at, questions.code, user2.firstname, user2.lastname FROM questions INNER JOIN user2 ON questions.userId=user2.id ORDER BY created_at DESC"
         );
         if (!result) {
             return;
@@ -20,16 +20,20 @@ async function getQuestions(): Promise<void> {
                 const description: HTMLDivElement = questionHTML.querySelector(
                     "#questiondescription"
                 ) as HTMLDivElement;
+                const code: HTMLDivElement = questionHTML.querySelector("#questioncode") as HTMLDivElement;
                 const date: HTMLDivElement = questionHTML.querySelector("#questiondate") as HTMLDivElement;
                 const fullname: HTMLDivElement = questionHTML.querySelector(
                     "#questionfullname"
                 ) as HTMLDivElement;
                 const converteddate: Date = new Date(question.created_at);
-                const datestring: string = `${converteddate.toDateString()} |  ${converteddate.getHours()}:${converteddate.getMinutes()}:${converteddate.getSeconds()}`;
+                const datestring: string = `${converteddate.toDateString()} |  ${
+                    converteddate.getHours() - 1
+                }:${converteddate.getMinutes()}:${converteddate.getSeconds()}`;
 
                 title.innerText = question.title;
                 date.innerText = datestring;
                 description.innerText = question.description;
+                code.innerText = question.code;
                 fullname.innerText = question.firstname + " " + question.lastname;
 
                 questionList.appendChild(questionHTML);
