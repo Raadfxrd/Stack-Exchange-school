@@ -16,12 +16,14 @@ async function getQuestions(): Promise<void> {
                 const questionHTML: HTMLDivElement = (
                     await utils.fetchAndParseHtml("/assets/html/question.html")
                 )[0] as HTMLDivElement;
-                const title: HTMLDivElement = questionHTML.querySelector("#title") as HTMLDivElement;
+                const title: HTMLDivElement = questionHTML.querySelector("#questiontitle") as HTMLDivElement;
                 const description: HTMLDivElement = questionHTML.querySelector(
-                    "#description"
+                    "#questiondescription"
                 ) as HTMLDivElement;
-                const date: HTMLDivElement = questionHTML.querySelector("#date") as HTMLDivElement;
-                const fullname: HTMLDivElement = questionHTML.querySelector("#fullname") as HTMLDivElement;
+                const date: HTMLDivElement = questionHTML.querySelector("#questiondate") as HTMLDivElement;
+                const fullname: HTMLDivElement = questionHTML.querySelector(
+                    "#questionfullname"
+                ) as HTMLDivElement;
                 const converteddate: Date = new Date(question.created_at);
                 const datestring: string = `${converteddate.toDateString()} |  ${converteddate.getHours()}:${converteddate.getMinutes()}:${converteddate.getSeconds()}`;
 
