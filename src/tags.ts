@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const submitButton: HTMLButtonElement | null = document.querySelector(".question-submit");
 
-    // Voert code uit wanneer er op de submit knop is geklikt 
+    // Voert code uit wanneer er op de submit knop is geklikt
     if (submitButton) {
         submitButton.addEventListener("click", async (ev: MouseEvent) => {
             ev.preventDefault();
@@ -28,17 +28,19 @@ document.addEventListener("DOMContentLoaded", async () => {
             const codeInput: HTMLTextAreaElement | null = document.getElementById(
                 "code"
             ) as HTMLTextAreaElement;
-                
+
             // Checkt of alle velden zijn ingevuld
             if (!titleInput?.value || !descriptionInput?.value || !tagsInput?.value) {
                 console.error("Fout: Alle velden moeten zijn ingevuld");
                 return;
             }
 
+            const codeValue: string = codeInput?.value.trim() || "None";
+
             try {
                 const userId: number = loggedIn;
                 // Split de tags op komma's en haal witruimtes weg (door te trimmen)
-                const tags: string[] = tagsInput.value.split(",").map(tag => tag.trim());
+                const tags: string[] = tagsInput.value.split(",").map((tag) => tag.trim());
 
                 // Zet alle tags in de tag tabel (alleen als de tags nog niet bestaan)
                 const tagIds: number[] = [];
@@ -62,12 +64,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                     }
                 }
 
-                // Zet de vraag in de quetions tabel
+                // Zet de vraag in de questions tabel
                 const result: any = await api.queryDatabase(
                     "INSERT INTO questions (title, description, code, userId) VALUES (?, ?, ?, ?)",
                     titleInput.value,
                     descriptionInput.value,
-                    codeInput.value,
+                    codeValue,
                     userId
                 );
 

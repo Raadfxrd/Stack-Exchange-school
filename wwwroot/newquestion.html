@@ -15,7 +15,7 @@
             <div class="newquestioncontent">
                 <h1 class="maintitle">Start writing down your ideas...<br /></h1>
                 <div class="newquestion-container">
-                    <form id="questionForm" action="submit_question.php" method="POST">
+                    <form id="questionForm">
                         <div class="title">
                             <h2>Title</h2>
                             <textarea
@@ -36,7 +36,11 @@ Try to give an as detailed explanation as possible"
                         </div>
                         <div class="code">
                             <h2>Code snippet</h2>
-                            <textarea id="code" name="code"></textarea>
+                            <textarea
+                                id="code"
+                                name="code"
+                                placeholder="Enter a fragment of code to explain further."
+                            ></textarea>
                         </div>
                         <div class="tags">
                             <h2>Tags</h2>
@@ -52,7 +56,6 @@ Try to give an as detailed explanation as possible"
             </div>
         </div>
         <script src="../src/navbar.ts" type="module" defer></script>
-        <!-- <script type="module" src="../src/newquestion.ts" defer></script> -->
         <script type="module" src="../src/tags.ts" defer></script>
     </body>
 </html>
