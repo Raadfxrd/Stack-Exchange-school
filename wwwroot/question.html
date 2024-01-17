@@ -8,17 +8,25 @@
         <link rel="stylesheet" href="./assets/css/style.css" />
         <link rel="stylesheet" href="./assets/css/sidebar.css" />
         <link rel="stylesheet" href="./assets/css/questions.css" />
+        <link rel="stylesheet" href="./assets/css/questioninspect.css" />
         <script src="../src/getquestion.ts" type="module" defer></script>
     </head>
     <body>
         <div id="navbar-container"></div>
         <div class="container">
-            <div class="question-details">
-                <h1 class="maintitle" id="question-title"></h1>
-                <div id="question-description"></div>
-                <div id="question-code"></div>
-                <div id="question-date"></div>
-                <div id="question-fullname"></div>
+            <div class="sidebar">
+                <a href="recent-questions.html">Recent Questions</a>
+                <a href="top-questions.html">Top Questions</a>
+                <a href="about.html">About us</a>
+            </div>
+            <div class="content">
+                <div class="question-details">
+                    <h1 id="question-title"></h1>
+                    <div id="question-description"></div>
+                    <div id="question-code"></div>
+                    <div id="question-date"></div>
+                    <div id="question-fullname"></div>
+                </div>
             </div>
         </div>
         <script src="../src/navbar.ts" type="module" defer></script>
