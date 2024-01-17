@@ -11,8 +11,15 @@
 }
 
 #comments-list {
+    font-size: 14px;
     margin: 0px;
     margin-bottom: 40px;
+}
+
+#addcomment {
+    margin-bottom: 10px;
+    font: var(--font);
+    font-size: 18px;
 }
 
 #comment {
@@ -25,6 +32,7 @@
 }
 
 .commentsubmit {
+    font-size: 14px;
     font-family: var(--font);
     background-color: var(--btn-color-dark);
     border: none;
@@ -53,5 +61,5 @@
 #comment-info {
     display: flex;
     justify-content: space-between;
-    font-size: 12px;
+    font-size: 14px;
 }

@@ -16,12 +16,14 @@
 }
 
 #question-description {
+    font-size: 14px;
     display: flex;
     justify-content: flex-start;
     padding-bottom: 40px;
 }
 
 #question-code {
+    font-size: 14px;
     background-color: #c4c4c4;
     padding: 10px;
     border-radius: 10px;
@@ -29,11 +31,13 @@
 }
 
 #question-date {
+    font-size: 14px;
     display: flex;
     justify-content: flex-end;
 }
 
 #question-fullname {
+    font-size: 14px;
     display: flex;
     justify-content: flex-end;
     margin-bottom: 40px;
