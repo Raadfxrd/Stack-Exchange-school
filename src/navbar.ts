@@ -35,7 +35,6 @@ if (loggedIn) {
                 registerBtn.textContent = data[0].firstname + " " + data[0].lastname;
                 registerBtn.setAttribute("href", userDetailsPage);
             }
-            console.log(data[0].firstname + " " + data[0].lastname);
 
             if (userNameLink) {
                 userNameLink.setAttribute("href", userDetailsPage);
@@ -47,8 +46,6 @@ if (loggedIn) {
             }
         } catch (error) {
             console.log(error);
-
-            // als het niet lukt de data op te halen, geef een lege array terug
         }
     }
 }

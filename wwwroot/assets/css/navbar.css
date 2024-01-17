@@ -6,7 +6,7 @@ body {
 
 nav {
     top: 0;
-    background-color: var(--sidebar-color);
+    background-color: var(--sidebar-color-dark);
     overflow: hidden;
     position: fixed;
     width: 100%;
@@ -45,7 +45,6 @@ nav a.button {
 
 nav a.button:hover {
     background-color: var(--btn-color-hover-dark);
-    color: white;
 }
 
 .flex-left {
@@ -133,7 +132,7 @@ h3 {
 }
 
 .logodescription {
-    font-size: 9px;
+    font-size: 8px;
     margin: 0;
 }
 

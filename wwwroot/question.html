@@ -9,7 +9,10 @@
         <link rel="stylesheet" href="./assets/css/sidebar.css" />
         <link rel="stylesheet" href="./assets/css/questions.css" />
         <link rel="stylesheet" href="./assets/css/questioninspect.css" />
+        <link rel="stylesheet" href="./assets/css/comments.css" />
         <script src="../src/getquestion.ts" type="module" defer></script>
+        <script src="../src/comment.ts" type="module" defer></script>
+        <script src="../src/darkmode.ts" type="module" defer></script>
     </head>
     <body>
         <div id="navbar-container"></div>
@@ -26,6 +29,16 @@
                     <div id="question-code"></div>
                     <div id="question-date"></div>
                     <div id="question-fullname"></div>
+
+                    <div id="comments-section">
+                        <h2 id="commenttitle">Comments</h2>
+                        <ul id="comments-list"></ul>
+                        <form id="commentForm">
+                            <label for="comment">Add a Comment:</label>
+                            <textarea id="comment" rows="4"></textarea>
+                            <button type="submit" class="button commentsubmit">Submit Comment</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

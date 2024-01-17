@@ -22,17 +22,14 @@ async function getQuestions(): Promise<void> {
         for (let i: number = 0; i < result.length; i++) {
             const question: any = result[i];
 
-            // Create a clickable link for each question
             const questionLink: HTMLAnchorElement = document.createElement("a");
-            questionLink.href = `/question.html?id=${question.questionId}`; // Add the question ID to the URL
+            questionLink.href = `/question.html?id=${question.questionId}`;
             questionLink.classList.add("question-link");
 
-            // Use the question template
             const questionHTML: HTMLDivElement = (
                 await utils.fetchAndParseHtml("/assets/html/questiontemplate.html")
             )[0] as HTMLDivElement;
 
-            // Populate question details
             const title: HTMLDivElement = questionHTML.querySelector("#questiontitle") as HTMLDivElement;
             const description: HTMLDivElement = questionHTML.querySelector(
                 "#questiondescription"
@@ -54,10 +51,8 @@ async function getQuestions(): Promise<void> {
             code.innerText = question.code;
             fullname.innerText = question.firstname + " " + question.lastname;
 
-            // Append the question to the link
             questionLink.appendChild(questionHTML);
 
-            // Append the link to the question list
             questionList.appendChild(questionLink);
         }
     } catch (error) {
@@ -65,14 +60,11 @@ async function getQuestions(): Promise<void> {
     }
 }
 
-// Function to fetch and display details of a specific question
 async function getQuestionDetails(): Promise<void> {
     try {
-        // Extract question ID from the URL
         const urlParams: any = new URLSearchParams(window.location.search);
         const questionId: any = urlParams.get("id");
 
-        // Fetch details of the specific question
         const result: any = await api.queryDatabase(
             "SELECT * FROM questions WHERE questionId = ?",
             questionId
@@ -83,7 +75,6 @@ async function getQuestionDetails(): Promise<void> {
             return;
         }
 
-        // Populate the HTML with question details
         const questionDetails: any = result[0];
         document.getElementById("question-title")!.innerText = questionDetails.title;
         document.getElementById("question-description")!.innerText = questionDetails.description;
@@ -105,11 +96,9 @@ async function getQuestionDetails(): Promise<void> {
     }
 }
 
-// Execute the getQuestions function on DOMContentLoaded
 document.addEventListener("DOMContentLoaded", () => {
     getQuestions();
 
-    // Check if it's the question.html page, then fetch and display question details
     if (window.location.pathname.includes("question.html")) {
         getQuestionDetails();
     }

@@ -1,17 +1,24 @@
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono");
 
 :root {
-    --bg-light: #d9d9d9;
-    --bg-dark: #505050;
-    --sidebar-color: #333;
-    --sidebar-color-hover: #555;
-    --btn-color-light: #f57542;
-    --btn-color-hover-light: #a65534;
-    --btn-color-dark: #4c4aff;
-    --btn-color-hover-dark: #9290ff;
+    --sidebar-color-dark: #333;
+    --sidebar-color-hover-dark: #555;
     --font: "IBM Plex Mono", sans-serif;
     --duration: 0.3s;
     --logoanim: 1s;
+}
+/* Light Mode Styles */
+:root:not(.dark-mode) {
+    --bg-light: #d9d9d9;
+    --btn-color-light: #f57542;
+    --btn-color-hover-light: #a65534;
+}
+
+/* Dark Mode Styles */
+:root.dark-mode {
+    --bg-dark: #505050;
+    --btn-color-dark: #4c4aff;
+    --btn-color-hover-dark: #9290ff;
 }
 
 body {
@@ -57,4 +64,14 @@ h2 {
     font-size: 26px;
     margin-top: 10svh;
     color: var(--bg-light);
+}
+
+.mode-switch {
+    width: 100px;
+    height: 100px;
+}
+
+#dark-mode-toggle {
+    width: 80%;
+    height: 80%;
 }
