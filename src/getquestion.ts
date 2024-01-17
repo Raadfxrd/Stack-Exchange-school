@@ -1,13 +1,10 @@
-// Import necessary modules and configurations
 import "./config";
 import { api, utils } from "@hboictcloud/api";
 import { User } from "./models/user";
 import { getUserInfo } from ".";
 
-// Function to get and display questions
 async function getQuestions(): Promise<void> {
     try {
-        // Fetch questions from the database
         const result: any = await api.queryDatabase(
             "SELECT questions.questionId, questions.title, questions.description, questions.created_at, questions.code, user2.firstname, user2.lastname FROM questions INNER JOIN user2 ON questions.userId=user2.id ORDER BY created_at DESC"
         );
@@ -16,7 +13,6 @@ async function getQuestions(): Promise<void> {
             return;
         }
 
-        // Get the question list container
         const questionList: HTMLDivElement = document.querySelector("#question-list") as HTMLDivElement;
 
         for (let i: number = 0; i < result.length; i++) {

@@ -3,14 +3,8 @@ import { api, session } from "@hboictcloud/api";
 document.addEventListener("DOMContentLoaded", async () => {
     const loggedInUserId: number | null = session.get("user");
 
-    if (!loggedInUserId) {
-        window.location.href = "login.html";
-        return;
-    }
-
     const urlParams: URLSearchParams = new URLSearchParams(window.location.search);
     const questionId: number | null = parseInt(urlParams.get("id") || "");
-    console.log("Question ID:", questionId); // Add this line for debugging
     const commentsContainer: HTMLElement | null = document.getElementById("comments-list");
     const commentText: HTMLTextAreaElement | null = document.getElementById("comment") as HTMLTextAreaElement;
     const submitCommentBtn: HTMLButtonElement | null = document.querySelector(".commentsubmit");
@@ -65,7 +59,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         getComments();
 
         async function submitComment(event: Event): Promise<void> {
-            event.preventDefault(); // Prevent the default form submission behavior
+            event.preventDefault();
 
             if (!commentsContainer || !commentText) {
                 console.error("Error: commentsContainer or commentText is null");
@@ -80,7 +74,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
 
             try {
-                // Insert the new comment into the 'comments' table
                 await api.queryDatabase(
                     "INSERT INTO comments (questionId, userId, comment) VALUES (?, ?, ?)",
                     questionId,
@@ -88,10 +81,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     commentContent
                 );
 
-                // Clear the comment input
                 commentText.value = "";
 
-                // Refresh the comments after submitting
                 commentsContainer.innerHTML = "";
                 getComments();
             } catch (error) {
