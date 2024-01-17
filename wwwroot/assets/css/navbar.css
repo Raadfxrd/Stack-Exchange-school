@@ -6,7 +6,7 @@ body {
 
 nav {
     top: 0;
-    background-color: var(--sidebar-color-dark);
+    background-color: var(--sidebar-color);
     overflow: hidden;
     position: fixed;
     width: 100%;

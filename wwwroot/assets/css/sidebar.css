@@ -2,7 +2,7 @@
     left: 0px;
     float: left;
     position: fixed;
-    background-color: var(--sidebar-color-dark);
+    background-color: var(--sidebar-color);
     flex-shrink: 0;
     width: 200px;
     display: flex;
@@ -23,7 +23,7 @@
 }
 
 .sidebar a:hover {
-    background-color: var(--sidebar-color-hover-dark);
+    background-color: var(--sidebar-color-hover);
 }
 
 .active {
