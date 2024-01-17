@@ -68,3 +68,14 @@
 .question-ask:hover {
     background-color: var(--btn-color-hover-dark);
 }
+
+.question-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    background-color: var(--btn-color-dark);
+}
+
+.question-link:hover {
+    background-color: var(--btn-color-hover-dark);
+}

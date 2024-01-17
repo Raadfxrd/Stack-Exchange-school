@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Syntax</title>
+        <link rel="stylesheet" href="./assets/css/navbar.css" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./assets/css/sidebar.css" />
+        <link rel="stylesheet" href="./assets/css/questions.css" />
+        <script src="../src/getquestion.ts" type="module" defer></script>
+    </head>
+    <body>
+        <div id="navbar-container"></div>
+        <div class="container">
+            <div class="question-details">
+                <h1 class="maintitle" id="question-title"></h1>
+                <div id="question-description"></div>
+                <div id="question-code"></div>
+                <div id="question-date"></div>
+                <div id="question-fullname"></div>
+            </div>
+        </div>
+        <script src="../src/navbar.ts" type="module" defer></script>
+        <a href="newquestion.html" class="button question-ask" title="Ask a question">New question</a>
+    </body>
+</html>
