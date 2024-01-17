@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 return;
             }
 
+            const descriptionValue: string = descriptionInput?.value.trim() || "None";
             const codeValue: string = codeInput?.value.trim() || "None";
 
             try {
@@ -68,7 +69,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const result: any = await api.queryDatabase(
                     "INSERT INTO questions (title, description, code, userId) VALUES (?, ?, ?, ?)",
                     titleInput.value,
-                    descriptionInput.value,
+                    descriptionValue,
                     codeValue,
                     userId
                 );
