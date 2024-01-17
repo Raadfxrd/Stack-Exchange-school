@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             const tagsInput: HTMLTextAreaElement | null = document.getElementById(
                 "tags"
             ) as HTMLTextAreaElement;
+            const codeInput: HTMLTextAreaElement | null = document.getElementById(
+                "code"
+            ) as HTMLTextAreaElement;
                 
             // Checkt of alle velden zijn ingevuld
             if (!titleInput?.value || !descriptionInput?.value || !tagsInput?.value) {
@@ -61,9 +64,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 // Zet de vraag in de quetions tabel
                 const result: any = await api.queryDatabase(
-                    "INSERT INTO questions (title, description, userId) VALUES (?, ?, ?)",
+                    "INSERT INTO questions (title, description, code, userId) VALUES (?, ?, ?, ?)",
                     titleInput.value,
                     descriptionInput.value,
+                    codeInput.value,
                     userId
                 );
 
