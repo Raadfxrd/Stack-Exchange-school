@@ -87,6 +87,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                 return;
             }
 
+            if (!loggedInUserId) {
+                // User is not logged in, redirect to login.html
+                window.location.href = "login.html";
+                return;
+            }
+
             try {
                 await api.queryDatabase(
                     "INSERT INTO comments (questionId, userId, comment) VALUES (?, ?, ?)",
