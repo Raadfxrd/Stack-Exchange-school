@@ -87,6 +87,12 @@ label {
     transform: translateX(0); /* Move in, visible on the screen */
 }
 
+.search-results-list {
+    list-style-type: none; /* Add this line to remove bullet points */
+    padding: 0; /* Add this line to remove default padding */
+    margin: 0; /* Add this line to remove default margin */
+}
+
 #question-full {
     background-color: var(--bg-light);
     border-radius: 10px;
@@ -96,6 +102,22 @@ label {
 }
 
 #noresult {
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    color: var(--bg-light);
+}
+
+#invalid-input {
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    color: var(--bg-light);
+}
+
+#empty-input {
     font-size: 22px;
     display: flex;
     justify-content: center;
