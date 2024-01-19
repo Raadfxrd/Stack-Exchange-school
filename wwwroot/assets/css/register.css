@@ -78,3 +78,16 @@ button {
     justify-content: center;
     align-content: center;
 }
+
+.password-container {
+    position: relative;
+    display: flex;
+}
+
+.password-icon {
+    position: absolute;
+    top: 42%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
