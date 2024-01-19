@@ -11,13 +11,20 @@ class RegistrationManager {
                 await this.handleRegistration();
             });
 
-        // Toggle password visibility on icon click
         const passwordIcon: HTMLElement | null = document.getElementById("password-icon");
         const passwordInput: HTMLInputElement | null = document.getElementById("password") as HTMLInputElement;
 
         if (passwordIcon && passwordInput) {
             passwordIcon.addEventListener("click", () => {
                 passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+            });
+        }
+        const confirmPasswordIcon: HTMLElement | null = document.getElementById("confirm-password-icon");
+        const confirmPasswordInput: HTMLInputElement | null = document.getElementById("confirm-password") as HTMLInputElement;
+
+        if (confirmPasswordIcon && confirmPasswordInput) {
+            confirmPasswordIcon.addEventListener("click", () => {
+                confirmPasswordInput.type = confirmPasswordInput.type === "password" ? "text" : "password";
             });
         }
     }
