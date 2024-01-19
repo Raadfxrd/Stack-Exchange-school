@@ -72,22 +72,19 @@ label {
     overflow: hidden;
 }
 
-.searchbar {
-    display: flex;
-    justify-content: center;
-}
-
 #search-results {
     width: 90%;
-    transition-duration: var(--duration);
+    transition: max-height 0.3s ease-in-out; /* Add transition property for smooth animation */
+    max-height: 0; /* Initial state, set to 0 to hide the results */
+    overflow-y: hidden;
 }
 
-#noresult {
-    font-size: 22px;
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    color: var(--bg-light);
+#search-results.animate-in {
+    max-height: auto; /* Adjust this value based on your content height */
+}
+
+#search-results.animate-in {
+    transform: translateX(0); /* Move in, visible on the screen */
 }
 
 #question-full {
@@ -96,6 +93,14 @@ label {
     margin-top: 50px;
     font-size: 14px;
     padding: 20px;
+}
+
+#noresult {
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    color: var(--bg-light);
 }
 
 #question-title {
