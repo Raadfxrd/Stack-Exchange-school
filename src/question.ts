@@ -1,5 +1,3 @@
-// question.ts
-
 import { api } from "@hboictcloud/api";
 
 interface Question {
@@ -12,7 +10,6 @@ interface Question {
 
 async function searchQuestions(query: string): Promise<Question[]> {
     try {
-        // Modify your database query to perform the search based on the input
         const result: any = await api.queryDatabase(
             "SELECT questions.questionId, questions.title, questions.description, questions.created_at, questions.code, user2.firstname, user2.lastname FROM questions LEFT JOIN user2 ON questions.userId=user2.id WHERE questions.title LIKE ? ORDER BY created_at DESC",
             [`%${query}%`]
@@ -22,7 +19,9 @@ async function searchQuestions(query: string): Promise<Question[]> {
             return [];
         }
 
-        const matchingQuestions: Question[] = result.map((question: any) => ({
+        const resultArray: any[] = Array.isArray(result) ? result : [result];
+
+        const matchingQuestions: Question[] = resultArray.map((question: any) => ({
             title: question.title,
             description: question.description,
             code: question.code,
