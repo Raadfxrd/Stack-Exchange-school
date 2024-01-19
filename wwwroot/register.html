@@ -44,15 +44,17 @@
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required />
 
-                    <!-- Add a container for the password input and eye icon -->
                     <label for="password">Password</label>
                     <div class="password-container">
                         <input type="password" id="password" name="password" />
-                        <i id="password-icon" class="password-icon fas fa-eye" onclick="togglePassword()"></i>
+                        <i id="password-icon" class="password-icon fas fa-eye"></i>
                     </div>
 
                     <label for="confirm-password">Confirm Password</label>
-                    <input type="password" id="confirm-password" name="confirm-password" required />
+                    <div class="password-container">
+                        <input type="password" id="confirm-password" name="confirm-password" />
+                        <i id="confirm-password-icon" class="password-icon fas fa-eye"></i>
+                    </div>
 
                     <button class="button register-btn" style="vertical-align: middle" type="submit">
                         <span>Register </span>

@@ -82,11 +82,23 @@ button {
 .password-container {
     position: relative;
     display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#password {
+    flex: 1;
+    padding-right: 30px;
+}
+
+#confirm-password {
+    flex: 1;
+    padding-right: 30px;
 }
 
 .password-icon {
     position: absolute;
-    top: 42%;
+    top: 36%;
     right: 10px;
     transform: translateY(-50%);
     cursor: pointer;
