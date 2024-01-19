@@ -23,7 +23,7 @@
             <div class="content">
                 <h1 class="maintitle">Welcome to Syntax - Your coding community</h1>
                 <div class="searchbar">
-                    <form id="search-form" action="search-results.html" method="get">
+                    <form id="search-form" method="get">
                         <label for="search">Search for titles</label>
                         <div style="display: flex; align-items: flex-end">
                             <input
@@ -34,12 +34,11 @@
                                 autofocus
                                 required
                             />
-                            <button type="submit" class="searchbutton">Go</button>
+                            <button id="search-button" type="button" class="searchbutton">Go</button>
                         </div>
                     </form>
                 </div>
-                <div id="question-list"></div>
-                <!-- Add a container for the question results -->
+                <div id="search-results"></div>
             </div>
             <a href="newquestion.html" class="button question-ask" title="Ask a question">New question</a>
         </div>

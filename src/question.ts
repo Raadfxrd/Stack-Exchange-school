@@ -1,6 +1,7 @@
 import { api } from "@hboictcloud/api";
 
 interface Question {
+    questionId: number;
     title: string;
     description: string;
     code: string;
@@ -22,6 +23,7 @@ async function searchQuestions(query: string): Promise<Question[]> {
         const resultArray: any[] = Array.isArray(result) ? result : [result];
 
         const matchingQuestions: Question[] = resultArray.map((question: any) => ({
+            questionId: question.questionId,
             title: question.title,
             description: question.description,
             code: question.code,
@@ -43,4 +45,76 @@ function formatDate(dateString: string): string {
     }:${convertedDate.getMinutes()}:${convertedDate.getSeconds()}`;
 }
 
-export { searchQuestions };
+async function performSearch(event: Event): Promise<void> {
+    try {
+        // Prevent the default form submission
+        event.preventDefault();
+
+        const query: string = (document.getElementById("search") as HTMLInputElement).value;
+        const resultsContainer: HTMLElement | null = document.getElementById("search-results");
+
+        if (!resultsContainer) {
+            console.error("Results container not found");
+            return;
+        }
+
+        resultsContainer.innerHTML = "";
+
+        if (query.trim() !== "") {
+            const results: Question[] = await searchQuestions(query);
+
+            if (results.length > 0) {
+                const resultsList: HTMLUListElement = document.createElement("ul");
+                resultsList.classList.add("search-results-list");
+
+                results.forEach((result) => {
+                    const resultItem: HTMLLIElement = document.createElement("li");
+
+                    const link: HTMLAnchorElement = document.createElement("a");
+                    link.href = `/question.html?id=${result.questionId}`;
+                    link.classList.add("question-link");
+
+                    link.innerHTML = `<div id="question-full">
+                        <h1 id="question-title">${result.title}</h1>
+                        <div id="question-description">${result.description}</div>
+                        <pre id="question-code">${result.code}</pre>
+                        <div id="question-details">${result.date} by ${result.fullname}</div>
+                    </div>`;
+
+                    // Render HTML code separately using textContent
+                    const codeSection: HTMLPreElement | null = link.querySelector("#question-code");
+                    if (codeSection) {
+                        codeSection.textContent = result.code;
+                    }
+
+                    resultItem.appendChild(link);
+                    resultsList.appendChild(resultItem);
+                });
+
+                resultsContainer.appendChild(resultsList);
+            } else {
+                // Create a div element for the "No results found" message
+                const noResultDiv: HTMLDivElement = document.createElement("div");
+                noResultDiv.id = "noresult";
+                noResultDiv.innerText = "No results found for your search.";
+
+                // Append the div to the results container
+                resultsContainer.appendChild(noResultDiv);
+            }
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const searchForm: HTMLFormElement | null = document.getElementById("search-form") as HTMLFormElement;
+
+    if (searchForm) {
+        searchForm.addEventListener("submit", (event) => {
+            performSearch(event);
+        });
+    }
+});
+
+export { searchQuestions, performSearch };
