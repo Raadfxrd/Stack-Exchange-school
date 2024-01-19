@@ -48,6 +48,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                         <button id="delete-account-btn" style="background-color: red; color: white;">Delete Account</button>
                     </p>
                     <div id="password-fields" style="display: none;flex-wrap: wrap;justify-content: end;">
+                    <div id="password-fail" style="display: none; color: red; margin-bottom: 10px;"> Failed to change password. Please check your current password.</div>
+                    <div id="passwordSucces" style="display: none; color: green; flex-grow: 1">Password successfully changed</div>
+                    <div id="passwordMatch-error" style="display: none; color: red; flex-grow: 1"> New password and confirmation do not match</div>
+                    <br>
+                    <br>
                     <label for="current-password" style="flex-grow: 1;">Current Password: </label>
                     <input type="password" id="current-password">
                     <br>
@@ -56,14 +61,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <br>
                     <label for="confirm-new-password" style="flex-grow: 1;">Confirm New Password: </label>
                     <input type="password" id="confirm-new-password">
-                    <br>
-                    <div id="password-fail" style="display: none; color: red"> Failed to change password. Please check your current password.</div>
-                    <div id="passwordMatch-error" style="display: none; color: red; flex-grow: 1"> New password and confirmation do not match</div>
-                    <div id="passwordSucces" style="display: none; color: green; flex-grow: 1">Password successfully changed</div>
-                    
+                    <br>                    
                     <button id="save-password">Save Password</button>
                     <button id="cancel-password">Cancel</button>
-                </div>
+                    </div>
+                    <div id="nameError" style="display: none; color: red; margin-bottom: 10px;"> Please enter both first and last names. </div>
+
                     <div id="edit-fields" style="display:none;">
                         <label for="new-firstname">New firstname: </label>
                         <input type="text" id="new-firstname">
@@ -85,6 +88,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                         <button id="cancel-delete">Cancel</button>
                     </div>
                 `;
+
+                const nameError: HTMLElement = document.getElementById("nameError") as HTMLElement;
                 const editNameBtn: HTMLElement | null = document.getElementById("edit-name-btn");
                 const deleteAccountBtn: HTMLElement | null = document.getElementById("delete-account-btn");
                 const confirmationModal: HTMLElement | null = document.getElementById("confirmation-modal");
@@ -152,14 +157,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const cancelEditBtn: HTMLElement | null = document.getElementById("cancel-edit");
                     const confirmDeleteBtn: HTMLElement | null = document.getElementById("confirm-delete");
                     const cancelDeleteBtn: HTMLElement | null = document.getElementById("cancel-delete");
-                    const deleteFail: HTMLElement | null = document.getElementById("deleteFail");
+                    const deleteFail: HTMLElement | null = document.getElementById("deleteFail") as HTMLElement;
 
                     if (saveChangesBtn && cancelEditBtn && confirmDeleteBtn && cancelDeleteBtn) {
                         // Voeg een eventlistener toe aan de savechanges knop
                         saveChangesBtn.addEventListener("click", async () => {
                             // Werk de gebruikersnaam bij en herlaad de pagina
                             await updateUserName(loggedIn);
-                            window.location.reload();
                         });
 
                         // Voeg een eventlistener toe aan de annuleren-knop
@@ -171,6 +175,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                                 deleteAccountBtn.style.display = "block";
                                 editNameBtn.style.display = "block";
                                 editPasswordBtn.style.display = "block";
+                                nameError.style.display = "none";
+                                
                             }
                         });
                         const confirmationInput: HTMLInputElement | null = document.getElementById(
@@ -188,8 +194,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                             } else {
                                 // Toon een foutmelding, wacht even en verberg dan de foutmelding
                                 deleteFail!.style.display = "block";
-                                await new Promise((resolve) => setTimeout(resolve, 3000));
-                                deleteFail!.style.display = "none";
+                                setTimeout(()=>{
+                                    deleteFail!.style.display = "none";
+                                }, 3000);
                             }
                             // Toon het bevestigingsvenster en verberg knoppen
                             confirmationModal!.style.display = "block";
@@ -205,6 +212,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                             editNameBtn.style.display = "block";
                             deleteAccountBtn.style.display = "block";
                             editPasswordBtn.style.display = "block";
+                            deleteFail.style.display = "none";
                         });
                     }
                 }
@@ -217,6 +225,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 // Functie om de Naam bij te werken
 async function updateUserName(userId: number): Promise<void> {
+    const nameError: HTMLElement = document.getElementById("nameError") as HTMLElement;
     try {
         // Haal de nieuwe voornaam- en achternaamvelden op
         const newFirstNameInput: HTMLInputElement | null = document.getElementById(
@@ -228,8 +237,17 @@ async function updateUserName(userId: number): Promise<void> {
 
         if (newFirstNameInput && newLastNameInput) {
             // Haal de nieuwe voornaam- en achternaamwaarden op
-            const newFirstName: string = newFirstNameInput.value;
-            const newLastName: string = newLastNameInput.value;
+            const newFirstName: string = newFirstNameInput.value.trim();
+            const newLastName: string = newLastNameInput.value.trim();
+
+            // Voer een check uit voor lege voornaam en achternaam
+            if (newFirstName === "" || newLastName === "") {
+                nameError.style.display = "block";
+                setTimeout(()=>{
+                    nameError.style.display = "none";
+                }, 2000);
+                return;
+            }
 
             const userFirstNameElement: HTMLElement | null = document.getElementById("user-firstname");
             const userLastNameElement: HTMLElement | null = document.getElementById("user-lastname");
@@ -240,18 +258,13 @@ async function updateUserName(userId: number): Promise<void> {
                 userLastNameElement.textContent = newLastName;
             }
 
-            // // Log de bijgewerkte gegevens
-            // console.log("Gebruiker bijwerken met de volgende waarden:");
-            // console.log(newFirstName);
-            // console.log(newLastName);
-            // console.log(userId);
-
             await api.queryDatabase(
                 "UPDATE user2 SET firstname = ?, lastname = ? WHERE id = ?;",
                 newFirstName,
                 newLastName,
                 userId
             );
+            window.location.reload();
 
             console.log("Name successfully changed.");
 
