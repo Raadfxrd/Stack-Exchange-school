@@ -47,7 +47,6 @@ function formatDate(dateString: string): string {
 
 async function performSearch(event: Event): Promise<void> {
     try {
-        // Prevent the default form submission
         event.preventDefault();
 
         const query: string = (document.getElementById("search") as HTMLInputElement).value;
@@ -81,7 +80,6 @@ async function performSearch(event: Event): Promise<void> {
                         <div id="question-details">${result.date} by ${result.fullname}</div>
                     </div>`;
 
-                    // Render HTML code separately using textContent
                     const codeSection: HTMLPreElement | null = link.querySelector("#question-code");
                     if (codeSection) {
                         codeSection.textContent = result.code;
@@ -93,12 +91,10 @@ async function performSearch(event: Event): Promise<void> {
 
                 resultsContainer.appendChild(resultsList);
             } else {
-                // Create a div element for the "No results found" message
                 const noResultDiv: HTMLDivElement = document.createElement("div");
                 noResultDiv.id = "noresult";
                 noResultDiv.innerText = "No results found for your search.";
 
-                // Append the div to the results container
                 resultsContainer.appendChild(noResultDiv);
             }
         }
