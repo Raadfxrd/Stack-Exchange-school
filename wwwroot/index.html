@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="./assets/css/sidebar.css" />
         <link rel="stylesheet" href="./assets/css/questions.css" />
         <script src="../src/navbar.ts" type="module" defer></script>
+        <script src="../src/question.ts" type="module" defer></script>
     </head>
     <body>
         <div id="navbar-container"></div>
@@ -22,14 +23,23 @@
             <div class="content">
                 <h1 class="maintitle">Welcome to Syntax - Your coding community</h1>
                 <div class="searchbar">
-                    <form onsubmit="event.preventDefault();" role="search">
-                        <label for="search">Search for stuff</label>
+                    <form id="search-form" action="search-results.html" method="get">
+                        <label for="search">Search for titles</label>
                         <div style="display: flex; align-items: flex-end">
-                            <input id="search" type="search" placeholder="Search..." autofocus required />
+                            <input
+                                id="search"
+                                type="search"
+                                name="query"
+                                placeholder="Search..."
+                                autofocus
+                                required
+                            />
                             <button type="submit" class="searchbutton">Go</button>
                         </div>
                     </form>
                 </div>
+                <div id="question-list"></div>
+                <!-- Add a container for the question results -->
             </div>
             <a href="newquestion.html" class="button question-ask" title="Ask a question">New question</a>
         </div>
