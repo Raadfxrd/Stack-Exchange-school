@@ -274,6 +274,7 @@ async function deleteAccount(userId: number): Promise<void> {
 
         // Voer een databasequery uit om het account te verwijderen
         await api.queryDatabase("DELETE FROM user2 WHERE id = ?;", userId);
+        // api.queryDatabase("DELETE FROM comments WHERE id = ?;", userId);
 
         // Wis de lokale opslag
         localStorage.clear();

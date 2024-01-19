@@ -5,8 +5,9 @@ import { getUserInfo } from ".";
 
 async function getQuestions(): Promise<void> {
     try {
+        // Left join want je wilt alle vragen krijgen ondanks dat userId = null, Left join zorgt ervoor dat je alle vragen krijgt.
         const result: any = await api.queryDatabase(
-            "SELECT questions.questionId, questions.title, questions.description, questions.created_at, questions.code, user2.firstname, user2.lastname FROM questions INNER JOIN user2 ON questions.userId=user2.id ORDER BY created_at DESC"
+            "SELECT questions.questionId, questions.title, questions.description, questions.created_at, questions.code, user2.firstname, user2.lastname FROM questions LEFT JOIN user2 ON questions.userId=user2.id ORDER BY created_at DESC"
         );
 
         if (!result || result.length === 0) {
@@ -45,8 +46,13 @@ async function getQuestions(): Promise<void> {
             date.innerText = datestring;
             description.innerText = question.description;
             code.innerText = question.code;
-            fullname.innerText = question.firstname + " " + question.lastname;
 
+            if(question.firstname === null){
+                fullname.innerText = "Deleted User";
+            }
+            else{
+                fullname.innerText = question.firstname + " " + question.lastname;
+            }
             questionLink.appendChild(questionHTML);
 
             questionList.appendChild(questionLink);

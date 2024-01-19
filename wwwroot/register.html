@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="./assets/css/navbar.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
         <link rel="stylesheet" href="./assets/css/register.css" />
+        <script src="https://kit.fontawesome.com/da624eaea8.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div id="navbar-container"></div>
@@ -43,8 +44,12 @@
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required />
 
+                    <!-- Add a container for the password input and eye icon -->
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required />
+                    <div class="password-container">
+                        <input type="password" id="password" name="password" />
+                        <i id="password-icon" class="password-icon fas fa-eye" onclick="togglePassword()"></i>
+                    </div>
 
                     <label for="confirm-password">Confirm Password</label>
                     <input type="password" id="confirm-password" name="confirm-password" required />

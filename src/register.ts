@@ -3,7 +3,6 @@ import "./config";
 import { api } from "@hboictcloud/api";
 
 class RegistrationManager {
-    // Constructor die luistert naar klik op register-knop
     public constructor() {
         document
             .querySelector<HTMLButtonElement>(".register-btn")
@@ -11,6 +10,16 @@ class RegistrationManager {
                 ev.preventDefault();
                 await this.handleRegistration();
             });
+
+        // Toggle password visibility on icon click
+        const passwordIcon: HTMLElement | null = document.getElementById("password-icon");
+        const passwordInput: HTMLInputElement | null = document.getElementById("password") as HTMLInputElement;
+
+        if (passwordIcon && passwordInput) {
+            passwordIcon.addEventListener("click", () => {
+                passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+            });
+        }
     }
     // Afhandelen registratie
     private async handleRegistration(): Promise<void> {

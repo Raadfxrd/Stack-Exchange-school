@@ -31,24 +31,38 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const commentLi: HTMLLIElement = document.createElement("li");
                     commentLi.classList.add("comment-item");
 
-                    const user: any = await api.queryDatabase(
-                        "SELECT firstname, lastname FROM user2 WHERE id = ?",
-                        comment.userId
-                    );
 
-                    const convertedDate: Date = new Date(comment.created_at);
-                    const datestring: string = `${convertedDate.toDateString()} | ${
-                        convertedDate.getHours() - 1
-                    }:${convertedDate.getMinutes()}:${convertedDate.getSeconds()}`;
-
-                    commentLi.innerHTML = `
+                    if(comment.userId === null) {
+                        const convertedDate: Date = new Date(comment.created_at);
+                        const datestring: string = `${convertedDate.toDateString()} | ${
+                            convertedDate.getHours() - 1
+                        }:${convertedDate.getMinutes()}:${convertedDate.getSeconds()}`;
+                        commentLi.innerHTML = `
                     <p class="comment-text">${comment.comment}</p>
                     <div class="comment-info">
                         <span class="comment-date">${datestring}</span>
-                        <span class="comment-user">${user[0].firstname} ${user[0].lastname}</span>
+                        <span class="comment-user"> Deleted User </span>
                     </div>
                     `;
+                    }
+                    else{
+                        const user: any = await api.queryDatabase(
+                            "SELECT firstname, lastname FROM user2 WHERE id = ?",
+                            comment.userId
+                        );
 
+                        const convertedDate: Date = new Date(comment.created_at);
+                        const datestring: string = `${convertedDate.toDateString()} | ${
+                            convertedDate.getHours() - 1
+                        }:${convertedDate.getMinutes()}:${convertedDate.getSeconds()}`;
+
+                        commentLi.innerHTML = `
+                        <p class="comment-text">${comment.comment}</p>
+                        <div class="comment-info">
+                            <span class="comment-date">${datestring}</span>
+                            <span class="comment-user">${user[0].firstname} ${user[0].lastname}</span>
+                        </div>`;
+                    }
                     commentsContainer.appendChild(commentLi);
                 }
             } catch (error) {
