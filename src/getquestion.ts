@@ -90,9 +90,12 @@ async function getQuestionDetails(): Promise<void> {
         document.getElementById("question-date")!.innerText = datestring;
         const userId: number = questionDetails.userId;
 
-        const user: User = (await getUserInfo(userId)) as User;
-
-        document.getElementById("question-fullname")!.innerText = user.firstname + " " + user.lastname;
+        if(questionDetails.userId === null)
+            document.getElementById("question-fullname")!.innerText = "Deleted User";
+        else{
+            const user: User = (await getUserInfo(userId)) as User;
+            document.getElementById("question-fullname")!.innerText = user.firstname + " " + user.lastname;
+        }
     } catch (error) {
         console.error(error);
     }
