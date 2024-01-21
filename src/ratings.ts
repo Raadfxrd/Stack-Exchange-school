@@ -16,7 +16,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         ) as HTMLInputElement;
         const rating: string = ratingInput.value;
 
-        await submitRating(rating);
+        try {
+            await submitRating(rating);
+        } catch (error) {
+            console.error("Error in form submission:", error);
+        }
     });
 
     async function updateAverageRating(): Promise<void> {

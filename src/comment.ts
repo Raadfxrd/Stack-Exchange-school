@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const commentsContainer: HTMLElement | null = document.getElementById("comments-list");
     const commentText: HTMLTextAreaElement | null = document.getElementById("comment") as HTMLTextAreaElement;
     const submitCommentBtn: HTMLButtonElement | null = document.querySelector(".commentsubmit");
+    const commentForm: HTMLFormElement = document.getElementById("commentForm") as HTMLFormElement;
 
     if (commentsContainer && commentText && submitCommentBtn) {
         async function getComments(): Promise<void> {
@@ -70,6 +71,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         getComments();
 
+        commentForm.addEventListener("submit", submitComment);
         async function submitComment(event: Event): Promise<void> {
             event.preventDefault();
 
@@ -101,6 +103,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 commentText.value = "";
 
                 commentsContainer.innerHTML = "";
+
+                await getComments();
             } catch (error) {
                 console.error("Error submitting comment:", error);
             }
