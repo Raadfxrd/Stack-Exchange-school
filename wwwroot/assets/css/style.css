@@ -10,6 +10,8 @@
     --btn-color-dark: #4c4aff;
     --btn-color-hover-dark: #9290ff;
     --font: "IBM Plex Mono", sans-serif;
+    --font-size: 12px;
+    --font-large: 20px;
     --duration: 0.3s;
     --logoanim: 1s;
 }
@@ -32,7 +34,7 @@ h1 {
 }
 
 h2 {
-    font-size: 20px;
+    font-size: var(--font-large);
     margin: 0;
 }
 

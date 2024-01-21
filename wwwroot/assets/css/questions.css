@@ -9,7 +9,7 @@
 }
 
 .question {
-    font-size: 14px;
+    font-size: var(--font-size);
     background-color: var(--bg-light);
     border-radius: 20px;
     padding: 20px;
@@ -18,7 +18,7 @@
 
 #questiontitle {
     width: 100%;
-    font-size: 22px;
+    font-size: var(--font-large);
     font-weight: 600;
     padding-bottom: 20px;
     padding-left: 0px;
@@ -67,7 +67,7 @@
     cursor: pointer;
     padding: 15px;
     border-radius: 10px;
-    font-size: 16px;
+    font-size: var(--font-size);
     text-decoration: none;
 }
 
