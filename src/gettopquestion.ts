@@ -8,13 +8,12 @@ async function getQuestions(): Promise<void> {
         // Left join want je wilt alle vragen krijgen ondanks dat userId = null, Left join zorgt ervoor dat je alle vragen krijgt.
         const result: any = await api.queryDatabase(
             `SELECT questions.questionId, questions.title, questions.description, questions.created_at, questions.code, user2.firstname, user2.lastname, 
-            SUM(ratings.ratingValue) as totalRating, 
             ROUND(AVG(ratings.ratingValue), 1) as averageRating 
             FROM questions 
             LEFT JOIN user2 ON questions.userId=user2.id 
             LEFT JOIN ratings ON questions.questionId=ratings.questionId 
             GROUP BY questions.questionId 
-            ORDER BY totalRating DESC`
+            ORDER BY averageRating DESC`
         );
 
         if (!result || result.length === 0) {
