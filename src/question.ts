@@ -7,9 +7,10 @@ interface Question {
     code: string;
     date: string;
     fullname: string;
+    averageRating: number | string;
 }
 
-async function searchQuestions(): Promise<Question[]> {
+async function searchQuestions(query: string): Promise<Question[]> {
     try {
         const result: any = await api.queryDatabase(
             `SELECT questions.questionId, questions.title, questions.description, questions.created_at, questions.code, user2.firstname, user2.lastname, 
@@ -17,8 +18,10 @@ async function searchQuestions(): Promise<Question[]> {
             FROM questions 
             LEFT JOIN user2 ON questions.userId=user2.id 
             LEFT JOIN ratings ON questions.questionId=ratings.questionId 
+            WHERE questions.title LIKE ? 
             GROUP BY questions.questionId 
-            ORDER BY created_at DESC`
+            ORDER BY created_at DESC`,
+            [`%${query}%`]
         );
 
         if (!result || result.length === 0) {
@@ -34,6 +37,7 @@ async function searchQuestions(): Promise<Question[]> {
             code: question.code,
             date: formatDate(question.created_at),
             fullname: question.firstname ? `${question.firstname} ${question.lastname}` : "Deleted User",
+            averageRating: question.averageRating !== null ? question.averageRating : "No ratings yet",
         }));
 
         return matchingQuestions;
@@ -71,7 +75,7 @@ async function performSearch(event: Event): Promise<void> {
             const isValidInput: boolean = /^[a-zA-Z0-9_]+$/.test(query);
 
             if (isValidInput) {
-                const results: Question[] = await searchQuestions();
+                const results: Question[] = await searchQuestions(query);
 
                 if (results.length > 0) {
                     const resultsList: HTMLUListElement = document.createElement("ul");
@@ -89,6 +93,7 @@ async function performSearch(event: Event): Promise<void> {
                             <div id="question-description">${truncateDescription(result.description)}</div>
                             <pre id="question-code">${result.code}</pre>
                             <div id="question-details">${result.date} by ${result.fullname}</div>
+                            <div id="question-average-rating">Average rating: ${result.averageRating}</div>
                         </div>`;
 
                         const codeSection: HTMLPreElement | null = link.querySelector("#question-code");
@@ -130,7 +135,7 @@ function truncateDescription(description: string): string {
 }
 
 function displayNoResults(container: HTMLElement): void {
-    container.innerHTML = ""; // Clear any previous content
+    container.innerHTML = "";
     const noResultDiv: HTMLDivElement = document.createElement("div");
     noResultDiv.id = "noresult";
     noResultDiv.innerText = "No results found for your search ):";
@@ -155,11 +160,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const contentHeight: string = hasResults ? `${searchResults.scrollHeight}px` : "0";
             searchResults.style.maxHeight = hasResults ? contentHeight : "0";
 
-            // Prevent the default form submission behavior
             event.preventDefault();
         };
 
-        // Form submission event
         searchForm.addEventListener("submit", performSearchHandler);
 
         const searchButton: HTMLButtonElement | null = document.getElementById(
@@ -167,10 +170,8 @@ document.addEventListener("DOMContentLoaded", () => {
         ) as HTMLButtonElement;
 
         if (searchButton) {
-            // Button click event
             searchButton.addEventListener("click", performSearchHandler);
 
-            // Handle the Enter key press on the search input
             const searchInput: HTMLInputElement | null = document.getElementById(
                 "search"
             ) as HTMLInputElement;
