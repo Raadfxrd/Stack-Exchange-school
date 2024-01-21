@@ -7,7 +7,13 @@ async function getQuestions(): Promise<void> {
     try {
         // Left join want je wilt alle vragen krijgen ondanks dat userId = null, Left join zorgt ervoor dat je alle vragen krijgt.
         const result: any = await api.queryDatabase(
-            "SELECT questions.questionId, questions.title, questions.description, questions.created_at, questions.code, user2.firstname, user2.lastname FROM questions LEFT JOIN user2 ON questions.userId=user2.id ORDER BY created_at DESC"
+            `SELECT questions.questionId, questions.title, questions.description, questions.created_at, questions.code, user2.firstname, user2.lastname, 
+            ROUND(AVG(ratings.ratingValue), 1) as averageRating 
+            FROM questions 
+            LEFT JOIN user2 ON questions.userId=user2.id 
+            LEFT JOIN ratings ON questions.questionId=ratings.questionId 
+            GROUP BY questions.questionId 
+            ORDER BY created_at DESC`
         );
 
         if (!result || result.length === 0) {
@@ -36,6 +42,9 @@ async function getQuestions(): Promise<void> {
             const fullname: HTMLDivElement = questionHTML.querySelector(
                 "#questionfullname"
             ) as HTMLDivElement;
+            const rating: HTMLDivElement = questionHTML.querySelector(
+                "#questionaveragerating"
+            ) as HTMLDivElement;
 
             const converteddate: Date = new Date(question.created_at);
             const datestring: string = `${converteddate.toDateString()} | ${
@@ -46,7 +55,11 @@ async function getQuestions(): Promise<void> {
             date.innerText = datestring;
             description.innerText = question.description;
             code.innerText = question.code;
-
+            if (question.averageRating !== null) {
+                rating.innerText = `Average Rating: ${question.averageRating.toString()}`;
+            } else {
+                rating.innerText = "No ratings yet";
+            }
             if (question.firstname === null) {
                 fullname.innerText = "Deleted User";
             } else {

@@ -41,5 +41,46 @@
     font-size: 14px;
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+}
+
+#ratingText {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#ratingForm {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    font-family: var(--font);
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#ratingForm input[type="number"] {
+    width: 30px;
+    padding: 5px;
+    font-size: 14px;
+    font-family: var(--font);
+    border-radius: 5px;
+    border: none;
+}
+
+#ratingForm .button.ratingSubmit {
+    background-color: var(--btn-color-dark);
+    color: white;
+    padding: 10px 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#ratingForm .button.ratingSubmit:hover {
+    background-color: var(--btn-color-hover-dark);
 }

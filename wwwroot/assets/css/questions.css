@@ -46,6 +46,12 @@
 #questionfullname {
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+#questionaveragerating {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .question-ask {

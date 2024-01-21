@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             );
             const averageRating: number = sum / ratings.length;
 
-            ratingText.textContent = `Average Rating: ${averageRating.toFixed(2)}`;
+            ratingText.textContent = `Average Rating: ${averageRating.toFixed(1)}`;
         }
 
         ratingDisplay.appendChild(ratingText);

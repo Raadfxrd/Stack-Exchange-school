@@ -14,7 +14,7 @@ async function searchQuestions(query: string): Promise<Question[]> {
     try {
         const result: any = await api.queryDatabase(
             `SELECT questions.questionId, questions.title, questions.description, questions.created_at, questions.code, user2.firstname, user2.lastname, 
-            AVG(ratings.ratingValue) as averageRating 
+            ROUND(AVG(ratings.ratingValue), 1) as averageRating 
             FROM questions 
             LEFT JOIN user2 ON questions.userId=user2.id 
             LEFT JOIN ratings ON questions.questionId=ratings.questionId 
@@ -30,15 +30,22 @@ async function searchQuestions(query: string): Promise<Question[]> {
 
         const resultArray: any[] = Array.isArray(result) ? result : [result];
 
-        const matchingQuestions: Question[] = resultArray.map((question: any) => ({
-            questionId: question.questionId,
-            title: question.title,
-            description: question.description,
-            code: question.code,
-            date: formatDate(question.created_at),
-            fullname: question.firstname ? `${question.firstname} ${question.lastname}` : "Deleted User",
-            averageRating: question.averageRating !== null ? question.averageRating : "No ratings yet",
-        }));
+        const matchingQuestions: Question[] = resultArray.map((question: any) => {
+            let questionObj: Question = {
+                questionId: question.questionId,
+                title: question.title,
+                description: question.description,
+                code: question.code,
+                date: formatDate(question.created_at),
+                fullname: question.firstname ? `${question.firstname} ${question.lastname}` : "Deleted User",
+                averageRating:
+                    question.averageRating !== null
+                        ? `Average rating: ${question.averageRating}`
+                        : "No ratings yet",
+            };
+
+            return questionObj;
+        });
 
         return matchingQuestions;
     } catch (error) {
@@ -93,7 +100,7 @@ async function performSearch(event: Event): Promise<void> {
                             <div id="question-description">${truncateDescription(result.description)}</div>
                             <pre id="question-code">${result.code}</pre>
                             <div id="question-details">${result.date} by ${result.fullname}</div>
-                            <div id="question-average-rating">Average rating: ${result.averageRating}</div>
+                            <div id="question-average-rating">${result.averageRating}</div>
                         </div>`;
 
                         const codeSection: HTMLPreElement | null = link.querySelector("#question-code");
