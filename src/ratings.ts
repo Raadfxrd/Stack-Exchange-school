@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     async function submitRating(rating: string): Promise<void> {
         if (!loggedInUserId || !questionId) {
-            console.error("User is not logged in or question is not selected");
+            alert("User is not logged in or question is not selected");
             return;
         }
 
@@ -67,7 +67,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             await updateAverageRating();
 
-            // Display an alert
             alert(`Submitted rating: ${rating}`);
         } catch (error) {
             console.error("Error submitting rating:", error);
