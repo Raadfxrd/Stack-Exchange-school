@@ -74,23 +74,23 @@ label {
 
 #search-results {
     width: 90%;
-    transition: max-height 0.3s ease-in-out; /* Add transition property for smooth animation */
-    max-height: 0; /* Initial state, set to 0 to hide the results */
+    transition: max-height 0.3s ease-in-out;
+    max-height: 0;
     overflow-y: hidden;
 }
 
 #search-results.animate-in {
-    max-height: auto; /* Adjust this value based on your content height */
+    max-height: auto;
 }
 
 #search-results.animate-in {
-    transform: translateX(0); /* Move in, visible on the screen */
+    transform: translateX(0);
 }
 
 .search-results-list {
-    list-style-type: none; /* Add this line to remove bullet points */
-    padding: 0; /* Add this line to remove default padding */
-    margin: 0; /* Add this line to remove default margin */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 #question-full {
