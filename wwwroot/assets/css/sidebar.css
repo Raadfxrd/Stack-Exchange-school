@@ -19,7 +19,7 @@
     text-decoration: none;
     transition: background-color var(--duration);
     border-radius: 10px;
-    font-size: 14px;
+    font-size: var(font-size);
 }
 
 .sidebar a:hover {

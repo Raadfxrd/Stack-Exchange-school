@@ -9,7 +9,7 @@
 
 #question-title {
     width: 100%;
-    font-size: 22px;
+    font-size: var(--font-large);
     font-weight: 600;
     padding-bottom: 40px;
     padding-left: 0px;
@@ -17,14 +17,14 @@
 }
 
 #question-description {
-    font-size: 14px;
+    font-size: var(--font-size);
     display: flex;
     justify-content: flex-start;
     padding-bottom: 40px;
 }
 
 #question-code {
-    font-size: 14px;
+    font-size: var(--font-size);
     background-color: #c4c4c4;
     padding: 10px;
     border-radius: 10px;
@@ -32,13 +32,13 @@
 }
 
 #question-date {
-    font-size: 14px;
+    font-size: var(--font-size);
     display: flex;
     justify-content: flex-end;
 }
 
 #question-fullname {
-    font-size: 14px;
+    font-size: var(--font-size);
     display: flex;
     justify-content: flex-end;
     margin-bottom: 20px;
@@ -49,14 +49,14 @@
     align-items: center;
     justify-content: flex-end;
     gap: 5px;
-    font-size: 14px;
+    font-size: var(--font-size);
     margin-bottom: 10px;
 }
 
 #ratingForm {
     display: flex;
     gap: 10px;
-    font-size: 14px;
+    font-size: var(--font-size);
     font-family: var(--font);
     align-items: center;
     justify-content: flex-end;
@@ -65,7 +65,7 @@
 #ratingForm input[type="number"] {
     width: 30px;
     padding: 5px;
-    font-size: 14px;
+    font-size: var(--font-size);
     font-family: var(--font);
     border-radius: 5px;
     border: none;
@@ -75,7 +75,7 @@
     background-color: var(--btn-color-dark);
     color: white;
     padding: 10px 10px;
-    font-size: 14px;
+    font-size: var(--font-size);
     border-radius: 10px;
     border: none;
     cursor: pointer;
@@ -97,6 +97,7 @@
 .star-rating label {
     font-size: 30px;
     color: var(--bg-dark);
+    cursor: pointer;
 }
 
 .star-rating input:checked ~ label {

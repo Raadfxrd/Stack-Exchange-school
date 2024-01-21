@@ -66,7 +66,7 @@
     border-radius: 20px;
     border: none;
     font-family: var(--font);
-    font-size: 14px;
+    font-size: var(--font-size);
     padding: 20px;
     box-sizing: border-box;
     overflow: hidden;
@@ -82,7 +82,7 @@
     font-family: var(--font);
     padding: 20px;
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: var(--font-size);
 }
 
 #code {
@@ -94,7 +94,7 @@
     font-family: var(--font);
     padding: 20px;
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: var(--font-size);
 }
 
 #tags {
@@ -105,7 +105,7 @@
     border: none;
     font-family: var(--font);
     padding: 20px;
-    font-size: 14px;
+    font-size: var(--font-size);
     box-sizing: border-box;
     overflow: hidden;
     white-space: nowrap;
@@ -120,7 +120,7 @@
     cursor: pointer;
     padding: 15px;
     border-radius: 10px;
-    font-size: 18px;
+    font-size: var(--font-large);
     text-decoration: none;
     margin-bottom: 50px;
     display: flex;

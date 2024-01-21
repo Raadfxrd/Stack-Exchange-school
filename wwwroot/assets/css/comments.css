@@ -6,12 +6,12 @@
 }
 
 #commenttitle {
-    font-size: 24px;
+    font-size: var(--font-large);
     margin-bottom: 40px;
 }
 
 #comments-list {
-    font-size: 14px;
+    font-size: var(--font-size);
     margin: 0px;
     margin-bottom: 40px;
 }
@@ -19,7 +19,7 @@
 #addcomment {
     margin-bottom: 10px;
     font: var(--font);
-    font-size: 18px;
+    font-size: var(--font-large);
 }
 
 #comment {
@@ -28,11 +28,11 @@
     border-radius: 8px;
     resize: none;
     font: var(--font);
-    font-size: 14px;
+    font-size: var(--font-size);
 }
 
 .commentsubmit {
-    font-size: 14px;
+    font-size: var(--font-size);
     font-family: var(--font);
     background-color: var(--btn-color-dark);
     border: none;
@@ -41,7 +41,6 @@
     padding: 10px 15px;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
@@ -61,5 +60,5 @@
 #comment-info {
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: var(--font-size);
 }
