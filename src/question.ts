@@ -9,7 +9,7 @@ interface Question {
     fullname: string;
     averageRating: number | string;
 }
-
+document.documentElement.style.overflow = "hidden";
 async function searchQuestions(query: string): Promise<Question[]> {
     try {
         const result: any = await api.queryDatabase(
@@ -111,7 +111,7 @@ async function performSearch(event: Event): Promise<void> {
                         resultItem.appendChild(link);
                         resultsList.appendChild(resultItem);
                     });
-
+                    document.documentElement.style.overflow = "auto";
                     resultsContainer.appendChild(resultsList);
                 } else {
                     displayNoResults(resultsContainer);
