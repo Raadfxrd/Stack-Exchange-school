@@ -75,6 +75,8 @@
     background-color: var(--btn-color-dark);
     color: white;
     padding: 10px 10px;
+    transition-duration: var(--duration);
+    font: var(--font);
     font-size: var(--font-size);
     border-radius: 10px;
     border: none;

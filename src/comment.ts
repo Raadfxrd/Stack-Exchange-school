@@ -101,7 +101,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 commentText.value = "";
 
                 commentsContainer.innerHTML = "";
-                getComments();
             } catch (error) {
                 console.error("Error submitting comment:", error);
             }
