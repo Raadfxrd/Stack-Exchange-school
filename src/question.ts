@@ -9,11 +9,16 @@ interface Question {
     fullname: string;
 }
 
-async function searchQuestions(query: string): Promise<Question[]> {
+async function searchQuestions(): Promise<Question[]> {
     try {
         const result: any = await api.queryDatabase(
-            "SELECT questions.questionId, questions.title, questions.description, questions.created_at, questions.code, user2.firstname, user2.lastname FROM questions LEFT JOIN user2 ON questions.userId=user2.id WHERE questions.title LIKE ? ORDER BY created_at DESC",
-            [`%${query}%`]
+            `SELECT questions.questionId, questions.title, questions.description, questions.created_at, questions.code, user2.firstname, user2.lastname, 
+            AVG(ratings.ratingValue) as averageRating 
+            FROM questions 
+            LEFT JOIN user2 ON questions.userId=user2.id 
+            LEFT JOIN ratings ON questions.questionId=ratings.questionId 
+            GROUP BY questions.questionId 
+            ORDER BY created_at DESC`
         );
 
         if (!result || result.length === 0) {
@@ -66,7 +71,7 @@ async function performSearch(event: Event): Promise<void> {
             const isValidInput: boolean = /^[a-zA-Z0-9_]+$/.test(query);
 
             if (isValidInput) {
-                const results: Question[] = await searchQuestions(query);
+                const results: Question[] = await searchQuestions();
 
                 if (results.length > 0) {
                     const resultsList: HTMLUListElement = document.createElement("ul");

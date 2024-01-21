@@ -31,8 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const commentLi: HTMLLIElement = document.createElement("li");
                     commentLi.classList.add("comment-item");
 
-
-                    if(comment.userId === null) {
+                    if (comment.userId === null) {
                         const convertedDate: Date = new Date(comment.created_at);
                         const datestring: string = `${convertedDate.toDateString()} | ${
                             convertedDate.getHours() - 1
@@ -44,8 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         <span class="comment-user"> Deleted User </span>
                     </div>
                     `;
-                    }
-                    else{
+                    } else {
                         const user: any = await api.queryDatabase(
                             "SELECT firstname, lastname FROM user2 WHERE id = ?",
                             comment.userId
@@ -88,7 +86,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
 
             if (!loggedInUserId) {
-                // User is not logged in, redirect to login.html
                 window.location.href = "login.html";
                 return;
             }

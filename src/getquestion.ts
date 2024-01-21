@@ -47,10 +47,9 @@ async function getQuestions(): Promise<void> {
             description.innerText = question.description;
             code.innerText = question.code;
 
-            if(question.firstname === null){
+            if (question.firstname === null) {
                 fullname.innerText = "Deleted User";
-            }
-            else{
+            } else {
                 fullname.innerText = question.firstname + " " + question.lastname;
             }
             questionLink.appendChild(questionHTML);
@@ -90,9 +89,9 @@ async function getQuestionDetails(): Promise<void> {
         document.getElementById("question-date")!.innerText = datestring;
         const userId: number = questionDetails.userId;
 
-        if(questionDetails.userId === null)
+        if (questionDetails.userId === null)
             document.getElementById("question-fullname")!.innerText = "Deleted User";
-        else{
+        else {
             const user: User = (await getUserInfo(userId)) as User;
             document.getElementById("question-fullname")!.innerText = user.firstname + " " + user.lastname;
         }
