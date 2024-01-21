@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     async function submitRating(rating: string): Promise<void> {
         if (!loggedInUserId || !questionId) {
-            alert("User is not logged in or question is not selected");
+            alert("You must be logged in to submit a rating.");
             return;
         }
 
