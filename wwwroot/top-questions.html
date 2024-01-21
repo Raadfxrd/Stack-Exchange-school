@@ -5,9 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Syntax</title>
         <link rel="stylesheet" href="./assets/css/navbar.css" />
-        <link rel="stylesheet" href="./assets/css/searchbar.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
         <link rel="stylesheet" href="./assets/css/sidebar.css" />
+        <link rel="stylesheet" href="./assets/css/questions.css" />
+        <script src="../src/navbar.ts" type="module" defer></script>
+        <script src="../src/gettopquestion.ts" type="module" defer></script>
     </head>
     <body>
         <div id="navbar-container"></div>
@@ -18,13 +20,12 @@
                 <a href="about.html">About us</a>
             </div>
             <div class="content">
-                <h1 class="maintitle">The top questions asked by the community!</h1>
-                <div class="question-container">
-                    <div class="questions"></div>
+                <h1 class="maintitle">Recent questions asked by the community!</h1>
+                <div id="recent-questions-container">
+                    <div id="question-list"></div>
                 </div>
             </div>
         </div>
-        <script src="../src/navbar.ts" type="module" defer></script>
         <a href="newquestion.html" class="button question-ask" title="Ask a question">New question</a>
     </body>
 </html>
