@@ -111,7 +111,7 @@ async function performSearch(event: Event): Promise<void> {
                         resultItem.appendChild(link);
                         resultsList.appendChild(resultItem);
                     });
-                    document.documentElement.style.overflow = "auto";
+
                     resultsContainer.appendChild(resultsList);
                 } else {
                     displayNoResults(resultsContainer);
@@ -166,6 +166,18 @@ document.addEventListener("DOMContentLoaded", () => {
             // Set the max-height property based on the actual content height
             const contentHeight: string = hasResults ? `${searchResults.scrollHeight}px` : "0";
             searchResults.style.maxHeight = hasResults ? contentHeight : "0";
+
+            // Change overflow to auto only if there's more content than the screen can display
+            setTimeout(() => {
+                const style: CSSStyleDeclaration = window.getComputedStyle(searchResults);
+                const marginTop: number = parseInt(style.marginTop);
+                const marginBottom: number = parseInt(style.marginBottom);
+                if (searchResults.offsetHeight + marginTop + marginBottom < searchResults.scrollHeight) {
+                    document.documentElement.style.overflow = "auto";
+                } else {
+                    document.documentElement.style.overflow = "hidden";
+                }
+            }, 0);
 
             event.preventDefault();
         };
