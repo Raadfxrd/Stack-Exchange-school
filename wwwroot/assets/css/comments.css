@@ -14,6 +14,7 @@
     font-size: var(--font-size);
     margin: 0px;
     margin-bottom: 40px;
+    padding-left: 0px;
 }
 
 #addcomment {
@@ -61,4 +62,14 @@
     display: flex;
     justify-content: space-between;
     font-size: var(--font-size);
+    margin-top: 10px;
+}
+
+.comment-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    font-size: var(--font-size);
+    list-style-type: none;
 }
