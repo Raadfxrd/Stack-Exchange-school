@@ -2,6 +2,16 @@ import "./config";
 import { api, utils } from "@hboictcloud/api";
 import { User } from "./models/user";
 import { getUserInfo } from ".";
+import hljs from "highlight.js";
+
+function escapeHtml(unsafe: string): string {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
 async function getQuestions(): Promise<void> {
     try {
@@ -54,8 +64,16 @@ async function getQuestions(): Promise<void> {
             title.innerText = question.title;
             date.innerText = datestring;
             description.innerText = question.description;
-            code.innerText = question.code;
-            code.innerText = question.code;
+
+            if (code && question.code) {
+                const escapedCode: any = escapeHtml(question.code);
+                code.innerHTML = `<pre><code>${escapedCode}</code></pre>`;
+                const firstChild: HTMLElement | null = code.firstChild as HTMLElement;
+                if (firstChild instanceof HTMLElement) {
+                    hljs.highlightElement(firstChild.firstChild as HTMLElement);
+                }
+            }
+
             if (question.averageRating !== null) {
                 rating.innerText = `Average Rating: ${question.averageRating.toString()}`;
             } else {

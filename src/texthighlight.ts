@@ -13,8 +13,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (codeElement) {
         let codeText: string = codeElement.textContent ?? "";
-        codeElement.textContent = "";
-        codeElement.appendChild(document.createTextNode(codeText));
-        hljs.highlightBlock(codeElement);
+        codeElement.innerHTML = `<pre><code>${codeText}</code></pre>`;
+        const firstChild: HTMLElement | null = codeElement.firstChild as HTMLElement;
+        if (firstChild instanceof HTMLElement) {
+            hljs.highlightElement(firstChild.firstChild as HTMLElement);
+        }
     }
 });

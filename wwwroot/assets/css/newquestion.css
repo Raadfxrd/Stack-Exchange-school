@@ -165,3 +165,7 @@ pre code {
 .question-submit:hover {
     background-color: var(--btn-color-hover-dark);
 }
+
+pre {
+    white-space: pre;
+}
