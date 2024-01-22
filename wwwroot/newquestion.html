@@ -8,6 +8,13 @@
         <link rel="stylesheet" href="./assets/css/style.css" />
         <link rel="stylesheet" href="./assets/css/newquestion.css" />
         <link rel="stylesheet" href="./assets/css/questions.css" />
+        <script src="../src/textediting.ts" type="module" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css"
+        />
     </head>
     <body>
         <div id="navbar-container"></div>
@@ -24,6 +31,7 @@
                                 placeholder="e.g. How could I fix: JavaScript error (Uncaught SyntaxError: Unexpected end of input)?"
                                 required
                             ></textarea>
+                            <div id="title-output"></div>
                         </div>
                         <div class="description">
                             <h2>Description</h2>
@@ -34,6 +42,7 @@
                     
 Try to give an as detailed explanation as possible"
                             ></textarea>
+                            <div id="description-output"></div>
                         </div>
                         <div class="code">
                             <h2>Code snippet</h2>
@@ -42,6 +51,7 @@ Try to give an as detailed explanation as possible"
                                 name="code"
                                 placeholder="Enter a fragment of code to explain further"
                             ></textarea>
+                            <code><div id="code-output"></div></code>
                         </div>
                         <div class="tags">
                             <h2>Tags</h2>

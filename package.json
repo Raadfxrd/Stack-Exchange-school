@@ -21,6 +21,8 @@
         "vite-plugin-eslint": "1.8.1"
     },
     "dependencies": {
+        "highlight.js": "^11.9.0",
+        "marked": "^11.1.1",
         "normalize.css": "^8.0.1"
     }
 }
