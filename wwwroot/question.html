@@ -10,6 +10,9 @@
         <link rel="stylesheet" href="./assets/css/questions.css" />
         <link rel="stylesheet" href="./assets/css/questioninspect.css" />
         <link rel="stylesheet" href="./assets/css/comments.css" />
+        <script src="../src/texthighlight.ts" type="module" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
     </head>
     <body>
         <div id="navbar-container"></div>
@@ -23,7 +26,7 @@
                 <div class="question-details">
                     <h1 id="question-title"></h1>
                     <div id="question-description"></div>
-                    <div id="question-code"></div>
+                    <code><div id="question-code"></div></code>
                     <div id="question-date"></div>
                     <div id="question-fullname"></div>
                     <div id="question-average-rating"></div>
@@ -73,6 +76,7 @@
             </div>
         </div>
         <a href="newquestion.html" class="button question-ask" title="Ask a question">New question</a>
+
         <script src="../src/navbar.ts" type="module" defer></script>
         <script src="../src/gettopquestion.ts" type="module" defer></script>
         <script src="../src/comment.ts" type="module" defer></script>
