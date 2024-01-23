@@ -104,7 +104,7 @@ async function performSearch(event: Event): Promise<void> {
         resultsContainer.innerHTML = "";
 
         if (query !== "") {
-            const isValidInput: boolean = /^[a-zA-Z0-9_]+$/.test(query);
+            const isValidInput: boolean = /^[a-zA-Z0-9_ ]+$/.test(query);
 
             if (isValidInput) {
                 const results: Question[] = await searchQuestions(query);
