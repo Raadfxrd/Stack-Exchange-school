@@ -278,8 +278,7 @@ async function updatePassword(userId: number): Promise<void> {
             const currentPassword: string = currentPasswordInput.value.trim();
             const newPassword: string = newPasswordInput.value.trim();
             const confirmNewPassword: string = confirmNewPasswordInput.value.trim();
-            console.log(currentPassword + newPassword);
-            console.log(newPassword !== confirmNewPassword);
+
             let b1: boolean = true;
 
             if (newPassword !== confirmNewPassword) {
@@ -296,12 +295,10 @@ async function updatePassword(userId: number): Promise<void> {
                     loggedIn,
                     currentPassword
                 );
-                console.log(result);
                 if (!result[0]) {
                     passwordError.style.display = "block";
                     confirmError.style.display = "none";
                     b1 = false;
-                    console.log("zie je dit");
 
                     setTimeout(() => {
                         passwordError.style.display = "none";
@@ -321,7 +318,7 @@ async function updatePassword(userId: number): Promise<void> {
                     userId,
                     currentPassword
                 );
-                setTimeout(() => {}, 800);
+                // setTimeout(() => {}, 800);
             }
         }
     } catch (error) {
