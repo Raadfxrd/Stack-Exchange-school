@@ -7,7 +7,6 @@ import { getUserInfo } from ".";
 marked.setOptions({
     renderer: new marked.Renderer(),
     highlight: function (code: any, language: any) {
-        const hljs: any = require("highlight.js");
         const validLanguage: any = hljs.getLanguage(language) ? language : "plaintext";
         return hljs.highlight(validLanguage, code).value;
     },

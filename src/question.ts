@@ -1,5 +1,21 @@
 import { api } from "@hboictcloud/api";
 import hljs from "highlight.js";
+import { MarkedOptions, marked } from "marked";
+
+marked.setOptions({
+    renderer: new marked.Renderer(),
+    highlight: function (code: any, language: any) {
+        const validLanguage: any = hljs.getLanguage(language) ? language : "plaintext";
+        return hljs.highlight(validLanguage, code).value;
+    },
+    pedantic: false,
+    gfm: true,
+    breaks: false,
+    sanitize: false,
+    smartLists: true,
+    smartypants: false,
+    xhtml: false,
+} as MarkedOptions);
 
 function escapeHtml(unsafe: string): string {
     return unsafe
@@ -88,7 +104,6 @@ async function performSearch(event: Event): Promise<void> {
         resultsContainer.innerHTML = "";
 
         if (query !== "") {
-            // Check for invalid input (only spaces or illegal characters)
             const isValidInput: boolean = /^[a-zA-Z0-9_]+$/.test(query);
 
             if (isValidInput) {
@@ -98,51 +113,58 @@ async function performSearch(event: Event): Promise<void> {
                     const resultsList: HTMLUListElement = document.createElement("ul");
                     resultsList.classList.add("search-results-list");
 
-                    results.forEach((result) => {
-                        const resultItem: HTMLLIElement = document.createElement("li");
+                    await Promise.all(
+                        results.map(async (result) => {
+                            const resultItem: HTMLLIElement = document.createElement("li");
 
-                        const link: HTMLAnchorElement = document.createElement("a");
-                        link.href = `/question.html?id=${result.questionId}`;
-                        link.classList.add("question-link");
+                            const link: HTMLAnchorElement = document.createElement("a");
+                            link.href = `/question.html?id=${result.questionId}`;
+                            link.classList.add("question-link");
 
-                        link.innerHTML = `<div id="question-full">
-                            <h1 id="question-title">${result.title}</h1>
-                            <div id="question-description">${truncateDescription(result.description)}</div>
+                            const markdownTitle: string = await marked(result.title);
+                            const markdownDescription: string = await marked(result.description);
+                            const finalDescription: string = truncateDescription(markdownDescription);
+
+                            link.innerHTML = `<div id="question-full">
+                            <h1 id="question-title">${markdownTitle}</h1>
+                            <div id="question-description">${finalDescription}</div>
                             <div id="question-code"></div>
                             <div id="question-details">${result.date} by ${result.fullname}</div>
                             <div id="question-average-rating">${result.averageRating}</div>
                         </div>`;
 
-                        const codeSection: HTMLPreElement | null = link.querySelector("#question-code");
-                        if (codeSection) {
-                            codeSection.textContent = result.code;
-                            if (result.code) {
-                                const escapedCode: string = escapeHtml(result.code);
-                                codeSection.innerHTML = `<pre><code>${escapedCode}</code></pre>`;
-                                const firstChild: HTMLElement | null = codeSection.firstChild as HTMLElement;
-                                if (firstChild instanceof HTMLElement) {
-                                    hljs.highlightElement(firstChild.firstChild as HTMLElement);
+                            const truncatedCode: string = truncateCode(result.code);
+
+                            const codeSection: HTMLDivElement | null = link.querySelector("#question-code");
+                            if (codeSection) {
+                                codeSection.textContent = truncatedCode;
+                                if (truncatedCode) {
+                                    const escapedCode: string = escapeHtml(truncatedCode);
+                                    codeSection.innerHTML = `<pre><code>${escapedCode}</code></pre>`;
+                                    const firstChild: HTMLElement | null =
+                                        codeSection.firstChild as HTMLElement;
+                                    if (firstChild instanceof HTMLElement) {
+                                        hljs.highlightElement(firstChild.firstChild as HTMLElement);
+                                    }
                                 }
                             }
-                        }
 
-                        resultItem.appendChild(link);
-                        resultsList.appendChild(resultItem);
-                    });
+                            resultItem.appendChild(link);
+                            resultsList.appendChild(resultItem);
+                        })
+                    );
 
                     resultsContainer.appendChild(resultsList);
                 } else {
                     displayNoResults(resultsContainer);
                 }
             } else {
-                // Display message for invalid input
                 const invalidInputDiv: HTMLDivElement = document.createElement("div");
                 invalidInputDiv.id = "invalid-input";
                 invalidInputDiv.innerText = "Invalid input. Please enter a valid search query ):<";
                 resultsContainer.appendChild(invalidInputDiv);
             }
         } else {
-            // Display message for empty input
             const emptyInputDiv: HTMLDivElement = document.createElement("div");
             emptyInputDiv.id = "empty-input";
             emptyInputDiv.innerText = "Please enter a search query!";
@@ -160,6 +182,13 @@ function truncateDescription(description: string): string {
     } else {
         return description.substring(0, maxLength) + "...";
     }
+}
+
+function truncateCode(code: string): string {
+    const maxLines: number = 15;
+    const lines: string[] = code.split("\n");
+    const truncatedCode: string = lines.slice(0, maxLines).join("\n");
+    return lines.length <= maxLines ? code : truncatedCode + "...";
 }
 
 function displayNoResults(container: HTMLElement): void {
