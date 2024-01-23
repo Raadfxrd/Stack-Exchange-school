@@ -9,12 +9,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         window.location.href = "login.html";
         return;
     }
+
+    await main();
 });
 
 async function main(): Promise<void> {
-    //Get the input-element
     const fileUploadInput: HTMLInputElement = document.querySelector("#fileUpload")!;
     const profilePicExists: boolean = (await api.fileExists(`user${loggedIn}/profile.jpg`)) as boolean;
+    let selectedFile: types.DataURL | null = null;
 
     if (profilePicExists) {
         (
@@ -25,18 +27,55 @@ async function main(): Promise<void> {
     fileUploadInput.addEventListener("change", async () => {
         console.log(" event fired");
 
-        //Generate a Data-URL
-        const data: types.DataURL = (await utils.getDataUrl(fileUploadInput)) as types.DataURL;
+        selectedFile = (await utils.getDataUrl(fileUploadInput)) as types.DataURL;
 
-        //Upload the data
-        const result: string = await api.uploadFile(`user${loggedIn}/profile.jpg`, data.url, true);
-
-        if (data.isImage) {
-            (document.querySelector("#imagePreview") as HTMLImageElement).src = data.url;
+        const imageUploadButtons: HTMLElement | null = document.getElementById("imageUploadButtons");
+        if (selectedFile) {
+            imageUploadButtons!.style.display = "flex";
+            if (selectedFile.isImage) {
+                (document.querySelector("#imagePreview") as HTMLImageElement).src = selectedFile.url;
+            }
+        } else {
+            imageUploadButtons!.style.display = "none";
         }
+    });
+
+    document.querySelector("#saveButton")?.addEventListener("click", async () => {
+        if (selectedFile) {
+            const result: string = await api.uploadFile(
+                `user${loggedIn}/profile.jpg`,
+                selectedFile.url,
+                true
+            );
+
+            location.reload();
+            console.log(result);
+        }
+    });
+
+    document.querySelector("#deleteProfilePicButton")?.addEventListener("click", async () => {
+        await api.deleteFile(`user${loggedIn}/profile.jpg`);
+
+        (document.querySelector("#imagePreview") as HTMLImageElement).src = "./assets/images/image.jpg";
+
+        selectedFile = null;
+
+        fileUploadInput.value = "";
         location.reload();
-        console.log(result);
+    });
+
+    document.querySelector("#cancelButton")?.addEventListener("click", () => {
+        if (profilePicExists) {
+            (
+                document.querySelector("#imagePreview") as HTMLImageElement
+            ).src = `https://kaalaaqaapii58-pb2a2324.hbo-ict.cloud/uploads/user${loggedIn}/profile.jpg`;
+        }
+
+        selectedFile = null;
+
+        fileUploadInput.value = "";
+
+        const imageUploadButtons: HTMLElement | null = document.getElementById("imageUploadButtons");
+        imageUploadButtons!.style.display = "none";
     });
 }
-
-main();
