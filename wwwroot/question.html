@@ -19,6 +19,10 @@
 
         <link
             rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        />
+        <link
+            rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/dark.min.css"
         />
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -40,39 +44,43 @@
                     <div id="question-date"></div>
                     <div id="question-fullname"></div>
                     <div id="question-average-rating"></div>
-
-                    <form id="ratingForm">
-                        <label for="rating">Rate this question:</label>
-                        <div class="star-rating">
-                            <input id="star5" type="radio" name="rating" value="5" /><label
-                                for="star5"
-                                title="5 stars"
-                                >★</label
-                            >
-                            <input id="star4" type="radio" name="rating" value="4" /><label
-                                for="star4"
-                                title="4 stars"
-                                >★</label
-                            >
-                            <input id="star3" type="radio" name="rating" value="3" /><label
-                                for="star3"
-                                title="3 stars"
-                                >★</label
-                            >
-                            <input id="star2" type="radio" name="rating" value="2" /><label
-                                for="star2"
-                                title="2 stars"
-                                >★</label
-                            >
-                            <input id="star1" type="radio" name="rating" value="1" /><label
-                                for="star1"
-                                title="1 star"
-                                >★</label
-                            >
+                    <div id="ratingplacer">
+                        <div id="icons">
+                            <i id="edit-icon" class="far fa-edit"></i>
+                            <i id="delete-icon" class="far fa-trash-alt"></i>
                         </div>
-                        <button type="submit" class="button ratingSubmit">Submit Rating</button>
-                    </form>
-
+                        <form id="ratingForm">
+                            <label for="rating">Rate this question:</label>
+                            <div class="star-rating">
+                                <input id="star5" type="radio" name="rating" value="5" /><label
+                                    for="star5"
+                                    title="5 stars"
+                                    >★</label
+                                >
+                                <input id="star4" type="radio" name="rating" value="4" /><label
+                                    for="star4"
+                                    title="4 stars"
+                                    >★</label
+                                >
+                                <input id="star3" type="radio" name="rating" value="3" /><label
+                                    for="star3"
+                                    title="3 stars"
+                                    >★</label
+                                >
+                                <input id="star2" type="radio" name="rating" value="2" /><label
+                                    for="star2"
+                                    title="2 stars"
+                                    >★</label
+                                >
+                                <input id="star1" type="radio" name="rating" value="1" /><label
+                                    for="star1"
+                                    title="1 star"
+                                    >★</label
+                                >
+                            </div>
+                            <button type="submit" class="button ratingSubmit">Submit Rating</button>
+                        </form>
+                    </div>
                     <div id="comments-section">
                         <h2 id="commenttitle">Comments</h2>
                         <ul id="comments-list"></ul>

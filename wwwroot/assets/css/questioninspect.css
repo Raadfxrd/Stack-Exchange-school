@@ -103,3 +103,19 @@
 .star-rating input:checked ~ label {
     color: var(--btn-color-dark);
 }
+
+.far {
+    cursor: pointer;
+    font-size: 2rem;
+    margin: 0px;
+    margin-left: 10px;
+}
+
+#ratingplacer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--font-size);
+    margin-bottom: 20px;
+    margin: 0px;
+}
