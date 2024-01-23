@@ -1,4 +1,14 @@
 import { api } from "@hboictcloud/api";
+import hljs from "highlight.js";
+
+function escapeHtml(unsafe: string): string {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
 interface Question {
     questionId: number;
@@ -98,7 +108,7 @@ async function performSearch(event: Event): Promise<void> {
                         link.innerHTML = `<div id="question-full">
                             <h1 id="question-title">${result.title}</h1>
                             <div id="question-description">${truncateDescription(result.description)}</div>
-                            <pre id="question-code">${result.code}</pre>
+                            <div id="question-code"></div>
                             <div id="question-details">${result.date} by ${result.fullname}</div>
                             <div id="question-average-rating">${result.averageRating}</div>
                         </div>`;
@@ -106,6 +116,14 @@ async function performSearch(event: Event): Promise<void> {
                         const codeSection: HTMLPreElement | null = link.querySelector("#question-code");
                         if (codeSection) {
                             codeSection.textContent = result.code;
+                            if (result.code) {
+                                const escapedCode: string = escapeHtml(result.code);
+                                codeSection.innerHTML = `<pre><code>${escapedCode}</code></pre>`;
+                                const firstChild: HTMLElement | null = codeSection.firstChild as HTMLElement;
+                                if (firstChild instanceof HTMLElement) {
+                                    hljs.highlightElement(firstChild.firstChild as HTMLElement);
+                                }
+                            }
                         }
 
                         resultItem.appendChild(link);
@@ -136,9 +154,12 @@ async function performSearch(event: Event): Promise<void> {
 }
 
 function truncateDescription(description: string): string {
-    // Truncate description to show only the first line
-    const lines: any = description.split("\n");
-    return lines[0] + (lines.length > 1 ? "..." : "");
+    const maxLength: number = 150;
+    if (description.length <= maxLength) {
+        return description;
+    } else {
+        return description.substring(0, maxLength) + "...";
+    }
 }
 
 function displayNoResults(container: HTMLElement): void {
