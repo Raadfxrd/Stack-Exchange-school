@@ -126,7 +126,7 @@ nav a.button:hover {
     color: var(--btn-color-dark);
 }
 
-h3 {
+.logotext {
     font-size: 30px;
     margin: 0;
 }

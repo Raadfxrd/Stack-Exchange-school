@@ -19,7 +19,8 @@
 #question-description {
     font-size: var(--font-size);
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
     padding-bottom: 40px;
 }
 
@@ -107,7 +108,7 @@
 .far,
 .fas {
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 0px;
     margin-left: 10px;
     color: var(--btn-color-dark);
@@ -120,4 +121,34 @@
     font-size: var(--font-size);
     margin-bottom: 20px;
     margin: 0px;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
 }

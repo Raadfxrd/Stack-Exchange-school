@@ -1,6 +1,22 @@
 import "./config";
 import { api, utils } from "@hboictcloud/api";
 import hljs from "highlight.js";
+import { MarkedOptions, marked } from "marked";
+
+marked.setOptions({
+    renderer: new marked.Renderer(),
+    highlight: function (code: any, language: any) {
+        const validLanguage: any = hljs.getLanguage(language) ? language : "plaintext";
+        return hljs.highlight(validLanguage, code).value;
+    },
+    pedantic: false,
+    gfm: true,
+    breaks: false,
+    sanitize: false,
+    smartLists: true,
+    smartypants: false,
+    xhtml: false,
+} as MarkedOptions);
 
 function escapeHtml(unsafe: string): string {
     return unsafe
@@ -59,9 +75,15 @@ async function getQuestions(): Promise<void> {
                 converteddate.getHours() - 1
             }:${converteddate.getMinutes()}:${converteddate.getSeconds()}`;
 
-            title.innerText = question.title;
+            // Parse markdown content and set it as the innerHTML of the question-title div
+            const markdownTitle: string = await marked(question.title);
+            title.innerHTML = markdownTitle;
+
             date.innerText = datestring;
-            description.innerText = question.description;
+
+            // Parse markdown content and set it as the innerHTML of the question-description div
+            const markdownDescription: string = await marked(question.description);
+            description.innerHTML = markdownDescription;
 
             if (code && question.code) {
                 const escapedCode: string = escapeHtml(question.code);

@@ -1,18 +1,23 @@
 import hljs from "highlight.js";
-import { MarkedOptions, Renderer, marked } from "marked";
+import { MarkedOptions, marked } from "marked";
 import { User } from "./models/user";
-import { getUserInfo } from ".";
 import { api, session } from "@hboictcloud/api";
+import { getUserInfo } from ".";
 
-document.addEventListener("DOMContentLoaded", async () => {
-    const renderer: Renderer = new Renderer();
-    let descriptionElement: HTMLElement | null = document.getElementById("question-description");
-
-    if (descriptionElement) {
-        let descriptionText: string = descriptionElement.textContent ?? "";
-        descriptionElement.innerHTML = await marked(descriptionText, { renderer: renderer } as MarkedOptions);
-    }
-});
+marked.setOptions({
+    renderer: new marked.Renderer(),
+    highlight: function (code: any, language: any) {
+        const validLanguage: any = hljs.getLanguage(language) ? language : "plaintext";
+        return hljs.highlight(validLanguage, code).value;
+    },
+    pedantic: false,
+    gfm: true,
+    breaks: false,
+    sanitize: false,
+    smartLists: true,
+    smartypants: false,
+    xhtml: false,
+} as MarkedOptions);
 
 function escapeHtml(unsafe: string): string {
     return unsafe
@@ -39,8 +44,13 @@ async function getQuestionDetails(): Promise<void> {
         }
 
         const questionDetails: any = result[0];
-        document.getElementById("question-title")!.innerText = questionDetails.title;
-        document.getElementById("question-description")!.innerText = questionDetails.description;
+        // Parse markdown content and set it as the innerHTML of the question-title div
+        const markdownTitle: string = await marked(questionDetails.title);
+        document.getElementById("question-title")!.innerHTML = markdownTitle;
+
+        // Parse markdown content and set it as the innerHTML of the question-description div
+        const markdownDescription: string = await marked(questionDetails.description);
+        document.getElementById("question-description")!.innerHTML = markdownDescription;
 
         let codeElement: HTMLElement | null = document.getElementById("question-code");
 
