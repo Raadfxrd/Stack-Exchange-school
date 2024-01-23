@@ -7,26 +7,21 @@ import { api } from "@hboictcloud/api";
 document.addEventListener("DOMContentLoaded", async () => {
     const renderer: Renderer = new Renderer();
     let descriptionElement: HTMLElement | null = document.getElementById("question-description");
-    let codeElement: HTMLElement | null = document.getElementById("question-code");
 
     if (descriptionElement) {
         let descriptionText: string = descriptionElement.textContent ?? "";
         descriptionElement.innerHTML = await marked(descriptionText, { renderer: renderer } as MarkedOptions);
     }
-
-    if (codeElement) {
-        console.log(codeElement);
-
-        let codeText: any = codeElement.innerHTML ?? "";
-        console.log(codeText);
-
-        codeElement.innerHTML = `<pre><code>${codeText}</code></pre>`;
-        const firstChild: HTMLElement | null = codeElement.firstChild as HTMLElement;
-        if (firstChild instanceof HTMLElement) {
-            hljs.highlightElement(firstChild.firstChild as HTMLElement);
-        }
-    }
 });
+
+function escapeHtml(unsafe: string): string {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
 async function getQuestionDetails(): Promise<void> {
     try {
@@ -46,7 +41,18 @@ async function getQuestionDetails(): Promise<void> {
         const questionDetails: any = result[0];
         document.getElementById("question-title")!.innerText = questionDetails.title;
         document.getElementById("question-description")!.innerText = questionDetails.description;
-        document.getElementById("question-code")!.innerText = questionDetails.code;
+
+        let codeElement: HTMLElement | null = document.getElementById("question-code");
+
+        if (codeElement) {
+            let codeText: string = questionDetails.code ?? "";
+
+            codeElement.innerHTML = `<pre><code>${escapeHtml(codeText)}</code></pre>`;
+            const firstChild: HTMLElement | null = codeElement.firstChild as HTMLElement;
+            if (firstChild instanceof HTMLElement) {
+                hljs.highlightElement(firstChild.firstChild as HTMLElement);
+            }
+        }
 
         const converteddate: Date = new Date(questionDetails.created_at);
         const datestring: string = `${converteddate.toDateString()} | ${

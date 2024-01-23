@@ -1,6 +1,5 @@
 import "./config";
 import { api, utils } from "@hboictcloud/api";
-
 import hljs from "highlight.js";
 
 function escapeHtml(unsafe: string): string {
