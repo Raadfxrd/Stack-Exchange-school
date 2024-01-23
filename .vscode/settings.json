@@ -3,26 +3,5 @@
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
         "source.fixAll": "explicit"
-    },
-    "cSpell.words": [
-        "Borys",
-        "expertreview",
-        "gedisplayed",
-        "Jaïro",
-        "lastname",
-        "Loginpagina",
-        "Masa",
-        "namechange",
-        "redesignen",
-        "Scorion",
-        "searchbar",
-        "Searchbar",
-        "styleswitch",
-        "Taskflow",
-        "userdetails",
-        "vraagbox",
-        "wireframe",
-        "Youssef"
-    ],
-    "cSpell.language": "en,nl"
+    }
 }

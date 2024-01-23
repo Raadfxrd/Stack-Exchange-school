@@ -3,7 +3,6 @@ import { session, api } from "@hboictcloud/api";
 
 const loggedIn: number | null = session.get("user");
 
-
 // Voer code uit wanneer de DOM geladen is
 document.addEventListener("DOMContentLoaded", async () => {
     // Controleer of de gebruiker is ingelogd
@@ -16,7 +15,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Maak een berichtcontainer om berichten aan gebruiker weer te geven
     const messageContainer: HTMLDivElement = document.createElement("div");
     messageContainer.id = "message-container";
-    
 
     try {
         // Haal gebruikersgegevens uit de database
@@ -35,20 +33,18 @@ document.addEventListener("DOMContentLoaded", async () => {
             firstNameDisplay!.innerText = user.firstname;
             lastNameDisplay!.innerText = user.lastname;
 
-
             if (userInfoElement) {
-        
-
                 const nameError: HTMLElement = document.getElementById("nameError") as HTMLElement;
                 const editNameBtn: HTMLElement | null = document.getElementById("edit-name-btn");
                 const deleteAccountBtn: HTMLElement | null = document.getElementById("delete-account-btn");
                 const confirmationModal: HTMLElement | null = document.getElementById("confirmation-modal");
                 const editFields: HTMLElement | null = document.getElementById("edit-fields");
-                const editPasswordBtn: HTMLElement = document.getElementById("edit-password-btn") as HTMLElement;
+                const editPasswordBtn: HTMLElement = document.getElementById(
+                    "edit-password-btn"
+                ) as HTMLElement;
                 const passwordFields: HTMLElement | null = document.getElementById("password-fields");
 
                 userInfoElement!.appendChild(messageContainer);
-
 
                 if (editNameBtn && deleteAccountBtn) {
                     // Voeg een eventlistener toe aan de editname knop
@@ -73,9 +69,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                         }
                     });
 
-
-                    
-
                     if (editPasswordBtn && passwordFields) {
                         editPasswordBtn.addEventListener("click", () => {
                             passwordFields.style.display = "flex";
@@ -85,7 +78,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                         });
 
                         const savePasswordBtn: HTMLElement | null = document.getElementById("save-password");
-                        const cancelPasswordBtn: HTMLElement | null = document.getElementById("cancel-password");
+                        const cancelPasswordBtn: HTMLElement | null =
+                            document.getElementById("cancel-password");
 
                         if (savePasswordBtn && cancelPasswordBtn) {
                             savePasswordBtn.addEventListener("click", async () => {
@@ -107,7 +101,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const cancelEditBtn: HTMLElement | null = document.getElementById("cancel-edit");
                     const confirmDeleteBtn: HTMLElement | null = document.getElementById("confirm-delete");
                     const cancelDeleteBtn: HTMLElement | null = document.getElementById("cancel-delete");
-                    const deleteFail: HTMLElement | null = document.getElementById("deleteFail") as HTMLElement;
+                    const deleteFail: HTMLElement | null = document.getElementById(
+                        "deleteFail"
+                    ) as HTMLElement;
 
                     if (saveChangesBtn && cancelEditBtn && confirmDeleteBtn && cancelDeleteBtn) {
                         // Voeg een eventlistener toe aan de savechanges knop
@@ -126,7 +122,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                                 editNameBtn.style.display = "block";
                                 editPasswordBtn.style.display = "block";
                                 nameError.style.display = "none";
-                                
                             }
                         });
                         const confirmationInput: HTMLInputElement | null = document.getElementById(
@@ -144,7 +139,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                             } else {
                                 // Toon een foutmelding, wacht even en verberg dan de foutmelding
                                 deleteFail!.style.display = "block";
-                                setTimeout(()=>{
+                                setTimeout(() => {
                                     deleteFail!.style.display = "none";
                                 }, 3000);
                             }
@@ -193,7 +188,7 @@ async function updateUserName(userId: number): Promise<void> {
             // Voer een check uit voor lege voornaam en achternaam
             if (newFirstName === "" || newLastName === "") {
                 nameError.style.display = "block";
-                setTimeout(()=>{
+                setTimeout(() => {
                     nameError.style.display = "none";
                 }, 2000);
                 return;
@@ -255,12 +250,24 @@ const passwordFields: HTMLElement | null = document.getElementById("password-fie
 
 async function updatePassword(userId: number): Promise<void> {
     try {
-        const currentPasswordInput: HTMLInputElement | null = document.getElementById("current-password") as HTMLInputElement;
-        const newPasswordInput: HTMLInputElement | null = document.getElementById("new-password") as HTMLInputElement;
-        const confirmNewPasswordInput: HTMLInputElement | null = document.getElementById("confirm-new-password") as HTMLInputElement;
-        const confirmError: HTMLInputElement | null = document.getElementById("passwordMatch-error") as HTMLInputElement;
-        const passwordError: HTMLInputElement | null = document.getElementById("password-fail") as HTMLInputElement;
-        const passwordSucces: HTMLInputElement | null = document.getElementById("passwordSucces") as HTMLInputElement;
+        const currentPasswordInput: HTMLInputElement | null = document.getElementById(
+            "current-password"
+        ) as HTMLInputElement;
+        const newPasswordInput: HTMLInputElement | null = document.getElementById(
+            "new-password"
+        ) as HTMLInputElement;
+        const confirmNewPasswordInput: HTMLInputElement | null = document.getElementById(
+            "confirm-new-password"
+        ) as HTMLInputElement;
+        const confirmError: HTMLInputElement | null = document.getElementById(
+            "passwordMatch-error"
+        ) as HTMLInputElement;
+        const passwordError: HTMLInputElement | null = document.getElementById(
+            "password-fail"
+        ) as HTMLInputElement;
+        const passwordSucces: HTMLInputElement | null = document.getElementById(
+            "passwordSucces"
+        ) as HTMLInputElement;
 
         if (currentPasswordInput && newPasswordInput && confirmNewPasswordInput) {
             const currentPassword: string = currentPasswordInput.value.trim();
@@ -268,49 +275,50 @@ async function updatePassword(userId: number): Promise<void> {
             const confirmNewPassword: string = confirmNewPasswordInput.value.trim();
             console.log(currentPassword + newPassword);
             console.log(newPassword !== confirmNewPassword);
-            let b1:boolean= true;
-            
+            let b1: boolean = true;
+
             if (newPassword !== confirmNewPassword) {
                 confirmError.style.display = "block";
                 passwordError.style.display = "none";
-                b1=false;
-                setTimeout(()=>{
+                b1 = false;
+                setTimeout(() => {
                     confirmError.style.display = "none";
                     return;
                 }, 4000);
-               
-            }else {
-                const result:string[]|any= await api.queryDatabase("SELECT password FROM user2 WHERE id=? AND password = ?;", loggedIn, currentPassword );
+            } else {
+                const result: string[] | any = await api.queryDatabase(
+                    "SELECT password FROM user2 WHERE id=? AND password = ?;",
+                    loggedIn,
+                    currentPassword
+                );
                 console.log(result);
-                if(!result[0]){
+                if (!result[0]) {
                     passwordError.style.display = "block";
                     confirmError.style.display = "none";
-                    b1=false;
+                    b1 = false;
                     console.log("zie je dit");
-                
-                    setTimeout(()=>{
+
+                    setTimeout(() => {
                         passwordError.style.display = "none";
                         return;
                     }, 4000);
                 }
-
             }
-              
-                
-            if(b1) passwordSucces.style.display = "block";
-            setTimeout(()=>{
-                if(b1) passwordSucces.style.display = "none";
-            }, 650);
-            if(b1) {await api.queryDatabase(
-                "UPDATE user2 SET password = ? WHERE id = ? AND password = ?;",
-                newPassword,
-                userId,
-                currentPassword
-            );
-            setTimeout(()=>{
-                window.location.reload();
-            }, 800);
 
+            if (b1) passwordSucces.style.display = "block";
+            setTimeout(() => {
+                if (b1) passwordSucces.style.display = "none";
+            }, 650);
+            if (b1) {
+                await api.queryDatabase(
+                    "UPDATE user2 SET password = ? WHERE id = ? AND password = ?;",
+                    newPassword,
+                    userId,
+                    currentPassword
+                );
+                setTimeout(() => {
+                    window.location.reload();
+                }, 800);
             }
 
             passwordFields!.style.display = "none";
@@ -319,8 +327,6 @@ async function updatePassword(userId: number): Promise<void> {
         console.error("Could not change password:", error);
     }
 }
-
-
 
 // Functie om een bericht weer te geven in een berichtcontainer
 function showMessage(message: string, color: string): void {
