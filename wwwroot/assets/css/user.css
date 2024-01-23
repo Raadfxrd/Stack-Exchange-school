@@ -6,7 +6,7 @@ body {
 
 .user-details-container {
     max-width: 800px;
-    margin: 100px auto; /* Adjust margin for better centering */
+    margin: 100px auto;
     padding: 20px;
     border: 1px solid #ddd; /* Add a subtle border */
     background-color: rgb(173, 173, 173);
@@ -23,9 +23,9 @@ h1.user-details {
     width: 53%;
 }
 
-/* Style for buttons */
 button {
     padding: 10px;
+    font: var(--font);
     margin: 5px;
     cursor: pointer;
     border: none;
@@ -34,11 +34,10 @@ button {
 }
 
 button:hover {
-    background-color: #4caf50; /* Green on hover */
+    background-color: #4c4aff;
     color: #fff;
 }
 
-/* Style for input fields */
 input {
     padding: 10px;
     margin-bottom: 10px;
@@ -48,7 +47,6 @@ input {
     box-sizing: border-box;
 }
 
-/* Responsive design */
 @media only screen and (max-width: 600px) {
     .user-details-container {
         width: 90%;
