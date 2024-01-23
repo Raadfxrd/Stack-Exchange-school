@@ -169,3 +169,13 @@ pre code {
 pre {
     white-space: pre;
 }
+
+#code-output {
+    width: 100%;
+}
+
+form > div:has(textarea[required]) > h2::after {
+    content: " *";
+    color: red;
+    font: var(--font);
+}
