@@ -3,6 +3,7 @@
 #question-code {
     width: 100%;
     font-size: var(--font-size);
+    font-family: var(--font);
     padding: 20px;
     box-sizing: border-box;
     resize: none;
