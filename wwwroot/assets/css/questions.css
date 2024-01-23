@@ -32,8 +32,6 @@
 }
 
 #questioncode {
-    background-color: #c4c4c4;
-    padding: 10px;
     border-radius: 10px;
     margin-bottom: 20px;
 }
@@ -84,4 +82,12 @@
 
 .question-link:hover {
     background-color: var(--btn-color-hover-dark);
+}
+
+code {
+    border-radius: 10px;
+}
+
+.hljs {
+    padding: 20px !important;
 }
