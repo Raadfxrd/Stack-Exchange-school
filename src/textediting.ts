@@ -67,16 +67,3 @@ function escapeHtml(html: string): string {
     div.appendChild(text);
     return div.innerHTML;
 }
-
-codeInput.addEventListener("keyup", function () {
-    if (this.value.trim() !== "") {
-        const escapedHtml: string = escapeHtml(this.value);
-        codeOutput.innerHTML = `<pre><code>${escapedHtml}</code></pre>`;
-        const firstChild: HTMLElement | null = codeOutput.firstChild as HTMLElement;
-        if (firstChild instanceof HTMLElement) {
-            hljs.highlightBlock(firstChild.firstChild as HTMLElement);
-        }
-    } else {
-        codeOutput.innerHTML = ""; // Maak de uitvoer leeg
-    }
-});

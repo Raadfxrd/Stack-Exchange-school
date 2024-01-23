@@ -1,7 +1,6 @@
 import "./config";
 import { api, utils } from "@hboictcloud/api";
-import { User } from "./models/user";
-import { getUserInfo } from ".";
+
 import hljs from "highlight.js";
 
 function escapeHtml(unsafe: string): string {
@@ -66,7 +65,7 @@ async function getQuestions(): Promise<void> {
             description.innerText = question.description;
 
             if (code && question.code) {
-                const escapedCode: any = escapeHtml(question.code);
+                const escapedCode: string = escapeHtml(question.code);
                 code.innerHTML = `<pre><code>${escapedCode}</code></pre>`;
                 const firstChild: HTMLElement | null = code.firstChild as HTMLElement;
                 if (firstChild instanceof HTMLElement) {
@@ -93,49 +92,4 @@ async function getQuestions(): Promise<void> {
     }
 }
 
-async function getQuestionDetails(): Promise<void> {
-    try {
-        const urlParams: any = new URLSearchParams(window.location.search);
-        const questionId: any = urlParams.get("id");
-
-        const result: any = await api.queryDatabase(
-            "SELECT * FROM questions WHERE questionId = ?",
-            questionId
-        );
-
-        if (!result || result.length === 0) {
-            console.error("Question details not found");
-            return;
-        }
-
-        const questionDetails: any = result[0];
-        document.getElementById("question-title")!.innerText = questionDetails.title;
-        document.getElementById("question-description")!.innerText = questionDetails.description;
-        document.getElementById("question-code")!.innerText = questionDetails.code;
-
-        const converteddate: Date = new Date(questionDetails.created_at);
-        const datestring: string = `${converteddate.toDateString()} | ${
-            converteddate.getHours() - 1
-        }:${converteddate.getMinutes()}:${converteddate.getSeconds()}`;
-
-        document.getElementById("question-date")!.innerText = datestring;
-        const userId: number = questionDetails.userId;
-
-        if (questionDetails.userId === null)
-            document.getElementById("question-fullname")!.innerText = "Deleted User";
-        else {
-            const user: User = (await getUserInfo(userId)) as User;
-            document.getElementById("question-fullname")!.innerText = user.firstname + " " + user.lastname;
-        }
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    getQuestions();
-
-    if (window.location.pathname.includes("question.html")) {
-        getQuestionDetails();
-    }
-});
+getQuestions();

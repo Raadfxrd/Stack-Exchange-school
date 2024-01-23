@@ -4,17 +4,22 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Syntax</title>
-        <link rel="stylesheet" href="./assets/css/navbar.css" />
-        <link rel="stylesheet" href="./assets/css/style.css" />
-        <link rel="stylesheet" href="./assets/css/newquestion.css" />
-        <link rel="stylesheet" href="./assets/css/questions.css" />
-        <script src="../src/textediting.ts" type="module" defer></script>
+
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
         <link
             rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/idea.min.css"
         />
+
+        <link rel="stylesheet" href="./assets/css/navbar.css" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./assets/css/newquestion.css" />
+        <link rel="stylesheet" href="./assets/css/questions.css" />
+
+        <script src="../src/navbar.ts" type="module" defer></script>
+        <script type="module" src="../src/tags.ts" defer></script>
+        <script src="../src/textediting.ts" type="module" defer></script>
     </head>
     <body>
         <div id="navbar-container"></div>
@@ -51,7 +56,7 @@ Try to give an as detailed explanation as possible"
                                 name="code"
                                 placeholder="Enter a fragment of code to explain further"
                             ></textarea>
-                            <code><div id="code-output"></div></code>
+                            <div id="code-output"></div>
                         </div>
                         <div class="tags">
                             <h2>Tags</h2>
@@ -67,7 +72,5 @@ Try to give an as detailed explanation as possible"
                 </div>
             </div>
         </div>
-        <script src="../src/navbar.ts" type="module" defer></script>
-        <script type="module" src="../src/tags.ts" defer></script>
     </body>
 </html>

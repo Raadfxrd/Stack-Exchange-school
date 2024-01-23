@@ -10,9 +10,12 @@
         <link rel="stylesheet" href="./assets/css/questions.css" />
         <link rel="stylesheet" href="./assets/css/questioninspect.css" />
         <link rel="stylesheet" href="./assets/css/comments.css" />
-        <script src="../src/texthighlight.ts" type="module" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css"
+        />
     </head>
     <body>
         <div id="navbar-container"></div>
@@ -26,7 +29,7 @@
                 <div class="question-details">
                     <h1 id="question-title"></h1>
                     <div id="question-description"></div>
-                    <pre><code><div id="question-code"></div></code></pre>
+                    <div id="question-code"></div>
                     <div id="question-date"></div>
                     <div id="question-fullname"></div>
                     <div id="question-average-rating"></div>
@@ -77,9 +80,10 @@
         </div>
         <a href="newquestion.html" class="button question-ask" title="Ask a question">New question</a>
 
-        <script src="../src/navbar.ts" type="module" defer></script>
-        <script src="../src/gettopquestion.ts" type="module" defer></script>
-        <script src="../src/comment.ts" type="module" defer></script>
-        <script src="../src/ratings.ts" type="module" defer></script>
+        <script src="../src/navbar.ts" type="module"></script>
+        <script src="../src/gettopquestion.ts" type="module"></script>
+        <script src="../src/comment.ts" type="module"></script>
+        <script src="../src/ratings.ts" type="module"></script>
+        <script src="../src/questionDetails.ts" type="module"></script>
     </body>
 </html>
