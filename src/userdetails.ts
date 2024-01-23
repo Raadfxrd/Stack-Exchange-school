@@ -29,65 +29,15 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Haal gebruikersinformatie op
             const user: { firstname: string; lastname: string } = data[0];
             const userInfoElement: HTMLElement | null = document.getElementById("user-info");
+            const firstNameDisplay: HTMLElement | null = document.getElementById("user-firstname");
+            const lastNameDisplay: HTMLElement | null = document.getElementById("user-lastname");
+
+            firstNameDisplay!.innerText = user.firstname;
+            lastNameDisplay!.innerText = user.lastname;
 
 
             if (userInfoElement) {
-                // Toon gebruikersinformatie op de pagina
-                userInfoElement.innerHTML = `
-                    <p><strong>Naam:</strong> 
-                        <span id="user-firstname">${user.firstname}</span> 
-                        <span id="user-lastname">${user.lastname}</span>
-                    </p>
-                    <p>
-                        <button id="edit-name-btn">Change Name</button>
-                    </p>
-                    <p>
-                        <button id="edit-password-btn">Change Password</button>
-                    </p>
-                    <p>
-                        <button id="delete-account-btn" style="background-color: red; color: white;">Delete Account</button>
-                    </p>
-                    <div id="password-fields" style="display: none;flex-wrap: wrap;justify-content: end;">
-                    <div id="password-fail" style="display: none; color: red; margin-bottom: 10px;"> Failed to change password. Please check your current password.</div>
-                    <div id="passwordSucces" style="display: none; color: green; flex-grow: 1">Password successfully changed</div>
-                    <div id="passwordMatch-error" style="display: none; color: red; flex-grow: 1"> New password and confirmation do not match</div>
-                    <br>
-                    <br>
-                    <label for="current-password" style="flex-grow: 1;">Current Password: </label>
-                    <input type="password" id="current-password">
-                    <br>
-                    <label for="new-password" style="flex-grow: 1";>New Password: </label>
-                    <input type="password" id="new-password">
-                    <br>
-                    <label for="confirm-new-password" style="flex-grow: 1;">Confirm New Password: </label>
-                    <input type="password" id="confirm-new-password">
-                    <br>                    
-                    <button id="save-password">Save Password</button>
-                    <button id="cancel-password">Cancel</button>
-                    </div>
-                    <div id="nameError" style="display: none; color: red; margin-bottom: 10px;"> Please enter both first and last names. </div>
-
-                    <div id="edit-fields" style="display:none;">
-                        <label for="new-firstname">New firstname: </label>
-                        <input type="text" id="new-firstname">
-                        <br>
-                        <label for="new-lastname">New lastname: </label>
-                        <input type="text" id="new-lastname">
-                        <br>
-                        <button id="save-changes">Save changes</button>
-                        <button id="cancel-edit">Cancel changes</button>
-                    </div>
-                    <div id="deleteFail" style="display: none; color: red">
-                    Failed to delete account. Please enter the correct confirmation text.
-                    </div>
-                    <div id="confirmation-modal" style="display:none;">
-                        <p>Type <span style="color:red;"> CONFIRM DELETE </span> to confirm this process</p>
-                        <p><strong>Note:</strong> Deleting your account will also remove all your messages and responses.</p>
-                        <input type="text" id="confirmation-input">
-                        <button id="confirm-delete" style="background-color:red; color: white;">Confirm Delete</button>
-                        <button id="cancel-delete">Cancel</button>
-                    </div>
-                `;
+        
 
                 const nameError: HTMLElement = document.getElementById("nameError") as HTMLElement;
                 const editNameBtn: HTMLElement | null = document.getElementById("edit-name-btn");
