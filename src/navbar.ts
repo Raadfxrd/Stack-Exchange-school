@@ -13,6 +13,14 @@ if (loggedIn) {
     const registerBtn: HTMLAnchorElement | null = buttons[1] as HTMLAnchorElement | null;
     const loginBtn: HTMLAnchorElement | null = buttons[0] as HTMLAnchorElement | null;
     const userNameLink: HTMLAnchorElement | null = buttons[2] as HTMLAnchorElement | null;
+    const profilePic: HTMLElement | null = document.getElementById("profilePic");
+    const profilePicExists: boolean = await api.fileExists(`user${loggedIn}/profile.jpg`) as boolean;
+
+    profilePic!.style.display = "block";
+
+    if(profilePicExists){
+        (document.querySelector("#profilePic") as HTMLImageElement).src = `https://kaalaaqaapii58-pb2a2324.hbo-ict.cloud/uploads/user${loggedIn}/profile.jpg`;
+    }
 
     if (loginBtn && userNameLink) {
         loginBtn.textContent = "Logout";
