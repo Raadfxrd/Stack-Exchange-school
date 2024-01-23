@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const userInfoElement: HTMLElement | null = document.getElementById("user-info");
             const firstNameDisplay: HTMLElement | null = document.getElementById("user-firstname");
             const lastNameDisplay: HTMLElement | null = document.getElementById("user-lastname");
+            const deleteProfilePic: HTMLElement | null = document.getElementById("deleteProfilePicButton");
 
             firstNameDisplay!.innerText = user.firstname;
             lastNameDisplay!.innerText = user.lastname;
@@ -55,6 +56,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                             editNameBtn.style.display = "none";
                             deleteAccountBtn.style.display = "none";
                             editPasswordBtn.style.display = "none";
+                            deleteProfilePic!.style.display = "none";
                         }
                     });
 
@@ -66,6 +68,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                             editNameBtn.style.display = "none";
                             deleteAccountBtn.style.display = "none";
                             editPasswordBtn.style.display = "none";
+                            deleteProfilePic!.style.display = "none";
                         }
                     });
 
@@ -75,6 +78,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                             editNameBtn.style.display = "none";
                             editPasswordBtn.style.display = "none";
                             deleteAccountBtn.style.display = "none";
+                            deleteProfilePic!.style.display = "none";
                         });
 
                         const savePasswordBtn: HTMLElement | null = document.getElementById("save-password");
@@ -93,6 +97,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                                 deleteAccountBtn.style.display = "block";
                                 editNameBtn.style.display = "block";
                                 editPasswordBtn.style.display = "block";
+                                deleteProfilePic!.style.display = "block";
                             });
                         }
                     }
@@ -122,6 +127,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                                 editNameBtn.style.display = "block";
                                 editPasswordBtn.style.display = "block";
                                 nameError.style.display = "none";
+                                deleteProfilePic!.style.display = "block";
                             }
                         });
                         const confirmationInput: HTMLInputElement | null = document.getElementById(
@@ -158,6 +164,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                             deleteAccountBtn.style.display = "block";
                             editPasswordBtn.style.display = "block";
                             deleteFail.style.display = "none";
+                            deleteProfilePic!.style.display = "block";
                         });
                     }
                 }
@@ -246,8 +253,6 @@ async function deleteAccount(userId: number): Promise<void> {
     }
 }
 
-const passwordFields: HTMLElement | null = document.getElementById("password-fields");
-
 async function updatePassword(userId: number): Promise<void> {
     try {
         const currentPasswordInput: HTMLInputElement | null = document.getElementById(
@@ -316,12 +321,8 @@ async function updatePassword(userId: number): Promise<void> {
                     userId,
                     currentPassword
                 );
-                setTimeout(() => {
-                    window.location.reload();
-                }, 800);
+                setTimeout(() => {}, 800);
             }
-
-            passwordFields!.style.display = "none";
         }
     } catch (error) {
         console.error("Could not change password:", error);
