@@ -122,15 +122,6 @@
     margin-bottom: 20px;
 }
 
-pre code {
-    font-size: var(--font-size);
-    color: var(--bg-dark);
-    background-color: field;
-    padding: 20px !important;
-    border-radius: 20px;
-    margin-bottom: 20px;
-}
-
 #tags {
     resize: none;
     width: 100%;
@@ -164,6 +155,15 @@ pre code {
 
 .question-submit:hover {
     background-color: var(--btn-color-hover-dark);
+}
+
+pre code {
+    font-size: var(--font-size);
+    color: var(--bg-dark);
+    background-color: field;
+    padding: 20px !important;
+    border-radius: 20px;
+    margin-bottom: 20px;
 }
 
 pre {

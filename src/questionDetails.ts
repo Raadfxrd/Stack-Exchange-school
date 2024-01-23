@@ -25,8 +25,8 @@ function escapeHtml(unsafe: string): string {
 
 async function getQuestionDetails(): Promise<void> {
     try {
-        const urlParams: any = new URLSearchParams(window.location.search);
-        const questionId: any = urlParams.get("id");
+        const urlParams: URLSearchParams = new URLSearchParams(window.location.search);
+        const questionId: string = urlParams.get("id") as string;
 
         const result: any = await api.queryDatabase(
             "SELECT * FROM questions WHERE questionId = ?",

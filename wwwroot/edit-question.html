@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Edit Question</title>
+
+        <link rel="stylesheet" href="./assets/css/navbar.css" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./assets/css/sidebar.css" />
+        <link rel="stylesheet" href="./assets/css/questions.css" />
+        <link rel="stylesheet" href="./assets/css/questioninspect.css" />
+        <link rel="stylesheet" href="./assets/css/comments.css" />
+        <link rel="stylesheet" href="./assets/css/editquestion.css" />
+
+        <script src="../src/navbar.ts" type="module"></script>
+        <script src="../src/editQuestion.ts" type="module"></script>
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/dark.min.css"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+    </head>
+    <body>
+        <div id="navbar-container"></div>
+        <div class="container">
+            <div class="sidebar">
+                <a href="recent-questions.html">Recent Questions</a>
+                <a href="top-questions.html">Top Questions</a>
+                <a href="about.html">About us</a>
+            </div>
+            <div class="content">
+                <div class="question-details">
+                    <h1>Edit Question</h1>
+                    <form id="edit-question-form">
+                        <label for="question-title">Title:</label>
+                        <input id="question-title" type="text" />
+                        <div id="title-output"></div>
+
+                        <label for="question-description">Description:</label>
+                        <textarea id="question-description" rows="4"></textarea>
+                        <div id="description-output"></div>
+
+                        <label for="question-code">Code:</label>
+                        <textarea id="question-code" rows="4"></textarea>
+                        <div id="code-output"></div>
+
+                        <button type="submit" class="button">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <a href="newquestion.html" class="button question-ask" title="Ask a question">New question</a>
+    </body>
+</html>
