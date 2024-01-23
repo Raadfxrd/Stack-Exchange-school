@@ -60,3 +60,9 @@ h2 {
     margin-top: 10svh;
     color: var(--bg-light);
 }
+
+.profile_picture {
+    width: 100px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
