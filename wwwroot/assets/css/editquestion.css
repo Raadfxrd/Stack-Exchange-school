@@ -1,23 +1,5 @@
-#question-title {
-    width: 100%;
-    font-size: var(--font-size);
-    padding: 20px;
-    box-sizing: border-box;
-    resize: none;
-    border-radius: 10px;
-    border: none;
-}
-
-#question-description {
-    width: 100%;
-    font-size: var(--font-size);
-    padding: 20px;
-    box-sizing: border-box;
-    resize: none;
-    border-radius: 10px;
-    border: none;
-}
-
+#question-title,
+#question-description,
 #question-code {
     width: 100%;
     font-size: var(--font-size);
@@ -34,28 +16,22 @@
     height: auto;
 }
 
-#question-title-output {
+#title-output,
+#description-output {
     font-size: var(--font-size);
     color: var(--bg-dark);
     background-color: field;
-    padding: 20px;
-    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 5px;
+    padding-left: 20px;
+    border-radius: 10px;
 }
 
-#question-description-output {
-    font-size: var(--font-size);
-    color: var(--bg-dark);
-    background-color: field;
-    padding: 20px;
-    border-radius: 20px;
-}
-
-#question-code-output {
-    font-size: var(--font-size);
-    color: var(--bg-dark);
-    background-color: field;
-    padding: 20px;
-    border-radius: 20px;
+label {
+    font-size: var(--font-large);
+    font-family: var(--font);
+    font-weight: 700;
 }
 
 pre code {
@@ -71,6 +47,24 @@ pre {
     white-space: pre;
 }
 
-#code-output {
-    width: 100%;
+.edit-submit {
+    font-size: var(--font-size);
+    font-family: var(--font);
+    background-color: var(--btn-color-dark);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 5px;
+    width: 20%;
+}
+
+.edit-submit:hover {
+    background-color: var(--btn-color-hover-dark);
 }

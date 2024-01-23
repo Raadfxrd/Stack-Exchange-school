@@ -104,11 +104,13 @@
     color: var(--btn-color-dark);
 }
 
-.far {
+.far,
+.fas {
     cursor: pointer;
     font-size: 2rem;
     margin: 0px;
     margin-left: 10px;
+    color: var(--btn-color-dark);
 }
 
 #ratingplacer {

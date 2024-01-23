@@ -2,7 +2,7 @@
 import hljs from "highlight.js";
 import { marked, Renderer } from "marked";
 import { MarkedOptions } from "marked";
-import { api } from "@hboictcloud/api";
+import { api, session } from "@hboictcloud/api";
 
 document.addEventListener("DOMContentLoaded", async () => {
     await loadQuestionDetails();
@@ -39,6 +39,17 @@ async function loadQuestionDetails(): Promise<void> {
     }
 
     const questionDetails: any = result[0];
+
+    // Get the current user's ID
+    const currentUserId: any = session.get("user");
+
+    // Check if the current user is the one who created the question
+    if (questionDetails.userId !== currentUserId) {
+        alert("You are not authorized to edit this question");
+        window.location.href = "/index.html";
+        return;
+    }
+
     (document.getElementById("question-title") as HTMLInputElement).value = questionDetails.title;
     (document.getElementById("question-description") as HTMLTextAreaElement).value =
         questionDetails.description;
