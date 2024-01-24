@@ -1,6 +1,6 @@
 # Logboek Youssef en Borys
 
-## Blok 2: Code overflow
+## Blok 2: Syntax
 
 In dit logboek gaan er verschillende punten worden genoteerd hoe wij elke dag werken met daarbij de nodige uitleg en foto's. Hopelijk maakt dit logboek duidelijk hoe wij denken en wat wij exact aan het doen zijn doorheen ons project.
 Er zullen per dag soorten taken worden toegevoegd, tot op heden (5 December 2023) zijn deze als volgt:
@@ -9,7 +9,7 @@ Er zullen per dag soorten taken worden toegevoegd, tot op heden (5 December 2023
 2. Eigen bezigheid: Waar we deze dag mee bezig gaan zijn of wat we zelf willen maken/toevoegen aan het project
 3. Teamwork: Een tijd waar we samen zitten en bespreken wat we gaan doen in de volgende dagen. Takenverdeling
 
-## 21 November
+## 21 November: Mindmap
 
 1. Opdracht: Maak een mindmap en presenteer deze
 2. Opdracht: Brainstorm
@@ -20,7 +20,7 @@ Gerelateerde links:
 [Originele mindmaps op papier (links nieuwe, rechts oude)](./Documentatie%20extras/Eerste%20versie%20mindmaps.png) |
 [Vernieuwde mindmap online gemaakt](./Documentatie%20extras/Nieuwe%20mindmap.png)
 
-## 22 November
+## 22 November: Flowchart + wirefram
 
 1. Opdracht: Maak een flowchart die duidelijk laat zien wat de user kan doen
 2. Opdracht: Maak een wireframe op Figma
@@ -32,14 +32,14 @@ Gerelateerde links:
 [Taskflow "The user wants to ask a question"](./Documentatie%20extras/Taskflow.png) |
 [Lo-fi design in Figma](./Documentatie%20extras/Wireframe.png)
 
-## 24 November
+## 24 November: Wireframe
 
 1. Opdracht: Verderwerken aan wireframe in Figma
 2. Opdracht: Guerrillatest uitvoeren
 
 Op 24 November zijn we met z'n tweeën gaan zitten om verder te werken aan de wireframe, nadenken over wat we later in het project willen doen en dit proberen uit te beelden in Figma. Dit bleek wat irritanter te zijn dan eerst gedacht want we waren allebei een beetje onervaren met Figma en het uitbeelden is ook moeilijker dan gedacht. Toch dachten we na over de kleuren die we wouden gebruiken doorheen ons project, de stijl van sommige pagina's en de kleine details. Nadat we onze website ongeveer hadden zoals we dit wouden (in de basics), hebben we sommige mensen van de klas een kleine guerrillatest uit te voeren en basic feedback te krijgen voor wat we moeten doen in de toekomst. Verder is er gewerkt aan het logboek en dus was de dag spoedig voorbij.
 
-## 28 November
+## 28 November: Figma
 
 1. Eigen bezigheid: Samenwerken Figma
 2. Teamwork: Discussiëren
@@ -49,7 +49,7 @@ Op deze dag werkten we samen hard door aan het design in Figma, zodat het eruitz
 Gerelateerde links:
 [Final design Figma](<./Documentatie%20extras/Final%20design%20Figma%20(werkend%20prototype).png>)
 
-## 29 November
+## 29 November: Teamwork
 
 1. Eigen bezigheid: Website uitrollen en eraan beginnen te werken
 2. Teamwork: Cross reference en bespreken
@@ -62,7 +62,7 @@ Gerelateerde links:
 [Loginpagina met animatie](./Documentatie%20extras/Loginpagina%20anim.png) |
 [Homepagina](./Documentatie%20extras/Homepage.png)
 
-## 1 December
+## 1 December: Presentatie
 
 1. Opdracht: Presenteer het project aan heel de klas
 
@@ -72,7 +72,7 @@ Gerelateerde links:
 [Scorion formulier Borys](./Documentatie%20extras/Scorion%20formulier%20Borys.png) |
 [Scorion formulier Youssef](./Documentatie%20extras/Youssef%20Scorion%20formulier.jpg)
 
-## 5 December
+## 5 December: Logboek update
 
 Vanaf deze dag stoppen de echte (school)opdrachten, dus zal bijna alles een eigen bezigheid zijn. Ik zal wel alles aanpassen als er een dag iets anders (meer interessant) gebeurd. Ook is eigenlijk elke dag soort van gesprek over wat we gaan doen, wat er moet gedaan worden, etc. Ook zal dus de categorie "Teamwork" minder voorkomen en alleen als dit echt een grote focus was die dag.
 
@@ -86,7 +86,7 @@ Gerelateerde links:
 [Voorlopige documentatie text (logboek)](./Documentatie%20extras/Voorlopige%20documenatie%20text.png) |
 [Voorlopige documentatie afbeeldingen (gebruikt in logboek)](./Documentatie%20extras/Voorlopige%20documentatie%20afbeeldingen.png)
 
-## 6 December
+## 6 December: Searchbar
 
 1. Eigen bezigheid Borys: Searchbar + variabelen in CSS
 2. Eigen bezigheid Youssef: Begin aan responsive website
@@ -100,7 +100,7 @@ Gerelateerde links:
 [CSS tot nu toe](./Documentatie%20extras/CSS%20tot%20nu%20toe.png) |
 [Responsiveness website](./Documentatie%20extras/Responsiveness.png)
 
-## 8 December
+## 8 December: Duplicate code
 
 1. Eigen bezigheid beide: Duplicate code vermijden
 
@@ -110,7 +110,7 @@ Gerelateerde links:
 [Navbar HTML](./Documentatie%20extras/Navbar%20HTML.png) |
 [Navbar TypeScript](./Documentatie%20extras/Navbar%20TypeScript.png)
 
-## 11 & 12 December
+## 11 & 12 December: Back-end + restyle
 
 1. Eigen bezigheid Youssef: Back-end registratie.ts + checks
 2. Eigen bezigheid Borys: Restylen alle pagina's, Alle toekomstige pagina's aangemaakt, voorbereiden op vragen door vraagbox etc.
@@ -121,7 +121,7 @@ Gerelateerde links:
 [Voorbeeld email verkeerd in registratie](./Documentatie%20extras/Voorbeeld%201%20registratiecheck.png) |
 [Voorbeeld non-matching passwords in registratie](./Documentatie%20extras/Voorbeeld%202%20registratiecheck.png)
 
-## 13 December
+## 13 December: Inlogfeatures
 
 1. Eigen bezigheid Youssef: first/lastname zichtbaar bij inloggen in navbar
 2. Eigen bezigheid Borys: fixes, fixes, fixes + oude files salvage en verwijderen
@@ -132,7 +132,7 @@ Youssef daarentegen wou zelf focussen op zijn eigen dingen en begon zo te werken
 Gerelateerde links:
 [Ingelogde gebruiker navbar](./Documentatie%20extras/Ingelogde%20user%20navbar.png)
 
-## 15 December
+## 15 December: userdetails, namechange naar Syntax
 
 1. Eigen bezigheid Youssef: userdetails.html aanmaken en aan werken
 2. Eigen bezigheid Borys: "New question page" aanmaken, sidebar redesign
@@ -148,7 +148,7 @@ Gerelateerde links:
 [Account verwijderen / confirmatie / error](./Documentatie%20extras/Userdetails%20account%20deletion%20confirmation%20error.png) |
 [Nieuwe Homepage](./Documentatie%20extras/New%20homepage.png)
 
-## 18 December
+## 18 December: Nieuw logo, UML
 
 1. Eigen bezigheid Borys: Aanmaken nieuwe logo dat past bij nieuwe naam
 2. Teamwork: UML WIP + praatje over expertreview van dinsdag
